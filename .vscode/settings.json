@@ -1,0 +1,33 @@
+{
+    "luau-lsp.platform.type": "roblox",
+    "luau-lsp.sourcemap.enabled": true,
+    "luau-lsp.types.definitionFiles": [
+        "types/_G.d.luau"
+    ],
+    "stylua.targetReleaseVersion": "latest",
+    "files.exclude": {
+        "**/.vscode": false,
+        ".gitignore": false,
+        "rokit.toml": false,
+        "*.project.json": false,
+        "scripts": false,
+        "sharedfirst": false,
+        "types": false,
+        ".luaurc": false,
+        "stylua.toml": false,
+        "sourcemap.json": false
+    },
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "files.associations": {
+        "**.d.luau": "text",
+        ".luaurc": "json",
+    },
+    "files.readonlyInclude": {
+        "stylua.toml": true,
+        "sourcemap.json": true,
+        "*.rbxl": true,
+    },
+}

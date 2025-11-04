@@ -1,0 +1,27 @@
+{
+  "name": "rrboilerplate",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedFirst": {
+      "$path": "sharedfirst"
+    },
+    "ReplicatedStorage": {
+      "stories": {
+        "$path": "stories"
+      },
+      "assets": {
+        "$path": "stories",
+        "$ignoreUnknownInstances": true
+      },
+      "$path": "shared"
+    },
+    "ServerScriptService": {
+      "$path": "server"
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "client"
+      }
+    }
+  }
+}
