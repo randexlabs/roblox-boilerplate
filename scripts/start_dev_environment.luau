@@ -1,3 +1,4 @@
+local fs = require('@lune/fs')
 local process = require('@lune/process')
 local task = require('@lune/task')
 
@@ -12,5 +13,11 @@ spawn(
 	{ stdio = 'forward' }
 )
 
-exec('rojo', { 'build', '-o', 'game.rbxl' }, { stdio = 'forward' })
+if not fs.isFile('game.rbxl') then
+	warn(
+		"Cannot find 'game.rbxl'. Please ensure the file exists before running the dev environment."
+	)
+	return
+end
+
 exec('start', { 'game.rbxl' }, { stdio = 'forward', shell = true })
