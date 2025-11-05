@@ -1,6 +1,7 @@
 local fs = require('@lune/fs')
 local net = require('@lune/net')
 local process = require('@lune/process')
+local project = require('./utils/project')
 local roblox = require('@lune/roblox')
 local task = require('@lune/task')
 
@@ -24,7 +25,7 @@ if fs.isFile('game.rbxl') then
 	return
 end
 
-local place_id = 89634420189353
+local place_id = project.start_place_id
 local cookie = roblox.getAuthCookie()
 assert(cookie, 'Failed to get auth cookie')
 
