@@ -1,5 +1,7 @@
 local fs = require('@lune/fs')
+local net = require('@lune/net')
 local process = require('@lune/process')
+local roblox = require('@lune/roblox')
 local task = require('@lune/task')
 
 local spawn = task.spawn
@@ -13,11 +15,26 @@ spawn(
 	{ stdio = 'forward' }
 )
 
-if not fs.isFile('game.rbxl') then
-	warn(
-		"Cannot find 'game.rbxl'. Please ensure the file exists before running the dev environment."
-	)
+local function start_place()
+	exec('start', { 'game.rbxl' }, { stdio = 'forward', shell = true })
+end
+
+if fs.isFile('game.rbxl') then
+	start_place()
 	return
 end
 
-exec('start', { 'game.rbxl' }, { stdio = 'forward', shell = true })
+local place_id = 89634420189353
+local cookie = roblox.getAuthCookie()
+assert(cookie, 'Failed to get auth cookie')
+
+local result = net.request {
+	url = 'https://assetdelivery.roblox.com/v1/asset/',
+	headers = { Cookie = cookie },
+	query = { id = tostring(place_id) },
+}
+
+assert(result.ok, result.body)
+
+fs.writeFile('game.rbxl', result.body)
+start_place()
