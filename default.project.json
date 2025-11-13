@@ -10,7 +10,7 @@
         "$path": "stories"
       },
       "assets": {
-        "$path": "stories",
+        "$className": "Folder",
         "$ignoreUnknownInstances": true
       },
       "$path": "shared"
