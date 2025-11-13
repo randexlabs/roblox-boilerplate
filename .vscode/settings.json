@@ -2,7 +2,7 @@
     "luau-lsp.platform.type": "roblox",
     "luau-lsp.sourcemap.enabled": true,
     "luau-lsp.types.definitionFiles": [
-        "types/_G.d.luau"
+        "luau_definitions/_G.d.luau"
     ],
     "editor.rulers": [
         80,
@@ -14,7 +14,7 @@
         "rokit.toml": true,
         "*.project.json": true,
         "scripts": true,
-        "types": true,
+        "luau_definitions": true,
         ".luaurc": true,
         "stylua.toml": true,
         "sourcemap.json": true,
