@@ -13,7 +13,7 @@
         ".gitignore": true,
         "rokit.toml": true,
         "*.project.json": true,
-        "scripts": true,
+        "tooling": true,
         "luau_definitions": true,
         ".luaurc": true,
         "stylua.toml": true,
@@ -24,7 +24,7 @@
         ".pesde": true,
         "*_packages": true,
         "pesde.toml": true,
-        ".gitattributes": true
+        ".gitattributes": true,
     },
     "files.associations": {
         "**.d.luau": "text",
