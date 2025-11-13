@@ -9,6 +9,9 @@
       "stories": {
         "$path": "stories"
       },
+      "packages": {
+        "$path": "roblox_packages"
+      },
       "assets": {
         "$className": "Folder",
         "$ignoreUnknownInstances": true

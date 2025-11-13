@@ -4,24 +4,27 @@
     "luau-lsp.types.definitionFiles": [
         "types/_G.d.luau"
     ],
-    "stylua.targetReleaseVersion": "latest",
-    "files.exclude": {
-        "**/.vscode": true,
-        ".gitignore": true,
-        "rokit.toml": true,
-        "*.project.json": true,
-        "scripts": true,
-        "types": true,
-        ".luaurc": true,
-        "stylua.toml": true,
-        "sourcemap.json": true,
-        "*.rbxl": true,
-        "*.lock": true,
-        "project.toml": true
-    },
     "editor.rulers": [
         80,
     ],
+    "stylua.targetReleaseVersion": "latest",
+    "files.exclude": {
+        "**/.vscode": false,
+        ".gitignore": false,
+        "rokit.toml": false,
+        "*.project.json": false,
+        "scripts": false,
+        "types": false,
+        ".luaurc": false,
+        "stylua.toml": false,
+        "sourcemap.json": false,
+        "*.rbxl": false,
+        "*.lock": false,
+        "project.toml": false,
+        ".pesde": false,
+        "*_packages": false,
+        "pesde.toml": false
+    },
     "files.associations": {
         "**.d.luau": "text",
         ".luaurc": "json",

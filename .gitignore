@@ -3,3 +3,6 @@
 /*.rbxlx.lock
 /*.rbxl.lock
 sourcemap.json
+.pesde
+*_packages
+pesde.lock
