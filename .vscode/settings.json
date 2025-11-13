@@ -34,5 +34,6 @@
         "stylua.toml": true,
         "sourcemap.json": true,
         "*.rbxl": true,
+        "*.lock": true
     },
 }
