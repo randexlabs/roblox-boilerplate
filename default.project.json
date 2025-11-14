@@ -3,11 +3,11 @@
   "tree": {
     "$className": "DataModel",
     "ReplicatedFirst": {
-      "$path": "sharedfirst"
+      "$path": "src/ReplicatedFirst"
     },
     "ReplicatedStorage": {
       "stories": {
-        "$path": "stories"
+        "$path": "src/Stories"
       },
       "packages": {
         "$path": "roblox_packages"
@@ -16,14 +16,14 @@
         "$className": "Folder",
         "$ignoreUnknownInstances": true
       },
-      "$path": "shared"
+      "$path": "src/ReplicatedStorage"
     },
     "ServerScriptService": {
-      "$path": "server"
+      "$path": "src/ServerScriptService"
     },
     "StarterPlayer": {
       "StarterPlayerScripts": {
-        "$path": "client"
+        "$path": "src/StarterPlayerScripts"
       }
     }
   }
