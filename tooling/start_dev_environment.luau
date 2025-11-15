@@ -25,7 +25,7 @@ if fs.isFile('game.rbxl') then
 	return
 end
 
-local place_id = project.start_place_id
+local place_id = project.read().start_place_id
 local cookie = roblox.getAuthCookie()
 assert(cookie, 'Failed to get auth cookie')
 
