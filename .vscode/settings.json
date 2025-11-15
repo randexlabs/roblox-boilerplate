@@ -25,6 +25,8 @@
         "*_packages": true,
         "pesde.toml": true,
         ".gitattributes": true,
+        ".env": true,
+        "new_project": true
     },
     "files.associations": {
         "**.d.luau": "text",
