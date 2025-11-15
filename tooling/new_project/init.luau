@@ -13,6 +13,7 @@ end
 
 local function initiate_git_repository()
 	process.exec('git', { 'init' }, { stdio = 'forward' })
+	process.exec('git', { 'branch', '-M', 'main' }, { stdio = 'forward' })
 end
 
 destroy_dot_git()
