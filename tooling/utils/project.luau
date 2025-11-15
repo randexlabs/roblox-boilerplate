@@ -3,6 +3,7 @@ local serde = require('@lune/serde')
 
 export type Project = {
 	start_place_id: number,
+	create_local_place: boolean,
 }
 
 local m = {}
