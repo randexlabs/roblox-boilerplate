@@ -22,11 +22,11 @@ spawn(
 	{ stdio = 'forward' }
 )
 
+if not project.read().create_local_place then return end
+
 local function start_place()
 	exec('start', { 'game.rbxl' }, { stdio = 'forward', shell = true })
 end
-
-if not project.read().create_local_place then return end
 
 if fs.isFile('game.rbxl') then
 	start_place()
