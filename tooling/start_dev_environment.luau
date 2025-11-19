@@ -15,6 +15,12 @@ spawn(
 	{ 'sourcemap', '-o', 'sourcemap.json', '--watch' },
 	{ stdio = 'forward' }
 )
+spawn(
+	exec,
+	'blink',
+	{ '.\\src\\Remotes\\init.blink', '-w' },
+	{ stdio = 'forward' }
+)
 
 local function start_place()
 	exec('start', { 'game.rbxl' }, { stdio = 'forward', shell = true })

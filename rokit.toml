@@ -2,3 +2,4 @@
 rojo = "rojo-rbx/rojo@7.6.1"
 lune = "lune-org/lune@0.10.4"
 pesde = "pesde-pkg/pesde@0.7.1+registry.0.2.3"
+blink = "1Axen/blink@0.18.6"
