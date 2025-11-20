@@ -7,8 +7,8 @@ local function destroy_dot_git()
 end
 
 local function self_delete()
-	if not fs.isDir('new_project') then return end
-	fs.removeDir('new_project')
+	if not fs.isDir('tooling/new_project') then return end
+	fs.removeDir('tooling/new_project')
 end
 
 local function initiate_git_repository()
