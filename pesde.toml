@@ -24,6 +24,6 @@ pesde = "^0.7.0"
 lune = "^0.10.2"
 
 [dependencies]
-conch = { wally = "alicesaidhi/conch", version = "^0.3.1" }
-conch_ui = { wally = "alicesaidhi/conch-ui", version = "^0.3.1" }
-promise = { wally = "lukadev-0/typed-promise", version = "^4.0.2" }
+Conch = { wally = "alicesaidhi/conch", version = "^0.3.1" }
+ConchUi = { wally = "alicesaidhi/conch-ui", version = "^0.3.1" }
+Promise = { wally = "lukadev-0/typed-promise", version = "^4.0.2" }
