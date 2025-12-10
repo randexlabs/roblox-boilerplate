@@ -1,8 +1,8 @@
-option ClientOutput = "../ReplicatedStorage/netclient.luau"
-option ServerOutput = "../ServerScriptService/netserver.luau"
-option TypesOutput = "../ReplicatedStorage/netypes.luau"
-option PromiseLibrary = "ReplicatedStorage.packages.promise"
-option Casing = Snake
+option ClientOutput = "../ReplicatedStorage/NetClient.luau"
+option ServerOutput = "../ServerScriptService/NetServer.luau"
+option TypesOutput = "../ReplicatedStorage/NetTypes.luau"
+option PromiseLibrary = "ReplicatedStorage.Packages.Promise"
+option Casing = Camel
 option SyncValidation = false
 option WriteValidations = false
 
