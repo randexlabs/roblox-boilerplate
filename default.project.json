@@ -6,13 +6,13 @@
       "$path": "src/ReplicatedFirst"
     },
     "ReplicatedStorage": {
-      "stories": {
+      "Stories": {
         "$path": "src/Stories"
       },
-      "packages": {
+      "Packages": {
         "$path": "roblox_packages"
       },
-      "assets": {
+      "Assets": {
         "$className": "Folder",
         "$ignoreUnknownInstances": true
       },
