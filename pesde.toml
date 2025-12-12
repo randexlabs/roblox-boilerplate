@@ -27,3 +27,4 @@ lune = "^0.10.2"
 Conch = { wally = "alicesaidhi/conch", version = "^0.3.1" }
 ConchUi = { wally = "alicesaidhi/conch-ui", version = "^0.3.1" }
 Promise = { wally = "lukadev-0/typed-promise", version = "^4.0.2" }
+Signal = { wally = "ffrostfall/luausignal", version = "^0.5.0" }
