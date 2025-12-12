@@ -1,11 +1,15 @@
 {
   "name": "rrboilerplate",
+  "emitLegacyScripts": false,
   "tree": {
     "$className": "DataModel",
     "ReplicatedFirst": {
       "$path": "src/ReplicatedFirst"
     },
     "ReplicatedStorage": {
+      "Client": {
+        "$path": "src/StarterPlayerScripts"
+      },
       "Stories": {
         "$path": "src/Stories"
       },
@@ -20,11 +24,6 @@
     },
     "ServerScriptService": {
       "$path": "src/ServerScriptService"
-    },
-    "StarterPlayer": {
-      "StarterPlayerScripts": {
-        "$path": "src/StarterPlayerScripts"
-      }
     }
   }
 }
