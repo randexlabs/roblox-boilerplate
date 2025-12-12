@@ -1,0 +1,31 @@
+[tools]
+"github:1Axen/blink" = "0.18.6"
+"github:JohnnyMorganz/StyLua" = "2.3.1"
+"github:blake-mealey/mantle" = "0.11.18"
+"github:jackTabsCode/asphalt" = "1.2.0"
+"github:luau-lang/luau" = "0.702"
+"github:lune-org/lune" = "0.10.4"
+"github:pesde-pkg/pesde" = "0.7.1+registry.0.2.3"
+"github:rojo-rbx/rojo" = "7.6.1"
+"github:seaofvoices/darklua" = "0.17.3"
+
+[settings]
+jobs = 8
+
+[env]
+DEV = false
+
+[tasks.format]
+run = "stylua src/"
+
+[tasks.sourcemap_generator]
+run = "rojo sourcemap -o sourcemap.json --watch"
+
+[tasks.rojo_serve]
+run = "rojo serve"
+
+[tasks.blink_watch]
+run = "blink src\\Remotes\\init.blink -w"
+
+[tasks.dev]
+depends = ["sourcemap_generator", "rojo_serve", "blink_watch"]
