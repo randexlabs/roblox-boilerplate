@@ -7,6 +7,6 @@ sourcemap.json
 *_packages
 pesde.lock
 .env
-**/netclient.luau
-**/nettypes.luau
-**/netserver.luau
+**/NetClient.luau
+**/NetTypes.luau
+**/NetServer.luau
