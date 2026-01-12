@@ -10,9 +10,6 @@
       "Client": {
         "$path": "src/StarterPlayerScripts"
       },
-      "Stories": {
-        "$path": "src/Stories"
-      },
       "Packages": {
         "$path": "roblox_packages"
       },
