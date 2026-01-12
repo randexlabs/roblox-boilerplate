@@ -15,6 +15,9 @@ jobs = 8
 [env]
 DEV = false
 
+[tasks.tests]
+run = "pesde x ernisto/test -- src"
+
 [tasks.format]
 run = "stylua src/"
 
