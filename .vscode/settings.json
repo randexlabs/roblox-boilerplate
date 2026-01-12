@@ -9,6 +9,7 @@
     ],
     "stylua.targetReleaseVersion": "latest",
     "files.exclude": {
+        "scripts": true,
         "**/.vscode": true,
         ".gitignore": true,
         "mise.toml": true,
@@ -24,7 +25,7 @@
         "*_packages": true,
         "pesde.toml": true,
         ".gitattributes": true,
-        ".env": true,
+        ".env": true
     },
     "files.associations": {
         "**.d.luau": "text",
