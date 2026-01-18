@@ -4,6 +4,7 @@
         "hverlin.mise-vscode",
         "johnnymorganz.stylua",
         "tamasfe.even-better-toml",
-        "adrianwilczynski.toggle-hidden"
+        "adrianwilczynski.toggle-hidden",
+        "esbenp.prettier-vscode"
     ]
 }

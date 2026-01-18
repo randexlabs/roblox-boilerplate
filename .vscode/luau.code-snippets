@@ -1,17 +1,13 @@
 {
     "1": {
         "prefix": "f",
-        "body": [
-            "function ${1:fn_name}(${2:parameters})",
-            "\t$0",
-            "end"
-        ],
+        "body": ["function ${1:fn_name}(${2:parameters})", "\t$0", "end"],
     },
     "2": {
         "prefix": "module",
         "body": [
             "local ${1:module_name} = {}\n\n$0\n",
-            "return ${1:module_name}"
+            "return ${1:module_name}",
         ],
     },
 }

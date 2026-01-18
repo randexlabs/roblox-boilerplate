@@ -8,6 +8,7 @@
 "github:pesde-pkg/pesde" = "0.7.1+registry.0.2.3"
 "github:rojo-rbx/rojo" = "7.6.1"
 "github:seaofvoices/darklua" = "0.17.3"
+prettier = "3.8.0"
 
 [settings]
 jobs = 8
