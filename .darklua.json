@@ -8,7 +8,19 @@
         },
         {
             "rule": "convert_require",
-            "current": "path",
+            "current": {
+                "name": "path",
+                "sources": {
+                    "@Pkg": "roblox_packages",
+                    "@SharedFirst": "src/ReplicatedFirst",
+                    "@Shared": "src/ReplicatedStorage",
+                    "@Server": "src/ServerScriptService",
+                    "@Client": "src/StarterPlayerScripts",
+                    "@NetServer": "src/ServerScriptService/NetServer.luau",
+                    "@NetClient": "src/ReplicatedStorage/NetClient.luau",
+                    "@NetTypes": "src/ReplicatedStorage/NetTypes.luau"
+                }
+            },
             "target": {
                 "name": "roblox",
                 "rojo_sourcemap": "sourcemap.json",
