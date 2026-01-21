@@ -12,3 +12,4 @@ pesde.lock
 **/NetServer.luau
 package-lock.json
 node_modules
+dist

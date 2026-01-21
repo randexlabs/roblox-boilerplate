@@ -1,0 +1,19 @@
+{
+    "generator": "retain_lines",
+    "process": [
+        {
+            "rule": "inject_global_value",
+            "identifier": "__DEV__",
+            "value": true
+        },
+        {
+            "rule": "convert_require",
+            "current": "path",
+            "target": {
+                "name": "roblox",
+                "rojo_sourcemap": "sourcemap.json",
+                "indexing_style": "wait_for_child"
+            }
+        }
+    ]
+}

@@ -13,23 +13,28 @@ prettier = "3.8.0"
 [settings]
 jobs = 8
 
-[env]
-DEV = false
-
 [tasks.tests]
 run = "pesde x ernisto/test -- src"
 
 [tasks.format]
 run = "stylua src/"
 
+[tasks.darklua_generator]
+run = "darklua process src dist -w"
+
 [tasks.sourcemap_generator]
 run = "rojo sourcemap -o sourcemap.json --watch"
 
 [tasks.rojo_serve]
-run = "rojo serve"
+run = "rojo serve build.project.json"
 
 [tasks.blink_watch]
 run = "blink ./src/Remotes/init.blink -w"
 
 [tasks.dev]
-depends = ["sourcemap_generator", "rojo_serve", "blink_watch"]
+depends = [
+    "darklua_generator",
+    "sourcemap_generator",
+    "rojo_serve",
+    "blink_watch",
+]
