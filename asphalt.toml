@@ -1,0 +1,15 @@
+#:schema https://raw.githubusercontent.com/jackTabsCode/asphalt/refs/heads/main/schema.json
+
+[creator]
+type = "user"
+id = 5497229519
+
+[codegen]
+typescript = false
+style = "nested"
+strip_extensions = true
+
+[inputs.Assets]
+path = "assets/**/*"
+output_path = "src/ReplicatedStorage"
+bleed = true

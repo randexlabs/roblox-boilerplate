@@ -1,5 +1,18 @@
 * text eol=lf
 *.rbxm binary
+*.rbxmx binary
 *.rbxl binary
 *.png binary
+*.jpg binary
+*.fbx binary
+*.gltf binary
+*.glb binary
+*.bmp binary
+*.tga binary
+*.svg binary
+*.mp3 binary
+*.wav binary
+*.flac binary
+*.mp4 binary
+*.mov binary
 *.ogg binary

@@ -10,6 +10,7 @@ pesde.lock
 **/NetClient.luau
 **/NetTypes.luau
 **/NetServer.luau
+**/Assets.luau
 package-lock.json
 node_modules
 dist
