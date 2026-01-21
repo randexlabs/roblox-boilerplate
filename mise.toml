@@ -13,6 +13,9 @@ prettier = "3.8.0"
 [settings]
 jobs = 8
 
+[tasks.setup]
+run = ["mise i", "pesde install", "npm install"]
+
 [tasks.tests]
 run = "pesde x ernisto/test -- src"
 
