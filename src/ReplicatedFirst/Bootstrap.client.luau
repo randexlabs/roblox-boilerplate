@@ -1,3 +1,7 @@
 local ReplicatedFirst = game:GetService('ReplicatedFirst')
-local Loader = require('@SharedFirst/Helpers/Loader')
-Loader(ReplicatedFirst:WaitForChild('Features'))
+
+local Features = ReplicatedFirst:WaitForChild('Features')
+local Helpers = ReplicatedFirst:WaitForChild('Helpers')
+local Loader = require(Helpers:WaitForChild('Loader'))
+
+Loader(Features)

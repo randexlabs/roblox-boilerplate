@@ -22,22 +22,14 @@ run = "pesde x ernisto/test -- src"
 [tasks.format]
 run = "stylua src/"
 
-[tasks.darklua_generator]
-run = "darklua process src dist -w"
-
 [tasks.sourcemap_generator]
 run = "rojo sourcemap -o sourcemap.json --watch"
 
 [tasks.rojo_serve]
-run = "rojo serve build.project.json"
+run = "rojo serve"
 
 [tasks.blink_watch]
 run = "blink ./src/Remotes/init.blink -w"
 
 [tasks.dev]
-depends = [
-    "darklua_generator",
-    "sourcemap_generator",
-    "rojo_serve",
-    "blink_watch",
-]
+depends = ["sourcemap_generator", "rojo_serve", "blink_watch"]

@@ -1,8 +1,9 @@
 local Players = game:GetService('Players')
+local ReplicatedStorage = game:GetService('ReplicatedStorage')
 
-local Conch = require('@Pkg/Conch')
-local ConchUi = require('@Pkg/ConchUi')
-local DEVELOPERS_ID = require('@Shared/Constants/DevelopersID')
+local Conch = require(ReplicatedStorage.Packages.Conch)
+local ConchUi = require(ReplicatedStorage.Packages.ConchUi)
+local DEVELOPERS_ID = require(ReplicatedStorage.Constants.DevelopersID)
 local LocalPlayer = Players.LocalPlayer
 
 return function()
