@@ -1,0 +1,5 @@
+src/ReplicatedStorage/NetClient.luau
+src/ReplicatedStorage/Assets.luau
+src/ReplicatedStorage/NetTypes.luau
+src/ServerScriptService/NetServer.luau
+src/Remotes

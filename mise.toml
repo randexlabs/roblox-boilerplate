@@ -19,6 +19,9 @@ run = ["mise i", "pesde install", "npm install"]
 [tasks.tests]
 run = "pesde x ernisto/test -- src"
 
+[tasks.count_lines]
+run = "npx cloc src --exclude-list-file=cloc_exclude_files.txt"
+
 [tasks.format]
 run = "stylua src/"
 
