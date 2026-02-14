@@ -1,7 +1,7 @@
 local ReplicatedFirst = game:GetService('ReplicatedFirst')
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
 
-local Features = ReplicatedStorage.Client.Features
-local Loader = require(ReplicatedFirst.Helpers.Loader)
+local features = ReplicatedStorage.client.features
+local loader = require(ReplicatedFirst.helpers.loader)
 
-Loader(Features)
+loader(features)

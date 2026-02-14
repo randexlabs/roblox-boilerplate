@@ -9,7 +9,7 @@ typescript = false
 style = "nested"
 strip_extensions = true
 
-[inputs.Assets]
+[inputs.assets]
 path = "assets/**/*"
 output_path = "src/ReplicatedStorage"
 bleed = true

@@ -1,7 +1,7 @@
 local ReplicatedFirst = game:GetService('ReplicatedFirst')
 local ServerScriptService = game:GetService('ServerScriptService')
 
-local Features = ServerScriptService.Features
-local Loader = require(ReplicatedFirst.Helpers.Loader)
+local features = ServerScriptService.features
+local loader = require(ReplicatedFirst.helpers.loader)
 
-Loader(Features)
+loader(features)

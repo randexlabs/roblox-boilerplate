@@ -7,13 +7,13 @@
             "$path": "src/ReplicatedFirst"
         },
         "ReplicatedStorage": {
-            "Client": {
+            "client": {
                 "$path": "src/StarterPlayerScripts"
             },
-            "Packages": {
+            "packages": {
                 "$path": "roblox_packages"
             },
-            "Assets": {
+            "assets": {
                 "$className": "Folder",
                 "$ignoreUnknownInstances": true
             },

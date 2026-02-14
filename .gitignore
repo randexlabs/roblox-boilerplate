@@ -7,9 +7,7 @@ sourcemap.json
 *_packages
 pesde.lock
 .env
-**/NetClient.luau
-**/NetTypes.luau
-**/NetServer.luau
-**/Assets.luau
+**/net**
+**/assets.luau
 package-lock.json
 node_modules
