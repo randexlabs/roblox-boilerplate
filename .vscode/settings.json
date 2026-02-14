@@ -8,10 +8,4 @@
         "**.d.luau": "text",
         ".luaurc": "json"
     },
-    "files.readonlyInclude": {
-        "stylua.toml": true,
-        "sourcemap.json": true,
-        "*.rbxl": true,
-        "*.lock": true
-    }
 }
