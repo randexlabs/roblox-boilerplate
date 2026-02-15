@@ -1,5 +1,5 @@
 syntax = "Luau"
-collapse_simple_statement = "ConditionalOnly"
+collapse_simple_statement = "Always"
 line_endings = "Unix"
 call_parentheses = "None"
 indent_type = "Tabs"
