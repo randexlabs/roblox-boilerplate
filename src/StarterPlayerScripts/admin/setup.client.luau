@@ -1,9 +1,11 @@
 local Players = game:GetService 'Players'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
-local DEVELOPERS_ID = require(ReplicatedStorage.constants.developers_id)
 local conch = require(ReplicatedStorage.packages.conch)
 local conch_ui = require(ReplicatedStorage.packages.conch_ui)
+local config = require(ReplicatedStorage.config)
+
+local DEVELOPERS_ID = config.developers_id
 local localplayer = Players.LocalPlayer
 
 if not DEVELOPERS_ID[localplayer.UserId] then return end
