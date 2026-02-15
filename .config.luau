@@ -46,16 +46,6 @@ type Config = { luau: LuauConfig? }
 return {
 	luau = {
 		languagemode = 'strict',
-		aliases = {
-			lune = '~/.lune/.typedefs/0.10.4/',
-			Pkg = 'roblox_packages',
-			SharedFirst = 'src/ReplicatedFirst',
-			Shared = 'src/ReplicatedStorage',
-			Server = 'src/ServerScriptService',
-			Client = 'src/StarterPlayerScripts',
-			NetServer = 'src/ServerScriptService/NetServer.luau',
-			NetClient = 'src/ReplicatedStorage/NetClient.luau',
-			NetTypes = 'src/ReplicatedStorage/NetTypes.luau',
-		},
+		aliases = { lune = '~/.lune/.typedefs/0.10.4/' },
 	},
 } :: Config
