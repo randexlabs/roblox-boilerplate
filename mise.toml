@@ -13,26 +13,26 @@ prettier = "3.8.0"
 [settings]
 jobs = 8
 
-[tasks.setup]
+[tasks."setup"]
 run = ["mise i", "pesde install", "npm install"]
 
 [tasks.tests]
 run = "pesde x ernisto/test -- src"
 
-[tasks.count_lines]
+[tasks."count_lines"]
 run = "npx cloc src --exclude-list-file=cloc_exclude_files.txt"
 
-[tasks.format]
+[tasks."format"]
 run = "stylua src/"
 
-[tasks.sourcemap_generator]
+[tasks."dev:sourcemap"]
 run = "rojo sourcemap -o sourcemap.json --watch"
 
-[tasks.rojo_serve]
+[tasks."dev:syncer"]
 run = "rojo serve"
 
-[tasks.blink_watch]
+[tasks."dev:blink"]
 run = "blink ./src/Remotes/init.blink -w"
 
-[tasks.dev]
-depends = ["sourcemap_generator", "rojo_serve", "blink_watch"]
+[tasks."dev"]
+depends = ["dev:sourcemap", "dev:syncer", "dev:blink"]
