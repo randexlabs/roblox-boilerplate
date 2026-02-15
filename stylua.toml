@@ -1,8 +1,10 @@
 syntax = "Luau"
 collapse_simple_statement = "ConditionalOnly"
 line_endings = "Unix"
-call_parentheses = "Input"
+call_parentheses = "None"
 indent_type = "Tabs"
-quote_style = "AutoPreferSingle"
+quote_style = "ForceSingle"
 column_width = 80
 sort_requires.enabled = true
+indent_width = 4
+space_after_function_names = "Never"

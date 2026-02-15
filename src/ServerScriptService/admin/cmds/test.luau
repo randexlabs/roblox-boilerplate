@@ -1,4 +1,4 @@
-local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
 local conch = require(ReplicatedStorage.packages.conch)
 

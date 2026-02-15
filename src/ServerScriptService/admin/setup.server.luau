@@ -1,5 +1,5 @@
-local Players = game:GetService('Players')
-local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local Players = game:GetService 'Players'
+local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
 local DEVELOPERS_ID = require(ReplicatedStorage.constants.developers_id)
 local conch = require(ReplicatedStorage.packages.conch)
