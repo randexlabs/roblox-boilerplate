@@ -5,7 +5,6 @@
 sourcemap.json
 .pesde
 *_packages
-pesde.lock
 .env
 **/net**
 **/assets.luau
