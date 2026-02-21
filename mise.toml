@@ -17,7 +17,7 @@ jobs = 8
 run = ["mise i", "pesde install", "npm install"]
 
 [tasks.tests]
-run = "pesde x ernisto/test -- src"
+run = "pesde x ernisto/test -- tests"
 
 [tasks."count_lines"]
 run = "npx cloc src --exclude-list-file=cloc_exclude_files.txt"
