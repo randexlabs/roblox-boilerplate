@@ -32,7 +32,7 @@ run = "rojo sourcemap -o sourcemap.json --watch"
 run = "rojo serve"
 
 [tasks."dev:blink"]
-run = "blink ./src/Remotes/init.blink -w"
+run = "blink remotes/init.blink -w"
 
 [tasks."dev"]
 depends = ["dev:sourcemap", "dev:syncer", "dev:blink"]

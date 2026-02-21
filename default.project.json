@@ -10,6 +10,12 @@
             "client": {
                 "$path": "src/StarterPlayerScripts"
             },
+            "netclient": {
+                "$path": "remotes/netclient.luau"
+            },
+            "nettypes": {
+                "$path": "remotes/nettypes.luau"
+            },
             "packages": {
                 "$path": "roblox_packages"
             },
@@ -20,7 +26,10 @@
             "$path": "src/ReplicatedStorage"
         },
         "ServerScriptService": {
-            "$path": "src/ServerScriptService"
+            "$path": "src/ServerScriptService",
+            "netserver": {
+                "$path": "remotes/netserver.luau"
+            }
         }
     }
 }
