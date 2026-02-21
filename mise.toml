@@ -5,7 +5,7 @@
 "github:jackTabsCode/asphalt" = "1.2.0"
 "github:luau-lang/luau" = "0.702"
 "github:lune-org/lune" = "0.10.4"
-"github:pesde-pkg/pesde" = "0.7.1+registry.0.2.3"
+"github:pesde-pkg/pesde" = "0.7.2"
 "github:rojo-rbx/rojo" = "7.6.1"
 "github:seaofvoices/darklua" = "0.17.3"
 prettier = "3.8.0"
