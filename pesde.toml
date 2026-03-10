@@ -27,5 +27,4 @@ lune = "^0.10.2"
 [dependencies]
 conch = { wally = "alicesaidhi/conch", version = "^0.3.1" }
 conch_ui = { wally = "alicesaidhi/conch-ui", version = "^0.3.1" }
-signal = { wally = "ffrostfall/luausignal", version = "^0.5.0" }
 vide = { wally = "cayasde/vide-opinionated", version = "^0.4.1" }
