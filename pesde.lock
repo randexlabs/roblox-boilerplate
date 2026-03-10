@@ -241,3 +241,18 @@ index_url = "https://github.com/UpliftGames/wally-index"
 Jabby = [{ wally = "wally#alicesaidhi/jabby", version = ">=0.3.0, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 Jest = [{ wally = "wally#jsdotlua/jest", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
 JestGlobals = [{ wally = "wally#jsdotlua/jest-globals", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
+
+[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox"]
+direct = ["planck_runservice", { wally = "wally#yetanotherclown/planck-runservice", version = "^0.2.0", index = "default" }, "standard"]
+
+[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox".dependencies]
+Planck = ["wally#yetanotherclown/planck@0.2.0 roblox", "standard"]
+
+[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox".pkg_ref.dependencies]
+Jest = [{ wally = "wally#jsdotlua/jest", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
+JestGlobals = [{ wally = "wally#jsdotlua/jest-globals", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
+Planck = [{ wally = "wally#yetanotherclown/planck", version = ">=0.2.0-rc.1, <0.3.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]

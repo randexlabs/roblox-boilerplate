@@ -31,3 +31,4 @@ vide = { wally = "cayasde/vide-opinionated", version = "^0.4.1" }
 jecs = { wally = "ukendio/jecs", version = "^0.11.0" }
 planck = { wally = "yetanotherclown/planck", version = "^0.2.0" }
 planck_jabby = { wally = "yetanotherclown/planck-jabby", version = "^0.2.0" }
+planck_runservice = { wally = "yetanotherclown/planck-runservice", version = "^0.2.0" }
