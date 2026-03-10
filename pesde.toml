@@ -29,6 +29,7 @@ conch = { wally = "alicesaidhi/conch", version = "^0.3.1" }
 conch_ui = { wally = "alicesaidhi/conch-ui", version = "^0.3.1" }
 vide = { wally = "cayasde/vide-opinionated", version = "^0.4.1" }
 jecs = { wally = "ukendio/jecs", version = "^0.11.0" }
+jabby = { wally = "alicesaidhi/jabby", version = "^0.5.1" }
 planck = { wally = "yetanotherclown/planck", version = "^0.2.0" }
 planck_jabby = { wally = "yetanotherclown/planck-jabby", version = "^0.2.0" }
 planck_runservice = { wally = "yetanotherclown/planck-runservice", version = "^0.2.0" }

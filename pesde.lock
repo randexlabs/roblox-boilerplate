@@ -177,6 +177,23 @@ jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.8.1, <0.9.0", index = "ht
 pebble = [{ wally = "wally#alicesaidhi/pebble", version = ">=0.1.2, <0.2.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 vide = [{ wally = "wally#centau/vide", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 
+[graph."wally#alicesaidhi/jabby@0.5.1 roblox"]
+direct = ["jabby", { wally = "wally#alicesaidhi/jabby", version = "^0.5.1", index = "default" }, "standard"]
+
+[graph."wally#alicesaidhi/jabby@0.5.1 roblox".dependencies]
+jecs = ["wally#ukendio/jecs@0.10.4 roblox", "standard"]
+pebble = ["wally#alicesaidhi/pebble@0.2.0 roblox", "standard"]
+vide = ["wally#centau/vide@0.4.0 roblox", "standard"]
+
+[graph."wally#alicesaidhi/jabby@0.5.1 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#alicesaidhi/jabby@0.5.1 roblox".pkg_ref.dependencies]
+jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.10.0, <0.11.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+pebble = [{ wally = "wally#alicesaidhi/pebble", version = ">=0.2.0, <0.3.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+vide = [{ wally = "wally#centau/vide", version = ">=0.4.0, <0.5.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+
 [graph."wally#alicesaidhi/pebble@0.1.2 roblox".dependencies]
 vide = ["wally#centau/vide@0.3.1 roblox", "standard"]
 
@@ -186,6 +203,16 @@ index_url = "https://github.com/UpliftGames/wally-index"
 
 [graph."wally#alicesaidhi/pebble@0.1.2 roblox".pkg_ref.dependencies]
 vide = [{ wally = "wally#centau/vide", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+
+[graph."wally#alicesaidhi/pebble@0.2.0 roblox".dependencies]
+vide = ["wally#centau/vide@0.4.0 roblox", "standard"]
+
+[graph."wally#alicesaidhi/pebble@0.2.0 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#alicesaidhi/pebble@0.2.0 roblox".pkg_ref.dependencies]
+vide = [{ wally = "wally#centau/vide", version = ">=0.4.0, <0.5.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 
 [graph."wally#cayasde/vide-opinionated@0.4.1 roblox"]
 direct = ["vide", { wally = "wally#cayasde/vide-opinionated", version = "^0.4.1", index = "default" }, "standard"]
@@ -198,6 +225,10 @@ index_url = "https://github.com/UpliftGames/wally-index"
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
+[graph."wally#centau/vide@0.4.0 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
 [graph."wally#pepeeltoro41/ui-labs@2.4.2 roblox"]
 direct = ["uilabs", { wally = "wally#pepeeltoro41/ui-labs", version = "^2.4.2", index = "default" }, "dev"]
 
@@ -206,6 +237,10 @@ ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
 [graph."wally#ukendio/jecs@0.8.3 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#ukendio/jecs@0.10.4 roblox".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
