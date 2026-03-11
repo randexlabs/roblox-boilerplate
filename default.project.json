@@ -32,6 +32,9 @@
             "$path": "src/ServerScriptService",
             "netserver": {
                 "$path": "remotes/netserver.luau"
+            },
+            "serverpkg": {
+                "$path": "roblox_server_packages"
             }
         }
     }
