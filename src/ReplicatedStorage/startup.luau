@@ -32,6 +32,7 @@ local function add_systems(container: Instance)
 		table.insert(result, (require)(modulescript))
 	end
 
+	if #result == 0 then return end
 	scheduler:addSystems(result)
 end
 
