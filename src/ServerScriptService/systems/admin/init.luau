@@ -16,7 +16,9 @@ conch.initiate_default_lifecycle()
 conch.set_role_permissions('Dev', 'Dev')
 
 for _, cmd in commands:GetChildren() do
-	task.spawn(function() (require)(cmd)() end)
+	task.spawn(function()
+		(require)(cmd)()
+	end)
 end
 
 local PlayerAdded = collect(Players.PlayerAdded)
