@@ -34,3 +34,4 @@ planck = { wally = "yetanotherclown/planck", version = "^0.2.0" }
 planck_jabby = { wally = "yetanotherclown/planck-jabby", version = "^0.2.0" }
 planck_runservice = { wally = "yetanotherclown/planck-runservice", version = "^0.2.0" }
 rng = { wally = "ernisto/rng", version = "^1.0.0-rc.3" }
+profilestore = { wally = "lm-loleris/profilestore", version = "^1.0.3" }
