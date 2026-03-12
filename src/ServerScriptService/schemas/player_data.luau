@@ -1,3 +1,1 @@
-return {
-	money = 0,
-}
+return {}
