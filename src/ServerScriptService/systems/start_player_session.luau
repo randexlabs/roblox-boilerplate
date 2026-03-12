@@ -52,5 +52,5 @@ end
 
 return {
 	system = system,
-	phase = phases.Update,
+	phase = phases.First,
 }
