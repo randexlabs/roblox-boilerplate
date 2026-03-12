@@ -3,7 +3,7 @@ local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 local RunService = game:GetService 'RunService'
 local ServerScriptService = game:GetService 'ServerScriptService'
 
-local jabby = require(ReplicatedStorage.packages.jabby)
+local jabby = require(ReplicatedStorage.pkg.jabby)
 local scheduler = require(script.Parent.scheduler)
 local world = require(script.Parent.world)
 

@@ -1,8 +1,8 @@
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
-local planck = require(ReplicatedStorage.packages.planck)
-local planck_jabby = require(ReplicatedStorage.packages.planck_jabby)
-local planck_runservice = require(ReplicatedStorage.packages.planck_runservice)
+local planck = require(ReplicatedStorage.pkg.planck)
+local planck_jabby = require(ReplicatedStorage.pkg.planck_jabby)
+local planck_runservice = require(ReplicatedStorage.pkg.planck_runservice)
 local world = require(script.Parent.world)
 
 return planck.Scheduler

@@ -1,7 +1,7 @@
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 local RunService = game:GetService 'RunService'
 
-local jecs = require(ReplicatedStorage.packages.jecs)
+local jecs = require(ReplicatedStorage.pkg.jecs)
 
 local ServerScriptService = game:GetService 'ServerScriptService'
 local player_data = require(ServerScriptService.schemas.player_data)

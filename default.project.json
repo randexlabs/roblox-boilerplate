@@ -22,7 +22,7 @@
             "nettypes": {
                 "$path": "remotes/nettypes.luau"
             },
-            "packages": {
+            "pkg": {
                 "$path": "roblox_packages"
             },
             "assets": {

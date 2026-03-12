@@ -23,7 +23,7 @@
 -- SOFTWARE.
 
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
-local Jecs = require(ReplicatedStorage.packages.jecs)
+local Jecs = require(ReplicatedStorage.pkg.jecs)
 local world = require(ReplicatedStorage.world)
 local refs: { [any]: any } = {}
 

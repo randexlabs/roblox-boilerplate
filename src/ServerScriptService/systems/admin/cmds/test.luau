@@ -1,6 +1,6 @@
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
-local conch = require(ReplicatedStorage.packages.conch)
+local conch = require(ReplicatedStorage.pkg.conch)
 
 return function()
 	conch.register('hello', {

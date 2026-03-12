@@ -2,8 +2,8 @@ local Players = game:GetService 'Players'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
 local co = require(ReplicatedStorage.co)
-local jecs = require(ReplicatedStorage.packages.jecs)
-local planck_runservice = require(ReplicatedStorage.packages.planck_runservice)
+local jecs = require(ReplicatedStorage.pkg.jecs)
+local planck_runservice = require(ReplicatedStorage.pkg.planck_runservice)
 local ref = require(ReplicatedStorage.ref)
 local world = require(ReplicatedStorage.world)
 local phases = planck_runservice.Phases

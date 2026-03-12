@@ -1,14 +1,14 @@
 local Players = game:GetService 'Players'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
-local jecs = require(ReplicatedStorage.packages.jecs)
-local planck_runservice = require(ReplicatedStorage.packages.planck_runservice)
+local jecs = require(ReplicatedStorage.pkg.jecs)
+local planck_runservice = require(ReplicatedStorage.pkg.planck_runservice)
 local phases = planck_runservice.Phases
 type World = jecs.World
 
 local locaplayer = Players.LocalPlayer
-local conch = require(ReplicatedStorage.packages.conch)
-local conch_ui = require(ReplicatedStorage.packages.conch_ui)
+local conch = require(ReplicatedStorage.pkg.conch)
+local conch_ui = require(ReplicatedStorage.pkg.conch_ui)
 local config = require(ReplicatedStorage.config)
 local DEVELOPER_IDS = config.developers_id
 
