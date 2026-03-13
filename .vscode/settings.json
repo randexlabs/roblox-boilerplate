@@ -1,11 +1,10 @@
 {
     "luau-lsp.platform.type": "roblox",
     "luau-lsp.sourcemap.enabled": true,
-    "luau-lsp.types.definitionFiles": ["definitions.d.luau"],
     "editor.rulers": [80],
     "stylua.targetReleaseVersion": "latest",
     "files.associations": {
         "**.d.luau": "text",
         ".luaurc": "json"
-    },
+    }
 }
