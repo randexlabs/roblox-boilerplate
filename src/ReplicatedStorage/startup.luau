@@ -36,7 +36,7 @@ local function add_systems(container: Instance)
 	scheduler:addSystems(result)
 end
 
-add_systems(ReplicatedStorage.systems)
+add_systems((ReplicatedStorage :: any).systems)
 
 return function()
 	if RunService:IsClient() then
