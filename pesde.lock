@@ -129,6 +129,13 @@ pathfs = [{ name = "jiwonz/pathfs", version = "^0.6.0", index = "https://github.
 result = [{ name = "lukadev_0/result", version = "^1.2.1", index = "https://github.com/pesde-pkg/index" }, "peer"]
 unzip = [{ name = "0x5eal/unzip", version = "^0.2.0", index = "https://github.com/pesde-pkg/index", target = "luau" }, "standard"]
 
+[graph."wally#1foreverhd/topbarplus@3.4.0 roblox"]
+direct = ["topbarplus", { wally = "wally#1foreverhd/topbarplus", version = "^3.4.0", index = "default" }, "standard"]
+
+[graph."wally#1foreverhd/topbarplus@3.4.0 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
 [graph."wally#alicesaidhi/conch@0.3.1 roblox"]
 direct = ["conch", { wally = "wally#alicesaidhi/conch", version = "^0.3.1", index = "default" }, "standard"]
 
