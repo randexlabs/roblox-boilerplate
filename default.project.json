@@ -13,6 +13,9 @@
             "client": {
                 "$path": "src/StarterPlayerScripts"
             },
+            "libs": {
+                "$path": "libs"
+            },
             "stories": {
                 "$path": "stories"
             },
