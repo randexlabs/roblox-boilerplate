@@ -45,6 +45,7 @@ local function system(world: World)
 		if world:get(e, co.profile) then continue end
 		if world:get(e, co.profile_loading) then continue end
 
+		world:set(e, co.player, player)
 		world:set(e, co.profile_loading, true)
 		task.spawn(start_session, player)
 	end
