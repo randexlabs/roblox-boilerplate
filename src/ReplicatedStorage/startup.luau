@@ -4,6 +4,7 @@ local RunService = game:GetService 'RunService'
 local ServerScriptService = game:GetService 'ServerScriptService'
 
 local jabby = require(ReplicatedStorage.pkg.jabby)
+local quickzone = require(ReplicatedStorage.pkg.quickzone)
 local scheduler = require(script.Parent.scheduler)
 local world = require(script.Parent.world)
 
@@ -36,6 +37,7 @@ local function add_systems(container: Instance)
 	scheduler:addSystems(result)
 end
 
+quickzone:setEnabled(false)
 add_systems((ReplicatedStorage :: any).systems)
 
 return function()
