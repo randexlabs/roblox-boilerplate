@@ -3,11 +3,11 @@ local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
 local co = require(ReplicatedStorage.co)
 local collect = require(ReplicatedStorage.collect)
-local jecs = require(ReplicatedStorage.pkg.jecs)
+local ecs = require(ReplicatedStorage.pkg.ecs)
 local planck_runservice = require(ReplicatedStorage.pkg.planck_runservice)
 local ref = require(ReplicatedStorage.ref)
 local phases = planck_runservice.Phases
-type World = jecs.World
+type World = ecs.World
 
 local PlayerRemoving = collect(Players.PlayerRemoving)
 

@@ -48,7 +48,7 @@ return function()
 
 	jabby.register {
 		applet = jabby.applets.world,
-		name = 'Jecs world',
+		name = 'ecs world',
 		configuration = { world = world },
 	}
 end

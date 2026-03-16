@@ -23,7 +23,7 @@
 -- SOFTWARE.
 
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
-local Jecs = require(ReplicatedStorage.pkg.jecs)
+local ecs = require(ReplicatedStorage.pkg.ecs)
 local world = require(ReplicatedStorage.world)
 local refs: { [any]: any } = {}
 
@@ -31,10 +31,7 @@ local refs: { [any]: any } = {}
 --- If the key is nil, an entirely new entity is created and returned.
 --- If the key doesn't reference an entity, a new entity is made for it to reference and returned.
 --- @param key any
-local function ref(
-	key: any,
-	initer: ((entity: Jecs.Entity) -> ())?
-): Jecs.Entity
+local function ref(key: any, initer: ((entity: ecs.Entity) -> ())?): ecs.Entity
 	if not key then return world:entity() end
 
 	local entity = refs[key]
@@ -50,7 +47,7 @@ local function ref(
 end
 
 -- For the `__call`` metamethod
-local function __call(_, key: any, initer: (entity: Jecs.Entity) -> ())
+local function __call(_, key: any, initer: (entity: ecs.Entity) -> ())
 	return ref(key, initer)
 end
 
@@ -63,7 +60,7 @@ local function search(key: any)
 	return entity
 end
 
-function set(key: any, entity: Jecs.Entity)
+function set(key: any, entity: ecs.Entity)
 	refs[key] = entity
 end
 

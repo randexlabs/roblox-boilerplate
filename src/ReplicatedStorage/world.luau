@@ -1,3 +1,3 @@
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
-local jecs = require(ReplicatedStorage.pkg.jecs)
-return jecs.world()
+local ecs = require(ReplicatedStorage.pkg.ecs)
+return ecs.world()

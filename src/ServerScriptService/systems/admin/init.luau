@@ -2,10 +2,10 @@ local Players = game:GetService 'Players'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
 local collect = require(ReplicatedStorage.collect)
-local jecs = require(ReplicatedStorage.pkg.jecs)
+local ecs = require(ReplicatedStorage.pkg.ecs)
 local planck_runservice = require(ReplicatedStorage.pkg.planck_runservice)
 local phases = planck_runservice.Phases
-type World = jecs.World
+type World = ecs.World
 
 local commands = script.cmds
 local conch = require(ReplicatedStorage.pkg.conch)
