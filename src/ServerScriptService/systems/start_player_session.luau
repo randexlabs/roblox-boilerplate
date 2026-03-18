@@ -40,12 +40,10 @@ local function start_session(player: Player)
 end
 
 local function system(world: World)
-	for _, player in Players:GetPlayers() do
-		local e = ref(player)
-		if world:get(e, co.profile) then continue end
-		if world:get(e, co.profile_loading) then continue end
+	for e in world:query(co.player):without(co.profile, co.profile_loading) do
+		local player = world:get(e, co.player)
+		if not player then continue end
 
-		world:set(e, co.player, player)
 		world:set(e, co.profile_loading, true)
 		task.spawn(start_session, player)
 	end
