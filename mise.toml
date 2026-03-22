@@ -33,5 +33,12 @@ run = "rojo serve"
 [tasks."dev:blink"]
 run = "blink remotes/init.blink -w"
 
-[tasks."dev"]
+[tasks."dev:open_experimental_place"]
+confirm = "Open experimental place ?"
+run = "ropen meow/meow || true"
+
+[tasks."dev:core"]
 depends = ["dev:sourcemap", "dev:syncer", "dev:blink"]
+
+[tasks."dev"]
+run = ["mise r dev:open_experimental_place || true", "mise r dev:core"]
