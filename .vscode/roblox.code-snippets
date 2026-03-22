@@ -21,4 +21,17 @@
             "}",
         ],
     },
+
+    "oop": {
+        "scope": "luau",
+        "prefix": "@oop",
+        "body": [
+            "return function()",
+            "\tlocal exports = {}",
+            "\ttype self = typeof(exports)\n",
+            "\t$0",
+            "\n\treturn exports",
+            "end",
+        ],
+    },
 }
