@@ -1,4 +1,5 @@
 name: CI
+run-name: "branch:${{ github.ref_name }} | commit:${{ github.sha }} | actor:${{ github.actor }}"
 on: [push]
 
 env:
