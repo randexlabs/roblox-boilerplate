@@ -1,0 +1,14 @@
+name: CI
+on: [push]
+
+jobs:
+    stylua:
+        name: Check Formatting
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Install code
+              uses: actions/checkout@v4
+
+            - name: Teste
+              run: echo 'Ola'
