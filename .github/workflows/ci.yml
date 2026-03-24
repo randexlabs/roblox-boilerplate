@@ -16,7 +16,7 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: 22
+                  node-version: 24
                   cache: "npm"
 
             - name: Install dependencies
@@ -32,7 +32,7 @@ jobs:
               run: stylua --check .
 
             - name: Check Formatting (Prettier)
-              run: prettier --check .
+              run: npx prettier --check .
 
             - name: Run Tests
               run: mise run tests
