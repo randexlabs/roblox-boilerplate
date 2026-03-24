@@ -3,9 +3,13 @@ run-name: "branch:${{ github.ref_name }} | commit:${{ github.sha }} | actor:${{ 
 
 on:
     push:
-        branches:
-            - main
-            - develop
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 env:
     FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
