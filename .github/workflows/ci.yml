@@ -1,5 +1,5 @@
 name: CI
-run-name: "branch:${{ github.ref_name }} | msg:${{ github.event.head_commit.message }}"
+run-name: "branch:${{ github.ref_name }} | msg:${{ github.event.head_commit.message || github.event.pull_request.title }}"
 
 on:
     push:
