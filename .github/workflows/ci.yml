@@ -16,8 +16,11 @@ jobs:
                   install: true
                   cache: true
 
-            - name: StyLua Check
+            - name: Check Formatting (StyLua)
               run: stylua --check .
+
+            - name: Check Formatting (Prettier)
+              run: prettier --check .
 
             - name: Run Tests
               run: mise run tests
