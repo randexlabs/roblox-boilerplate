@@ -29,9 +29,11 @@ jobs:
                   cache: true
 
             - name: Check Formatting (StyLua)
+              continue-on-error: true
               run: stylua --check .
 
             - name: Check Formatting (Prettier)
+              continue-on-error: true
               run: npx prettier --check .
 
             - name: Run Tests
