@@ -16,5 +16,5 @@ jobs:
                   install: true
                   cache: true
 
-            - name: a
-              run: rojo sourcemap
+            - name: StyLua Check
+              run: stylua --check .
