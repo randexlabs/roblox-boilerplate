@@ -2,13 +2,19 @@ name: CI
 on: [push]
 
 jobs:
-    stylua:
-        name: Check Formatting
+    CI:
+        name: CI
         runs-on: ubuntu-latest
 
         steps:
-            - name: Install code
+            - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Teste
-              run: echo 'Ola'
+            - name: Setup mise
+              uses: jdx/mise-action@v2
+              with:
+                  install: true
+                  cache: true
+
+            - name: a
+              run: rojo sourcemap
