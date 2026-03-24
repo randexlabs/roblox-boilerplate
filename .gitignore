@@ -8,5 +8,4 @@ sourcemap.json
 .env
 **/net**
 **/assets.luau
-package-lock.json
 node_modules
