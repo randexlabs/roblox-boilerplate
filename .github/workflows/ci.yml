@@ -18,3 +18,6 @@ jobs:
 
             - name: StyLua Check
               run: stylua --check .
+
+            - name: Run Tests
+              run: mise run tests
