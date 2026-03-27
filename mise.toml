@@ -70,4 +70,4 @@ depends = ["ensure_roblox_defs", "gen:sourcemap"]
 run = """luau-lsp analyze --platform roblox --sourcemap sourcemap.json --ignore=**/roblox_packages/** --ignore=**/roblox_server_packages/** --ignore=**/luau_packages/** --ignore=**/lune_packages/** --ignore=**/node_modules/** --ignore=**/dist/** --ignore=**/*_packages/** --defs globalTypes.d.luau --defs vectorTypes.d.luau src stories tests libs"""
 
 [tasks."check"]
-depends = ["lint", "tests", "format"]
+depends = ["lint", "tests"]

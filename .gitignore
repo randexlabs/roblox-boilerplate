@@ -9,3 +9,5 @@ sourcemap.json
 **/net**
 **/assets.luau
 node_modules
+globalTypes.d.luau
+vectorTypes.d.luau
