@@ -10,3 +10,7 @@ After completing a task:
 ## Docs entrypoint
 
 When looking for repo documentation, start at `docs/index.md` and follow the indexes from there.
+
+## Git
+
+Do not create commits unless explicitly asked.
