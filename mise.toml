@@ -3,7 +3,7 @@
 "github:Barocena/ROpen" = "0.0.1"
 "github:cli/cli" = "2.89.0"
 "github:JohnnyMorganz/StyLua" = "2.4.0"
-"github:JohnnyMorganz/luau-lsp" = "1.64.0"
+"github:JohnnyMorganz/luau-lsp" = "1.63.0"
 "github:abhixdd/ghgrab" = "1.2.0"
 "github:jackTabsCode/asphalt" = "1.2.0"
 "github:luau-lang/luau" = "0.713"
