@@ -7,23 +7,20 @@
             "$path": "src/ReplicatedFirst"
         },
         "ReplicatedStorage": {
-            "JABBY_REMOTES": {
-                "$path": "jabby.rbxm"
-            },
             "client": {
                 "$path": "src/StarterPlayerScripts"
             },
             "libs": {
                 "$path": "libs"
             },
-            "stories": {
-                "$path": "stories"
-            },
             "netclient": {
                 "$path": "remotes/netclient.luau"
             },
             "nettypes": {
                 "$path": "remotes/nettypes.luau"
+            },
+            "stories": {
+                "$path": "stories"
             },
             "pkg": {
                 "$path": "roblox_packages"

@@ -1,22 +1,26 @@
 [tools]
 "github:1Axen/blink" = "0.18.6"
 "github:Barocena/ROpen" = "0.0.1"
+"github:cli/cli" = "2.89.0"
 "github:JohnnyMorganz/StyLua" = "2.4.0"
-"github:JohnnyMorganz/luau-lsp" = "1.63.0"
-"github:blake-mealey/mantle" = "0.11.18"
+"github:JohnnyMorganz/luau-lsp" = "1.64.0"
+"github:abhixdd/ghgrab" = "1.2.0"
 "github:jackTabsCode/asphalt" = "1.2.0"
 "github:luau-lang/luau" = "0.713"
 "github:lune-org/lune" = "0.10.4"
 "github:pesde-pkg/pesde" = "0.7.3"
 "github:rojo-rbx/rojo" = "7.6.1"
-"github:seaofvoices/darklua" = "0.17.3"
 prettier = "3.8.0"
+python = "3.14.3"
 
 [settings]
 jobs = 8
 
+[settings.github]
+github_attestations = false
+
 [tasks."setup"]
-run = ["mise i", "pesde install", "npm install"]
+run = ["mise i", "pesde install", "npm install", "blink remotes/.blink"]
 
 [tasks.tests]
 run = "pesde x ernisto/test -- tests"
@@ -27,18 +31,43 @@ run = "stylua src/"
 [tasks."dev:sourcemap"]
 run = "rojo sourcemap -o sourcemap.json --watch"
 
+[tasks."dev:blink_watcher"]
+run = "blink remotes/.blink -w"
+
 [tasks."dev:syncer"]
 run = "rojo serve"
-
-[tasks."dev:blink"]
-run = "blink remotes/init.blink -w"
 
 [tasks."dev:open_experimental_place"]
 confirm = "Open experimental place ?"
 run = "ropen meow/meow || true"
 
 [tasks."dev:core"]
-depends = ["dev:sourcemap", "dev:syncer", "dev:blink"]
+depends = ["dev:sourcemap", "dev:syncer", "dev:blink_watcher"]
 
 [tasks."dev"]
 run = ["mise r dev:open_experimental_place || true", "mise r dev:core"]
+
+[tasks."ensure_roblox_defs"]
+sources = ["scripts/ensure_roblox_defs.luau"]
+outputs = ["globalTypes.d.luau", "vectorTypes.d.luau"]
+run = "lune run scripts/ensure_roblox_defs.luau"
+
+[tasks."gen:sourcemap"]
+sources = [
+    "default.project.json",
+    "src/**",
+    "stories/**",
+    "tests/**",
+    "libs/**",
+    "roblox_packages/**",
+    "roblox_server_packages/**",
+]
+outputs = ["sourcemap.json"]
+run = "rojo sourcemap -o sourcemap.json"
+
+[tasks."lint"]
+depends = ["ensure_roblox_defs", "gen:sourcemap"]
+run = """luau-lsp analyze --platform roblox --sourcemap sourcemap.json --ignore=**/roblox_packages/** --ignore=**/roblox_server_packages/** --ignore=**/luau_packages/** --ignore=**/lune_packages/** --ignore=**/node_modules/** --ignore=**/dist/** --ignore=**/*_packages/** --defs globalTypes.d.luau --defs vectorTypes.d.luau src stories tests libs"""
+
+[tasks."check"]
+depends = ["lint", "tests", "format"]
