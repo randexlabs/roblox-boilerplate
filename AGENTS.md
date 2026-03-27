@@ -6,3 +6,7 @@ After completing a task:
 - Mention important decisions or trade-offs
 - Keep it short and direct
 - Do not explain obvious steps
+
+## Docs entrypoint
+
+When looking for repo documentation, start at `docs/index.md` and follow the indexes from there.
