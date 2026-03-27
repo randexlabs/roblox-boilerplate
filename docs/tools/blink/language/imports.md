@@ -1,0 +1,32 @@
+﻿# Imports
+
+Imports allow you to split your blink config into multiple files for better organization.
+
+Importing Files
+You can import another blink file using the import keyword followed by a file system path to the target file.
+Imported files are placed in a new scope, using the file name or a user provided name through the as keyword.
+
+Imports also work in the Roblox Studio editor, but only support sibling (./) imports.
+
+```
+import "./external"
+import "./external" as "Common"
+
+```
+```
+type ExternType = external.Type
+type CommonType = Common.Type
+
+```
+Usage in Luau code
+Since imports act as scopes, the same rules apply to them as well.
+
+```
+local Blink = require(PATH_TO_BLINK)
+Blink.external.Event.FireAll(0)
+
+```
+```
+local Number: Blink.Common_Type = 0
+
+```

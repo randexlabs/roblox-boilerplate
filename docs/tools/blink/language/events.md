@@ -1,0 +1,148 @@
+﻿# Events
+
+Events are Blink's version of Roblox's ReliableEvent and UnreliableEvent.
+They are the main way to communicate between client and server.
+
+Usage in Blink
+Events can be defined using the event keyword.
+
+```
+event MyEvent {
+```
+
+From: Server,
+Type: Reliable,
+Call: SingleAsync,
+Data: f64
+}
+
+From
+Determines the side from which the event is fired.
+Currently Blink supports either Server or Client.
+
+Type
+Determines the type (reliability) of the event.
+
+Reliable - Events are guaranteed to arrive at their destination in the order they were sent in.
+Unreliable - Events are not guaranteed to arrive at their destination or to arrive in the order they were sent in. They also have a maximum size of 1000 bytes.
+Call
+Determines the listening API exposed on the receiving side.
+
+SingleSync - Events can only have one listener, but that listener cannot yield.
+ManySync - Events can have many listeners, but those listeners cannot yield.
+SingleAsync - Events can only have one listener, and that listener may yield.
+ManyAsync - Events can have many listeners, and those listeners may yield.
+Polling - Events are iterated through Event.Iter().
+Sync events should be avoided unless performance is critical.
+Yielding or erroring in sync event can cause undefined and sometimes game-breaking behaviour.
+
+Data
+Determines the data that is sent through the event, can be any type.
+This field can be omitted if no data is required.
+
+```
+Type Packs
+```
+
+Multiple data values are supported through the usage of a type pack (commonly referred to as a tuple). Type packs can be defined as a list of types seperated by a comma within parenthesis.
+For example, a type pack of different number types can be written like so:
+
+```
+event MyTypePackEvent {
+```
+
+From: Server,
+Type: Reliable,
+Call: SingleAsync,
+Data: (u8, u16, u32)
+}
+
+Usage in Luau
+Firing an Event
+```
+client.luau
+blink.MyEvent.Fire(5)
+blink.MyTypePackEvent.Fire(2^8 - 1, 2^16 - 1, 2^32 - 1)
+
+```
+```
+server.luau
+blink.MyEvent.Fire(Player, 5)
+blink.MyEvent.FireAll(5)
+blink.MyEvent.FireList({Player}, 5)
+blink.MyEvent.FireExcept(Player, 5)
+
+```
+Listening to an Event
+```
+client.luau
+blink.MyEvent.On(function(Value)
+-- ...
+```
+
+end)
+
+```
+blink.MyTypePackEvent.On(function(Foo, Bar, FooBar)
+-- ...
+```
+
+end)
+
+```
+server.luau
+blink.MyEvent.On(function(Player, Value)
+-- ...
+```
+
+end)
+
+```
+blink.MyTypePackEvent.On(function(Player, Foo, Bar, FooBar)
+-- ...
+```
+
+end)
+
+```
+disconnect.luau
+local Disconnect = blink.MyEvent.On(...)
+```
+
+Disconnect()
+
+Iterating an Event (Polling)
+```
+client.luau
+```
+
+for Index, Value in MyEvent.Iter() do
+```
+-- ...
+```
+
+end
+for Index, Foo, Bar, FooBar in MyTypePackEvent.Iter() do
+```
+-- ...
+```
+
+end
+
+```
+server.luau
+```
+
+for Index, Player, Value in MyEvent.Iter() do
+```
+-- ...
+```
+
+end
+for Index, Player, Foo, Bar, FooBar in MyTypePackEvent.Iter() do
+```
+-- ...
+```
+
+end
+

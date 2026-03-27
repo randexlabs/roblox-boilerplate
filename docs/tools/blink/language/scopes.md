@@ -1,0 +1,49 @@
+﻿# Scopes
+
+Scopes allow you to group similiar types together for better per-file organization.
+
+Defining Scopes
+You can define a scope using the scope keyword followed by the scope name.
+
+```
+scope ExampleScope {
+type InScopeType = u8
+event InScopeEvent {
+```
+
+From: Server,
+Type: Reliable,
+Call: SingleSync,
+Data: u8
+}
+}
+
+```
+struct Example {
+```
+
+Reference = ExampleScope.InScopeType
+}
+
+Scopes automatically capture any definitions within their parent scopes.
+
+```
+type Outer = u8
+scope CaptureExample {
+type Inner = Outer
+```
+
+}
+
+Usage in Luau code
+Whenever a type or event/function is defined within a scope, their export is nested within the scope's table, and their luau type is prefixed with the scope's name.
+
+```
+local Blink = require(PATH_TO_BLINK)
+Blink.ExampleScope.InScopeEvent.FireAll(0)
+
+```
+```
+local Number: Blink.ExampleScope_InScopeType = 0
+
+```
