@@ -9,7 +9,8 @@ After completing a task:
 
 ## Docs entrypoint
 
-When looking for repo documentation, start at `docs/index.md` and follow the indexes from there.
+Before performing repo-specific tasks, first check `docs/index.md` and follow the relevant indexes to verify whether the repository documents conventions, workflows, or constraints that apply to the task.
+If the documentation defines a convention or workflow relevant to the task, follow it.
 
 ## Git
 
