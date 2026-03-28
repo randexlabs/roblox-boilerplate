@@ -20,3 +20,9 @@ When creating commits, use Conventional Commits as documented in `docs/guides/gi
 ## Verification
 
 After completing changes to `*.luau` files, run `mise lint` and fix any reported errors before finishing the task.
+If `mise lint` passes, run `mise format` to format `*.luau` files before finishing the task.
+
+## Luau strictness
+
+The repo already enables strict mode globally via `.config.luau`.
+Do not add `--!strict` to `*.luau` files.
