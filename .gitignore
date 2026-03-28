@@ -6,7 +6,9 @@ sourcemap.json
 .pesde
 *_packages
 .env
-**/net**
+remotes/netclient.luau
+remotes/netserver.luau
+remotes/nettypes.luau
 **/assets.luau
 node_modules
 globalTypes.d.luau

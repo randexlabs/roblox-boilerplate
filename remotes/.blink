@@ -1,0 +1,8 @@
+option Casing = Snake
+option ClientOutput = "./netclient.luau"
+option ServerOutput = "./netserver.luau"
+option TypesOutput = "./nettypes.luau"
+option RemoteScope = "GAME"
+
+type UserId = f64
+
