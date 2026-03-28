@@ -14,3 +14,4 @@ When looking for repo documentation, start at `docs/index.md` and follow the ind
 ## Git
 
 Do not create commits unless explicitly asked.
+When creating commits, use Conventional Commits as documented in `docs/guides/git/conventional-commits/index.md`.
