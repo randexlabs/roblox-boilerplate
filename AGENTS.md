@@ -16,3 +16,7 @@ If the documentation defines a convention or workflow relevant to the task, foll
 
 Do not create commits unless explicitly asked.
 When creating commits, use Conventional Commits as documented in `docs/guides/git/conventional-commits/index.md`.
+
+## Verification
+
+After completing changes to `*.luau` files, run `mise lint` and fix any reported errors before finishing the task.
