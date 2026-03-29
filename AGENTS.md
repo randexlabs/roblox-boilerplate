@@ -15,7 +15,8 @@ If the documentation defines a convention or workflow relevant to the task, foll
 ## Git
 
 Do not create commits unless explicitly asked.
-When creating commits, use Conventional Commits as documented in `docs/guides/git/conventional-commits/index.md`.
+For git-related tasks, check `docs/guides/index.md` and then follow the relevant guide under `docs/guides/git/`.
+When creating commits, use Conventional Commits as documented under `docs/guides/git/`.
 
 ## Verification
 
