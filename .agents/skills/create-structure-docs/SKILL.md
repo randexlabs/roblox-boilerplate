@@ -1,9 +1,7 @@
 ---
-
 name: create-structure-docs
-description: | Use when reorganizing raw or cloned documentation into a structured format optimized for AI usage, fast lookup, and progressive context loading.
----
-
+description: |
+  Use when reorganizing raw or cloned documentation into a structured format optimized for AI usage, fast lookup, and progressive context loading.
 ---
 
 # Structure documentation

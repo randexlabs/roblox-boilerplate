@@ -1,10 +1,7 @@
 ---
-
 name: implementation-planning
 description: |
   Plan the implementation of a feature in a structured way. Use when a feature needs to be decomposed before coding: first map the main flow as a Mermaid flowchart, then identify bounded contexts, dependencies, validation points, and risks, and finally turn that into a staged implementation plan.
----
-
 ---
 
 # Implementation planning
@@ -27,7 +24,7 @@ Do NOT use this when:
 
 - the task is already fully scoped and ready to implement
 - the request is too small to justify planning overhead
-- the user wants code changes immediately rather than design/planning output
+- the user wants code changes immediately rather than design or planning output
 
 ## Instructions
 
