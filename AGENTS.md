@@ -20,8 +20,7 @@ When creating commits, use Conventional Commits as documented under `docs/guides
 
 ## Verification
 
-After completing changes to `*.luau` files, run `mise lint` and fix any reported errors before finishing the task.
-If `mise lint` passes, run `mise format` to format `*.luau` files before finishing the task.
+After completing changes to `*.luau` files, run `mise check` and keep fixing issues and rerunning it recursively until it completes with no errors.
 
 ## Luau strictness
 
