@@ -17,6 +17,8 @@ If the documentation defines a convention or workflow relevant to the task, foll
 Do not create commits unless explicitly asked.
 When the user invokes `$git-commit` followed by one or more file paths, interpret that as an explicit request to create a commit scoped to those paths.
 For commit-message tasks, use the `git-commit` skill at `.agents/skills/git-commit`.
+When a commit primarily changes files under `.agents/skills`, use the scope `skills`.
+If `AGENTS.md` is part of the same commit, prefer `docs(agents)` over `docs(skills)`.
 When creating commits, follow Conventional Commits through that skill.
 
 ## Verification

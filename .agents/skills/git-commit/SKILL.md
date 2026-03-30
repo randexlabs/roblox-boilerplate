@@ -56,7 +56,9 @@ If the user invokes `$git-commit` without paths, treat it as a commit-message ta
 - Do not use a long or narrative summary line.
 - Do not pick a type based on file extension alone; pick it from the actual intent.
 - Do not force a scope when it adds no value.
+- Use the scope `skills` when the commit primarily changes files under `.agents/skills`.
 - Use `docs(agents)` for commits that change `AGENTS.md`.
+- If a commit changes both `.agents/skills` and `AGENTS.md`, prefer `docs(agents)`.
 - Keep `BREAKING CHANGE:` uppercase.
 
 ## References
