@@ -1,9 +1,9 @@
 ---
-name: semantic-commit
+name: git-commit
 description: Write commit messages that follow Conventional Commits. Use when creating, reviewing, or suggesting git commit messages and the result should use a semantic type such as feat, fix, docs, refactor, perf, test, chore, or style.
 ---
 
-# Semantic Commit
+# Git Commit
 
 ## Goal
 
@@ -18,18 +18,18 @@ Use this skill when:
 - choosing the right commit type for a change
 - deciding whether a change is breaking
 - giving commit-message suggestions during git workflows
-- invoking `$semantic-commit` followed by one or more file paths to request a commit for those paths
+- invoking `$git-commit` followed by one or more file paths to request a commit for those paths
 
 ## Invocation convention
 
-If the user invokes `$semantic-commit` and then provides one or more file paths, treat that as a request to:
+If the user invokes `$git-commit` and then provides one or more file paths, treat that as a request to:
 
 1. inspect the changes for those paths
 2. stage only that scope
 3. choose an appropriate Conventional Commit message
 4. create the commit
 
-If the user invokes `$semantic-commit` without paths, treat it as a commit-message task unless the surrounding request makes a full commit action explicit.
+If the user invokes `$git-commit` without paths, treat it as a commit-message task unless the surrounding request makes a full commit action explicit.
 
 ## Instructions
 
