@@ -22,6 +22,10 @@ When creating commits, use Conventional Commits as documented under `docs/guides
 
 After completing changes to `*.luau` files, run `mise check` and keep fixing issues and rerunning it recursively until it completes with no errors.
 
+## Functions
+
+Every function must prioritize Early Returns.
+
 ## Luau strictness
 
 The repo already enables strict mode globally via `.config.luau`.
