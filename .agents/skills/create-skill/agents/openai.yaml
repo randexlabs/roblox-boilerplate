@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Skill"
+  short_description: "Turn a repeated workflow into a reusable skill"
+  default_prompt: "Use $create-skill to turn this repeated workflow into a reusable skill."

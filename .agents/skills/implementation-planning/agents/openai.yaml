@@ -1,0 +1,4 @@
+interface:
+  display_name: "Implementation Planning"
+  short_description: "Turn a feature request into an execution plan"
+  default_prompt: "Use $implementation-planning to turn this feature request into a staged implementation plan."

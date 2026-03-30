@@ -1,4 +1,4 @@
 interface:
   display_name: "Semantic Commit"
   short_description: "Choose and format Conventional Commit messages"
-  default_prompt: "Use this skill when writing commit messages that should follow Conventional Commits."
+  default_prompt: "Use $semantic-commit to write a commit message that follows Conventional Commits."

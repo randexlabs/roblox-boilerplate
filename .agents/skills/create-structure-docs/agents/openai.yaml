@@ -1,0 +1,4 @@
+interface:
+  display_name: "Structure Docs"
+  short_description: "Reorganize raw docs for fast AI lookup"
+  default_prompt: "Use $create-structure-docs to reorganize this raw documentation into a modular docs structure."
