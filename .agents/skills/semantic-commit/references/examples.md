@@ -14,4 +14,3 @@ refactor(api)!: rename user endpoint
 
 BREAKING CHANGE: `/v1/user` is now `/v1/users`
 ```
-

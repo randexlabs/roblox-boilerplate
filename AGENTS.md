@@ -15,8 +15,8 @@ If the documentation defines a convention or workflow relevant to the task, foll
 ## Git
 
 Do not create commits unless explicitly asked.
-For git-related tasks, check `docs/guides/index.md` and then follow the relevant guide under `docs/guides/git/`.
-When creating commits, use Conventional Commits as documented under `docs/guides/git/`.
+For commit-message tasks, use the `semantic-commit` skill at `.agents/skills/semantic-commit`.
+When creating commits, follow Conventional Commits through that skill.
 
 ## Verification
 
