@@ -7,7 +7,7 @@ description: Write commit messages that follow Conventional Commits. Use when cr
 
 ## Goal
 
-Choose and format Conventional Commit messages consistently.
+Choose and format Conventional Commit messages consistently, and create scoped commits when the invocation includes file paths.
 
 ## When to use
 
@@ -18,6 +18,18 @@ Use this skill when:
 - choosing the right commit type for a change
 - deciding whether a change is breaking
 - giving commit-message suggestions during git workflows
+- invoking `$semantic-commit` followed by one or more file paths to request a commit for those paths
+
+## Invocation convention
+
+If the user invokes `$semantic-commit` and then provides one or more file paths, treat that as a request to:
+
+1. inspect the changes for those paths
+2. stage only that scope
+3. choose an appropriate Conventional Commit message
+4. create the commit
+
+If the user invokes `$semantic-commit` without paths, treat it as a commit-message task unless the surrounding request makes a full commit action explicit.
 
 ## Instructions
 
@@ -36,6 +48,7 @@ Use this skill when:
 5. Keep the description short, imperative, and easy to scan.
 6. If the change is breaking, mark it with `!` in the header, `BREAKING CHANGE:` in the body or footer, or both.
 7. If a change mixes concerns, prefer multiple commits over one overloaded message.
+8. When paths are provided, stage and commit only those paths unless the user clearly asks for a wider scope.
 
 ## Rules
 

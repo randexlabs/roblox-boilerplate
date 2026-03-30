@@ -15,6 +15,7 @@ If the documentation defines a convention or workflow relevant to the task, foll
 ## Git
 
 Do not create commits unless explicitly asked.
+When the user invokes `$semantic-commit` followed by one or more file paths, interpret that as an explicit request to create a commit scoped to those paths.
 For commit-message tasks, use the `semantic-commit` skill at `.agents/skills/semantic-commit`.
 When creating commits, follow Conventional Commits through that skill.
 
