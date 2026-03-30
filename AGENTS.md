@@ -26,6 +26,12 @@ After completing changes to `*.luau` files, run `mise check` and keep fixing iss
 
 Every function must prioritize Early Returns.
 
+## Comments
+
+Avoid comments by default. Prefer clear names, small functions, explicit contracts, and simple control flow.
+Add short comments only when they explain why, record a non-obvious invariant or trade-off, note a platform quirk or workaround, justify a performance choice, or reference an external protocol or issue.
+Do not comment code that is already clear.
+
 ## Luau strictness
 
 The repo already enables strict mode globally via `.config.luau`.
