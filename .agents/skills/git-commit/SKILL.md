@@ -1,76 +1,66 @@
 ---
 name: git-commit
-description: Write commit messages that follow Conventional Commits. Use when creating, reviewing, or suggesting git commit messages and the result should use a semantic type such as feat, fix, docs, refactor, perf, test, chore, or style.
+description: Write, review, or create commits that follow Conventional Commits. Use when Codex needs to choose a semantic commit type, decide whether a change is breaking, rewrite a commit message to the correct format, or handle `$git-commit` requests including path-scoped commits for specific files.
 ---
 
 # Git Commit
 
-## Goal
+## Determine the change intent
 
-Choose and format Conventional Commit messages consistently, and create scoped commits when the invocation includes file paths.
+Inspect the requested diff or file scope before writing anything.
+Choose the commit type from the primary intent of the change, not from filenames alone.
+Prefer splitting mixed concerns into separate commits instead of forcing one overloaded message.
 
-## When to use
+## Handle `$git-commit` invocations
 
-Use this skill when:
+Treat `$git-commit` plus one or more file paths as a request to:
 
-- writing a new commit message
-- rewriting a commit message to follow Conventional Commits
-- choosing the right commit type for a change
-- deciding whether a change is breaking
-- giving commit-message suggestions during git workflows
-- invoking `$git-commit` followed by one or more file paths to request a commit for those paths
-
-## Invocation convention
-
-If the user invokes `$git-commit` and then provides one or more file paths, treat that as a request to:
-
-1. inspect the changes for those paths
-2. stage only that scope
-3. choose an appropriate Conventional Commit message
+1. inspect only that scope
+2. stage only those paths
+3. choose the appropriate Conventional Commit message
 4. create the commit
 
-If the user invokes `$git-commit` without paths, treat it as a commit-message task unless the surrounding request makes a full commit action explicit.
+Treat `$git-commit` without paths as a commit-message task unless the surrounding request clearly asks to perform the commit.
 
-## Instructions
+## Format the message
 
-1. Identify the primary intent of the change before writing the message.
-2. Choose a single type for that intent:
-    - `feat`: new feature
-    - `fix`: bug fix
-    - `docs`: documentation-only change
-    - `refactor`: code change that is neither a fix nor a feature
-    - `perf`: performance improvement
-    - `test`: add or update tests
-    - `chore`: maintenance or tooling work
-    - `style`: formatting-only change
-3. Add an optional scope only when it makes the message clearer. Keep it short and noun-based.
-4. Write the header as `<type>[optional scope]: <description>`.
-5. Keep the description short, imperative, and easy to scan.
-6. If the change is breaking, mark it with `!` in the header, `BREAKING CHANGE:` in the body or footer, or both.
-7. If a change mixes concerns, prefer multiple commits over one overloaded message.
-8. When paths are provided, stage and commit only those paths unless the user clearly asks for a wider scope.
+Write the header as `<type>[optional scope]: <description>`.
+Keep the description short, imperative, and easy to scan.
+Add a scope only when it improves clarity.
 
-## Rules
+Use these types:
 
-- Do not omit the `type`.
-- Do not use a long or narrative summary line.
-- Do not pick a type based on file extension alone; pick it from the actual intent.
-- Do not force a scope when it adds no value.
-- Use the scope `skills` when the commit primarily changes files under `.agents/skills`.
-- Use `docs(agents)` for commits that change `AGENTS.md`.
-- If a commit changes both `.agents/skills` and `AGENTS.md`, prefer `docs(agents)`.
-- Keep `BREAKING CHANGE:` uppercase.
+- `feat`
+- `fix`
+- `docs`
+- `refactor`
+- `perf`
+- `test`
+- `chore`
+- `style`
 
-## References
+## Mark breaking changes correctly
 
-Read these only when needed:
+Use `!` in the header, `BREAKING CHANGE:` in the body or footer, or both.
+Keep `BREAKING CHANGE:` uppercase.
 
-- `references/types.md`: commit types and how to pick one
-- `references/format.md`: message structure
-- `references/breaking-changes.md`: breaking-change markers
-- `references/examples.md`: concrete examples
-- `references/faq.md`: edge cases
+## Apply repository conventions
 
-## Expected Output
+Use the scope `skills` when the commit primarily changes files under `.agents/skills`.
+Use `docs(agents)` for commits that change `AGENTS.md`.
+Prefer `docs(agents)` if the same commit changes both `.agents/skills` and `AGENTS.md`.
 
-Return a commit message that follows Conventional Commits, and when useful, briefly state why that type was chosen.
+## Load references only when needed
+
+Read the matching file under `references/` for deeper guidance:
+
+- `types.md` for selecting the commit type
+- `format.md` for message structure
+- `breaking-changes.md` for breaking-change markers
+- `examples.md` for concrete examples
+- `faq.md` for edge cases
+
+## Output contract
+
+Return a Conventional Commit message.
+When it adds value, include a brief note on the chosen type or scope.
