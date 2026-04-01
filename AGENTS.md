@@ -49,6 +49,12 @@ Do not extract one-off helpers for simple checks, value selection, or obvious br
 Extract a function only for reuse, real duplication reduction, or to clarify a non-obvious rule.
 Do not add defensive abstractions, `pcall`, or runtime helpers without proven need.
 
+## Control Flow
+
+Prefer explicit `if-then-else` expressions over boolean operator shortcuts when selecting values or branching behavior.
+Prefer `local value = if condition then a else b` over `local value = condition and a or b`.
+Use boolean operators for boolean logic, not as a substitute for control flow.
+
 ## Luau strictness
 
 The repo already enables strict mode globally via `.config.luau`.
