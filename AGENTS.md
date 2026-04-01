@@ -15,6 +15,7 @@ If the documentation defines a convention or workflow relevant to the task, foll
 ## Git
 
 Do not create commits unless explicitly asked.
+Require confirmation before `git push`.
 When the user invokes `$git-commit` followed by one or more file paths, interpret that as an explicit request to create a commit scoped to those paths.
 For commit-message tasks, use the `git-commit` skill at `.codex/skills/git-commit`.
 When a commit primarily changes files under `.codex/skills`, use the scope `skills`.
