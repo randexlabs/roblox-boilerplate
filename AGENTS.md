@@ -44,6 +44,9 @@ Never use `_G`, `shared`
 ## Simplicity
 
 Prefer the simplest solution that preserves typing and passes `mise check`.
+Prefer inline variables and explicit `if-then-else` over trivial helper functions.
+Do not extract one-off helpers for simple checks, value selection, or obvious branching.
+Extract a function only for reuse, real duplication reduction, or to clarify a non-obvious rule.
 Do not add defensive abstractions, `pcall`, or runtime helpers without proven need.
 
 ## Luau strictness
