@@ -39,7 +39,7 @@ Do not comment code that is already clear.
 
 ## Globals
 
-Never use `_G`, `shared`, or similar mutable global state for application code or runtime detection.
+Never use `_G`, `shared`
 
 ## Luau strictness
 
