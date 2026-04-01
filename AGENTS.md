@@ -41,6 +41,11 @@ Do not comment code that is already clear.
 
 Never use `_G`, `shared`
 
+## Simplicity
+
+Prefer the simplest solution that preserves typing and passes `mise check`.
+Do not add defensive abstractions, `pcall`, or runtime helpers without proven need.
+
 ## Luau strictness
 
 The repo already enables strict mode globally via `.config.luau`.
