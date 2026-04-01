@@ -1,0 +1,12 @@
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "prompt",
+    justification = "Require confirmation before allowing the AI to push to the remote.",
+    match = [
+        "git push",
+        "git push origin main"
+    ],
+    not_match = [
+        "git status"
+    ]
+)
