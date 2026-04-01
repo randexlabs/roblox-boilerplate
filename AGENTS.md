@@ -37,6 +37,10 @@ Avoid comments by default. Prefer clear names, small functions, explicit contrac
 Add short comments only when they explain why, record a non-obvious invariant or trade-off, note a platform quirk or workaround, justify a performance choice, or reference an external protocol or issue.
 Do not comment code that is already clear.
 
+## Globals
+
+Never use `_G`, `shared`, or similar mutable global state for application code or runtime detection.
+
 ## Luau strictness
 
 The repo already enables strict mode globally via `.config.luau`.
