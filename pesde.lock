@@ -170,60 +170,6 @@ conch = [{ wally = "wally#alicesaidhi/conch", version = ">=0.3.1, <0.4.0", index
 language = [{ wally = "wally#alicesaidhi/conch-language", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 vide = [{ wally = "wally#centau/vide", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 
-<<<<<<< HEAD
-[graph."wally#alicesaidhi/jabby@0.3.1 roblox".dependencies]
-jecs = ["wally#ukendio/jecs@0.8.3 roblox", "standard"]
-pebble = ["wally#alicesaidhi/pebble@0.1.2 roblox", "standard"]
-vide = ["wally#centau/vide@0.3.1 roblox", "standard"]
-
-[graph."wally#alicesaidhi/jabby@0.3.1 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#alicesaidhi/jabby@0.3.1 roblox".pkg_ref.dependencies]
-jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.8.1, <0.9.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-pebble = [{ wally = "wally#alicesaidhi/pebble", version = ">=0.1.2, <0.2.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-vide = [{ wally = "wally#centau/vide", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-
-[graph."wally#alicesaidhi/jabby@0.5.1 roblox"]
-direct = ["jabby", { wally = "wally#alicesaidhi/jabby", version = "^0.5.1", index = "default" }, "standard"]
-
-[graph."wally#alicesaidhi/jabby@0.5.1 roblox".dependencies]
-jecs = ["wally#ukendio/jecs@0.10.4 roblox", "standard"]
-pebble = ["wally#alicesaidhi/pebble@0.2.0 roblox", "standard"]
-vide = ["wally#centau/vide@0.4.0 roblox", "standard"]
-
-[graph."wally#alicesaidhi/jabby@0.5.1 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#alicesaidhi/jabby@0.5.1 roblox".pkg_ref.dependencies]
-jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.10.0, <0.11.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-pebble = [{ wally = "wally#alicesaidhi/pebble", version = ">=0.2.0, <0.3.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-vide = [{ wally = "wally#centau/vide", version = ">=0.4.0, <0.5.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-
-[graph."wally#alicesaidhi/pebble@0.1.2 roblox".dependencies]
-vide = ["wally#centau/vide@0.3.1 roblox", "standard"]
-
-[graph."wally#alicesaidhi/pebble@0.1.2 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#alicesaidhi/pebble@0.1.2 roblox".pkg_ref.dependencies]
-vide = [{ wally = "wally#centau/vide", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-
-[graph."wally#alicesaidhi/pebble@0.2.0 roblox".dependencies]
-vide = ["wally#centau/vide@0.4.0 roblox", "standard"]
-
-[graph."wally#alicesaidhi/pebble@0.2.0 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#alicesaidhi/pebble@0.2.0 roblox".pkg_ref.dependencies]
-vide = [{ wally = "wally#centau/vide", version = ">=0.4.0, <0.5.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-
-=======
->>>>>>> 5a2f2bb (.)
 [graph."wally#cayasde/vide-opinionated@0.4.3 roblox"]
 direct = ["vide", { wally = "wally#cayasde/vide-opinionated", version = "^0.4.3", index = "default" }, "standard"]
 
@@ -235,20 +181,6 @@ index_url = "https://github.com/UpliftGames/wally-index"
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
-<<<<<<< HEAD
-[graph."wally#centau/vide@0.4.0 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#data-oriented-house/squash@5.0.0 roblox"]
-direct = ["squash", { wally = "wally#data-oriented-house/squash", version = "^5.0.0", index = "default" }, "standard"]
-
-[graph."wally#data-oriented-house/squash@5.0.0 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-=======
->>>>>>> 5a2f2bb (.)
 [graph."wally#ernisto/rng@1.0.0-rc.3 roblox"]
 direct = ["rng", { wally = "wally#ernisto/rng", version = "^1.0.0-rc.3", index = "default" }, "standard"]
 
@@ -256,10 +188,10 @@ direct = ["rng", { wally = "wally#ernisto/rng", version = "^1.0.0-rc.3", index =
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
-[graph."wally#ldgerrits/quickzone@1.2.0 roblox"]
+[graph."wally#ldgerrits/quickzone@1.3.17 roblox"]
 direct = ["quickzone", { wally = "wally#ldgerrits/quickzone", version = "^1.2.0", index = "default" }, "standard"]
 
-[graph."wally#ldgerrits/quickzone@1.2.0 roblox".pkg_ref]
+[graph."wally#ldgerrits/quickzone@1.3.17 roblox".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
@@ -276,62 +208,3 @@ direct = ["uilabs", { wally = "wally#pepeeltoro41/ui-labs", version = "^2.4.2", 
 [graph."wally#pepeeltoro41/ui-labs@2.4.2 roblox".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
-<<<<<<< HEAD
-
-[graph."wally#ukendio/jecs@0.8.3 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#ukendio/jecs@0.10.4 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#ukendio/jecs@0.11.0 roblox"]
-direct = ["ecs", { wally = "wally#ukendio/jecs", version = "^0.11.0", index = "default" }, "standard"]
-
-[graph."wally#ukendio/jecs@0.11.0 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#yetanotherclown/planck@0.2.0 roblox"]
-direct = ["planck", { wally = "wally#yetanotherclown/planck", version = "^0.2.0", index = "default" }, "standard"]
-
-[graph."wally#yetanotherclown/planck@0.2.0 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#yetanotherclown/planck@0.2.0 roblox".pkg_ref.dependencies]
-Jest = [{ wally = "wally#jsdotlua/jest", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
-JestGlobals = [{ wally = "wally#jsdotlua/jest-globals", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
-
-[graph."wally#yetanotherclown/planck-jabby@0.2.0 roblox"]
-direct = ["planck_jabby", { wally = "wally#yetanotherclown/planck-jabby", version = "^0.2.0", index = "default" }, "standard"]
-
-[graph."wally#yetanotherclown/planck-jabby@0.2.0 roblox".dependencies]
-Jabby = ["wally#alicesaidhi/jabby@0.3.1 roblox", "standard"]
-
-[graph."wally#yetanotherclown/planck-jabby@0.2.0 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#yetanotherclown/planck-jabby@0.2.0 roblox".pkg_ref.dependencies]
-Jabby = [{ wally = "wally#alicesaidhi/jabby", version = ">=0.3.0, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-Jest = [{ wally = "wally#jsdotlua/jest", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
-JestGlobals = [{ wally = "wally#jsdotlua/jest-globals", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
-
-[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox"]
-direct = ["planck_runservice", { wally = "wally#yetanotherclown/planck-runservice", version = "^0.2.0", index = "default" }, "standard"]
-
-[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox".dependencies]
-Planck = ["wally#yetanotherclown/planck@0.2.0 roblox", "standard"]
-
-[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#yetanotherclown/planck-runservice@0.2.0 roblox".pkg_ref.dependencies]
-Jest = [{ wally = "wally#jsdotlua/jest", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
-JestGlobals = [{ wally = "wally#jsdotlua/jest-globals", version = ">=3.6.1-rc.2, <4.0.0", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
-Planck = [{ wally = "wally#yetanotherclown/planck", version = ">=0.2.0-rc.1, <0.3.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
-=======
->>>>>>> 5a2f2bb (.)
