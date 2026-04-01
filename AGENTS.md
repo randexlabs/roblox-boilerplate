@@ -45,6 +45,8 @@ Never use `_G`, `shared`
 
 Prefer the simplest solution that preserves typing and passes `mise check`.
 Prefer inline variables and explicit `if-then-else` over trivial helper functions.
+Prefer alias variables for repeated or meaningful values instead of using raw expressions directly in control flow.
+Prefer naming a decision once with a local alias and reusing it instead of repeating the source expression throughout the code.
 Do not extract one-off helpers for simple checks, value selection, or obvious branching.
 Extract a function only for reuse, real duplication reduction, or to clarify a non-obvious rule.
 Do not add defensive abstractions, `pcall`, or runtime helpers without proven need.
