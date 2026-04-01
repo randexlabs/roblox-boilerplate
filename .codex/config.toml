@@ -12,3 +12,8 @@ project_doc_max_bytes = 32768
 
 [analytics]
 enabled = false
+
+[mcp_servers.robloxstudio]
+enabled = true
+command = "cmd.exe"
+args = ["/c", '%LOCALAPPDATA%\\Roblox\\mcp.bat']
