@@ -1,0 +1,14 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+review_model = "gpt-5.4"
+
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+
+web_search = "live"
+personality = "pragmatic"
+file_opener = "vscode"
+project_doc_max_bytes = 32768
+
+[analytics]
+enabled = false
