@@ -46,9 +46,9 @@ Keep `BREAKING CHANGE:` uppercase.
 
 ## Apply repository conventions
 
-Use the scope `skills` when the commit primarily changes files under `.agents/skills`.
+Use the scope `skills` when the commit primarily changes files under `.codex/skills`.
 Use `docs(agents)` for commits that change `AGENTS.md`.
-Prefer `docs(agents)` if the same commit changes both `.agents/skills` and `AGENTS.md`.
+Prefer `docs(agents)` if the same commit changes both `.codex/skills` and `AGENTS.md`.
 
 ## Load references only when needed
 
