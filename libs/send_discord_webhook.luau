@@ -1,5 +1,3 @@
-local HttpService = game:GetService 'HttpService'
-
 export type embed_field = {
 	name: string,
 	value: string,
@@ -75,18 +73,41 @@ export type traits = {
 	payload: webhook_payload,
 }
 
-return function(traits: traits): (boolean, string?)
+local is_roblox = if game then true else false
+
+local function send_with_roblox(traits: traits): (boolean, string?)
+	local http_service = game:GetService 'HttpService'
 	local ok, result = pcall(function()
-		return HttpService:PostAsync(
+		return http_service:PostAsync(
 			traits.url,
-			HttpService:JSONEncode(traits.payload),
+			http_service:JSONEncode(traits.payload),
 			Enum.HttpContentType.ApplicationJson
 		)
 	end)
 
-	if ok then
-		return true, result
-	else
-		return false, result
-	end
+	if ok then return true, result end
+	return false, result
+end
+
+local function send_with_lune(traits: traits): (boolean, string?)
+	local net = require '@lune/net'
+	local serde = require '@lune/serde'
+
+	local request: net.FetchParams = {
+		url = traits.url,
+		method = 'POST',
+		headers = {
+			['Content-Type'] = 'application/json',
+		} :: net.HttpHeaderMap,
+		body = serde.encode('json', traits.payload),
+	}
+
+	local response = net.request(request)
+	if response.ok then return true, response.body end
+	return false, `{response.statusCode} {response.statusMessage}`
+end
+
+return function(traits: traits): (boolean, string?)
+	if is_roblox then return send_with_roblox(traits) end
+	return send_with_lune(traits)
 end
