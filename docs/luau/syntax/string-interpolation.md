@@ -18,4 +18,3 @@ print(`Bob has {count} apple(s)!`)
 local combos = {2, 7, 1, 8, 5}
 print(`The lock combination is {table.concat(combos)}.`)
 ```
-

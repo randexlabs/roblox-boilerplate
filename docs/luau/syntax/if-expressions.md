@@ -22,4 +22,3 @@ Example:
 ```luau
 local sign = if x < 0 then -1 elseif x > 0 then 1 else 0
 ```
-

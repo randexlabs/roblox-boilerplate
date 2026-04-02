@@ -13,4 +13,3 @@
 
 - A watchdog enforces a per-script time budget (e.g. “10 seconds in Studio” style setups).
 - Shutdown sequences can interrupt all scripts after a grace period.
-

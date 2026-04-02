@@ -7,4 +7,3 @@
 - `codes`
 - `len`
 - `offset`
-

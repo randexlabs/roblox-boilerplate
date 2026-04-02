@@ -23,4 +23,3 @@ Luau supports:
 Notes:
 
 - Luau has a single number type: IEEE754 double precision. Integers > `2^53` lose precision.
-

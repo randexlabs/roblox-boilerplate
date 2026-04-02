@@ -19,4 +19,3 @@ This writes a profiler dump (often `profile.out`) that can be converted into an 
 - Bar width roughly correlates with time spent.
 - Nesting follows the call stack.
 - Anonymous closures may show source locations without names; prefer named `local function f()` for clearer labels.
-

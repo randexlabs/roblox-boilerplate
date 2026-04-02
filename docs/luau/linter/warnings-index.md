@@ -30,4 +30,3 @@ This is a compact index of linter warning names and numeric codes.
 - CommentDirective (26)
 - IntegerParsing (27)
 - ComparisonPrecedence (28)
-

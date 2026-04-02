@@ -13,4 +13,3 @@
 ## Where to go next
 
 - `performance/profiling.md` to find bottlenecks before tuning.
-

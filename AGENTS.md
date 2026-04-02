@@ -26,6 +26,7 @@ When creating commits, follow Conventional Commits through that skill.
 
 After completing changes to `*.luau` files, run `mise check` and keep fixing issues and rerunning it recursively until it completes with no errors.
 Never claim the task is finished while `mise check` still reports errors.
+After editing any `*.md`, `*.json`, or `*.toml` file, run `prettier --write .`.
 
 ## Functions
 

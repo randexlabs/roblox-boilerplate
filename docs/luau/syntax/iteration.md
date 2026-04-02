@@ -21,4 +21,3 @@ end
 local obj = { items = {1, 4, 9} }
 setmetatable(obj, { __iter = function(o) return next, o.items end })
 ```
-

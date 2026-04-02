@@ -35,4 +35,3 @@ Simple is not the same as “quick hack”. KISS still expects:
 ## Quick check
 
 Could a new teammate understand this in a single read without context? If not, simplify.
-

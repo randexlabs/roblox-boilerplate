@@ -36,4 +36,3 @@ Aliases are file-local unless exported:
 ```luau
 export type Point = { x: number, y: number }
 ```
-

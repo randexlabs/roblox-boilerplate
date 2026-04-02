@@ -7,4 +7,3 @@
 - `concat`
 - `freeze`
 - `isfrozen`
-

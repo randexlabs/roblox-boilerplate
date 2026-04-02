@@ -13,11 +13,13 @@ import "./external"
 import "./external" as "Common"
 
 ```
+
 ```
 type ExternType = external.Type
 type CommonType = Common.Type
 
 ```
+
 Usage in Luau code
 Since imports act as scopes, the same rules apply to them as well.
 
@@ -26,6 +28,7 @@ local Blink = require(PATH_TO_BLINK)
 Blink.external.Event.FireAll(0)
 
 ```
+
 ```
 local Number: Blink.Common_Type = 0
 

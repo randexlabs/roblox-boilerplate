@@ -2,7 +2,7 @@
 
 ## What it means
 
-DRY is about reducing duplicated *knowledge* in a codebase. Repeating the same idea in multiple places makes changes risky and inconsistent.
+DRY is about reducing duplicated _knowledge_ in a codebase. Repeating the same idea in multiple places makes changes risky and inconsistent.
 
 ## When to apply
 
@@ -33,4 +33,3 @@ DRY is about reducing duplicated *knowledge* in a codebase. Repeating the same i
 ## Quick check
 
 If you can explain the rule once, you should usually implement it once.
-

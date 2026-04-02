@@ -59,12 +59,14 @@ Data: (u8, u16, u32)
 
 Usage in Luau
 Firing an Event
+
 ```
 client.luau
 blink.MyEvent.Fire(5)
 blink.MyTypePackEvent.Fire(2^8 - 1, 2^16 - 1, 2^32 - 1)
 
 ```
+
 ```
 server.luau
 blink.MyEvent.Fire(Player, 5)
@@ -73,7 +75,9 @@ blink.MyEvent.FireList({Player}, 5)
 blink.MyEvent.FireExcept(Player, 5)
 
 ```
+
 Listening to an Event
+
 ```
 client.luau
 blink.MyEvent.On(function(Value)
@@ -112,17 +116,20 @@ local Disconnect = blink.MyEvent.On(...)
 Disconnect()
 
 Iterating an Event (Polling)
+
 ```
 client.luau
 ```
 
 for Index, Value in MyEvent.Iter() do
+
 ```
 -- ...
 ```
 
 end
 for Index, Foo, Bar, FooBar in MyTypePackEvent.Iter() do
+
 ```
 -- ...
 ```
@@ -134,15 +141,16 @@ server.luau
 ```
 
 for Index, Player, Value in MyEvent.Iter() do
+
 ```
 -- ...
 ```
 
 end
 for Index, Player, Foo, Bar, FooBar in MyTypePackEvent.Iter() do
+
 ```
 -- ...
 ```
 
 end
-

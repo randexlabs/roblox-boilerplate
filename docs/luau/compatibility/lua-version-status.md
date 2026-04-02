@@ -14,4 +14,3 @@ The upstream compatibility matrix is long. For local use, prefer:
 ## Practical note
 
 If you’re porting Lua code, test the specific feature in your target embedder: some features vary by environment and configuration.
-

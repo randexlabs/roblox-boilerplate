@@ -27,4 +27,3 @@ Notes:
 ## Type packs (variadics / multi-return)
 
 Luau models variadics and multi-return with “type packs” (lists of types), e.g. generic packs like `U...`.
-

@@ -43,6 +43,7 @@ local Blink = require(PATH_TO_BLINK)
 Blink.ExampleScope.InScopeEvent.FireAll(0)
 
 ```
+
 ```
 local Number: Blink.ExampleScope_InScopeType = 0
 

@@ -12,4 +12,3 @@
 ## Practical implication
 
 - Prefer explicit resource management in host APIs instead of relying on script-level finalizers.
-

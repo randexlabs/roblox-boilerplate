@@ -11,4 +11,3 @@
 - Equality can call `__eq` even when `rawequal` holds (helps with NaN checking and consistent metamethod behavior).
 - Some closure expressions may reuse closures in specific scenarios for efficiency (affects object identity, not call semantics).
 - Some time APIs may use UTC conventions (depending on embedder).
-

@@ -15,4 +15,3 @@
 
 - `overview/strictness-modes.md` for file-level type checking directives.
 - `compatibility/behavior-differences.md` for behavioral differences vs Lua.
-

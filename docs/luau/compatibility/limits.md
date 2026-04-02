@@ -15,4 +15,3 @@
 - Stack depth: 20000 Lua calls per thread; 200 C calls per thread
 
 These are subject to change; avoid relying on edge-of-limit behavior.
-

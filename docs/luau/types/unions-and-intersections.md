@@ -23,4 +23,3 @@ type Result<T, E> = Ok<T> | Err<E>
 
 - Combines requirements (useful for “merged” table shapes).
 - Also used to represent overloaded function signatures (builtins).
-

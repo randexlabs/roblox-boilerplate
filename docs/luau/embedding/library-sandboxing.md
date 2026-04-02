@@ -16,4 +16,3 @@ Many embedders remove or restrict parts of the standard library to prevent file/
 ## Notes
 
 - `getfenv/setfenv` can create isolation challenges by enabling global injection into other scripts’ environments.
-

@@ -20,4 +20,3 @@
 ## Notes on scope
 
 This reference is intentionally compact (function-name level) for quick lookup.
-

@@ -105,4 +105,3 @@ PropList ::= TableProp [fieldsep PropList] | TableIndexer {fieldsep TableProp}
 TableType ::= '{' Type '}' | '{' [PropList] '}'
 FunctionType ::= ['<' GenericTypeList '>'] '(' [BoundTypeList] ')' '->' ReturnType
 ```
-

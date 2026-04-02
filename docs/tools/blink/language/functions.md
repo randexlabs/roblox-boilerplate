@@ -32,23 +32,30 @@ For more information take a look at the data field for events.
 Usage in Luau
 Invoking a Function
 client-coroutine.luau
+
 ```
 local Value = blink.MyFunction.Invoke(5)
 
 ```
+
 client-future.luau
+
 ```
 local Future = blink.MyFunction.Invoke(5)
 local Value = Future:Await()
 
 ```
+
 client-promise.luau
+
 ```
 local Promise = blink.MyFunction.Invoke(5)
 local Value = Promise:await()
 
 ```
+
 Listening to a Function
+
 ```
 server.luau
 blink.MyFunction.On(function(Player, Value)

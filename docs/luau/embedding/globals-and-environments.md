@@ -13,4 +13,3 @@ Result:
 
 - Scripts can assign globals (to their own environment).
 - Scripts can’t mutate builtin globals/libraries in-place.
-

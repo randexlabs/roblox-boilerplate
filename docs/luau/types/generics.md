@@ -26,4 +26,3 @@ end
 ```
 
 Note: function generics don’t support defaults.
-

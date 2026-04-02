@@ -18,4 +18,3 @@ At the top of a file:
 - Disable all lints: `--!nolint`
 
 Note: `--!nolint` does not disable type checking; `--!nocheck` is separate.
-

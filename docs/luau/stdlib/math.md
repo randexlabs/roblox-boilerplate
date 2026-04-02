@@ -35,4 +35,3 @@
 - `sqrt`
 - `tan`
 - `tanh`
-

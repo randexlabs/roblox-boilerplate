@@ -18,4 +18,3 @@ Place one of these at the top of a Luau file:
 - Use `--!strict` for library code where you want early bug detection and stable APIs.
 - Use `--!nonstrict` for incremental migration or scripts with highly dynamic behavior.
 - Use `--!nocheck` only as a last resort; it removes most static feedback.
-

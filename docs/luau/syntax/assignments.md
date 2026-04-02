@@ -24,4 +24,3 @@ function foo() return 2 end
 -- evaluates foo() once
 a[foo()] += 1
 ```
-

@@ -16,4 +16,3 @@ Cyclic require graphs can confuse the checker. A common escape hatch is to cast 
 ```luau
 local myModule = require(MyModule) :: any
 ```
-

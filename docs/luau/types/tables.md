@@ -21,4 +21,3 @@ When a parameter has no useful annotation and is used as a table, Luau infers a 
 ## Indexers (array-like tables)
 
 Array-like tables can be written concisely as `{T}` (equivalent to `{ [number]: T }`).
-

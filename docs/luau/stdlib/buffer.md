@@ -26,4 +26,3 @@
 - `writeu16`
 - `writeu32`
 - `writeu8`
-

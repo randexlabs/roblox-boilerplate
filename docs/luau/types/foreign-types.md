@@ -11,4 +11,3 @@
 - Enums can be exposed via an `Enum` type library (e.g. `Enum.Material`).
 - Host APIs like `Instance.new` / `game:GetService` can be modeled for return types.
 - `IsA` can be used to refine class types.
-

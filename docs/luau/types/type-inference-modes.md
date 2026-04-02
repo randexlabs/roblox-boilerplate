@@ -15,4 +15,3 @@
 1. Start in `--!nonstrict`.
 2. Add annotations for key public APIs and data shapes.
 3. Move to `--!strict` once a module’s surface is stable.
-

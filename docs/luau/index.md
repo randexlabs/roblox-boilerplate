@@ -55,4 +55,3 @@ This is a modularized set of Luau notes optimized for quick lookup.
 ## Reference
 
 - `reference/syntax-grammar.md`: EBNF grammar for syntax + type grammar
-
