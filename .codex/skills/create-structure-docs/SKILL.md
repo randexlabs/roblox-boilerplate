@@ -20,6 +20,16 @@ Do not copy raw files verbatim when they contain setup noise, marketing text, du
 
 Preserve technical concepts, APIs, workflows, constraints, schemas, and behavior notes.
 Remove boilerplate setup prose, promotional language, repeated examples, and content that does not help future task execution.
+Never discard API reference details, signatures, annotations, parameter docs, return docs, or type information if the source contains them.
+If the source mixes tutorials and API reference, split them into separate files instead of compressing the API into prose.
+When in doubt, bias toward preserving exact API shape over aggressive summarization.
+
+## Preserve executable reference value
+
+Assume future work may depend on exact signatures and annotations, not just conceptual summaries.
+If a document is used as a tool or library reference, preserve enough detail that the assistant can answer API questions without guessing.
+Prefer dedicated `api/` pages or similarly explicit reference files for modules, classes, commands, or functions.
+Do not replace structured API docs with only high-level descriptions.
 
 ## Optimize for selective loading
 
