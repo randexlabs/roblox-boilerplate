@@ -46,7 +46,7 @@ They must describe how to use the domain without reading the implementation.
 Keep them as short as possible and list only public API signatures and one-line role labels when needed.
 
 If you change a public function signature or return type, you must update that domain's `README.md` before finishing.
-If you add or update a domain, you must update `src/README.md` and the owning service `README.md` before finishing.
+If you add or update a domain, you must update the owning service `README.md` before finishing.
 
 ## Functions
 
