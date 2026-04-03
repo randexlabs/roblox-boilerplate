@@ -17,6 +17,11 @@ If the documentation defines a convention or workflow relevant to the task, foll
 For project architecture guidance, read `docs/architecture/index.md`.
 Use it when working on domain boundaries, ownership, dependency injection, or abstraction decisions.
 
+## Security
+
+For security-sensitive work, read `SECURITY.md`.
+Use it when touching server authority, persistence/session flows, Lune tooling with filesystem/process/network access, CI/release behavior, or dependency/update surfaces.
+
 ## Git
 
 Do not create commits unless explicitly asked.
