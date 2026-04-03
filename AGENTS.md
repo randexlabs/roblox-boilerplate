@@ -33,6 +33,19 @@ After completing changes to `*.luau` files, run `mise check` and keep fixing iss
 Never claim the task is finished while `mise check` still reports errors.
 After editing any `*.md`, `*.json`, or `*.toml` file, run `prettier --write .`.
 
+## Testing
+
+Follow TDD by default for new logic:
+
+- create the `.spec.luau` file before implementing the logic
+- cover the happy path and edge cases
+- consider implementation complete only when specs pass
+
+Use Re-Test as the test runner.
+See `docs/tools/re-test/index.md`.
+
+Test organization under `tests/` must mirror the source structure under `src/`.
+
 ## Documentation
 
 Every top-level service under `src/` must have a `README.md`.

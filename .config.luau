@@ -46,6 +46,6 @@ type Config = { luau: LuauConfig? }
 return {
 	luau = {
 		languagemode = 'strict',
-		aliases = { lune = '~/.lune/.typedefs/0.10.4/' },
+		aliases = { lune = '~/.lune/.typedefs/0.10.4/', src = 'src' },
 	},
 } :: Config
