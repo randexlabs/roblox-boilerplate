@@ -1,3 +1,3 @@
 # ServerScriptService Domains
 
-- None yet.
+- `profiles`: owns player profile loading, caching, waiting, and public profile access.
