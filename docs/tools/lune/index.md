@@ -8,5 +8,5 @@ Curated reference for the Lune runtime used in this repo.
 - `editor-setup.md`: `lune setup`, `.luaurc`, editor integration
 - `modules-and-aliases.md`: `require` rules, `init.luau`, `@self`, alias config
 - `standard-library.md`: high-value built-in modules used in repo scripts
-- `api/index.md`: local API reference pages with signatures and types
+- `api/index.md`: local API reference pages with signatures, types, and Roblox test mocking
 - `security.md`: trust and sandboxing notes for running scripts

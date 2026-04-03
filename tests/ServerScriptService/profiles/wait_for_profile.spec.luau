@@ -1,11 +1,12 @@
 local create_cache = require("@src/ServerScriptService/profiles/cache")
 local create_wait_for_profile = require("@src/ServerScriptService/profiles/wait_for_profile")
+local test_player = require("./test_player")
 
 local run = {}
 
 function run.should_return_cached_profile_immediately()
 	local profile_cache = create_cache()
-	local player = {} :: any
+	local player = test_player.create_test_player()
 	local player_profile = {
 		Data = {},
 	} :: any
@@ -29,7 +30,7 @@ end
 
 function run.should_return_nil_when_player_is_inactive()
 	local profile_cache = create_cache()
-	local player = {} :: any
+	local player = test_player.create_test_player()
 	local wait_call_count = 0
 
 	local wait_for_profile_async = create_wait_for_profile({
@@ -48,7 +49,7 @@ end
 
 function run.should_poll_until_profile_is_available()
 	local profile_cache = create_cache()
-	local player = {} :: any
+	local player = test_player.create_test_player()
 	local player_profile = {
 		Data = {
 			level = 5,

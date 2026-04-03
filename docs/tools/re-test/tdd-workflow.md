@@ -22,3 +22,11 @@ Example:
 
 - `src/ServerScriptService/profiles/init.luau`
 - `tests/ServerScriptService/profiles/init.spec.luau`
+
+## Roblox Instance Mocks
+
+When a test needs Roblox instances, prefer `@lune/roblox` over handwritten `:: any` tables.
+
+Use plain table doubles only for non-Roblox collaborators such as stores, adapters, and pure contracts.
+
+See `docs/tools/lune/api/roblox.md`.
