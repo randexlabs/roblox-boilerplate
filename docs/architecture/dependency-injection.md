@@ -16,6 +16,7 @@ Injectable dependencies make it easier to exercise code outside Roblox Studio. T
 - Keep `game:GetService`, package `require`s, time, waiting, and player side effects in a small composition root.
 - Pass caches, stores, and policy functions into behavior modules instead of reading globals or singleton modules directly.
 - Prefer extra wiring over hidden dependencies when the trade-off is clearer ownership and easier tests.
+- Keep runtime-bound package types in `runtime_types.luau` and portable domain types in `types.luau`.
 
 ## Domain file convention
 

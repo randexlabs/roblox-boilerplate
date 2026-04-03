@@ -48,6 +48,20 @@ Keep them as short as possible and list only public API signatures and one-line 
 If you change a public function signature or return type, you must update that domain's `README.md` before finishing.
 If you add or update a domain, you must update the owning service `README.md` before finishing.
 
+## Requires
+
+Prefer require-by-string for local module-to-module dependencies inside a domain.
+Use normal Roblox-style `require` with services or DataModel aliases only at the runtime integration boundary where the domain is composed and Roblox dependencies are injected.
+Do not pull Roblox runtime dependencies directly into otherwise portable domain modules when they can be passed in through dependency injection instead.
+
+When a domain needs both portable and runtime-bound type definitions:
+
+- `types.luau`: runtime-agnostic domain types only
+- `runtime_types.luau`: Roblox/package-bound types used only at the runtime integration boundary
+
+Portable domain modules should depend on `types.luau`, not `runtime_types.luau`.
+If a module depends on `runtime_types.luau`, that module is part of the runtime integration boundary and should stay narrow.
+
 ## Functions
 
 Every function must prioritize Early Returns.

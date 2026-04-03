@@ -1,8 +1,33 @@
-local ProfileStore = require(script.Parent.Parent.serverpkg.profilestore)
+export type JsonValue =
+	nil
+	| boolean
+	| buffer
+	| number
+	| string
+	| { [string]: JsonValue }
+	| { JsonValue }
 
-export type ProfileData = { [string]: ProfileStore.JSONAcceptable }
-export type PlayerProfile = ProfileStore.Profile<ProfileData>
-export type PlayerStore = ProfileStore.ProfileStore<ProfileData>
+export type ProfileData = { [string]: JsonValue }
+
+export type ProfileSessionEndSignal = {
+	Connect: (self: ProfileSessionEndSignal, callback: () -> ()) -> (),
+}
+
+export type PlayerProfile = {
+	Data: ProfileData,
+	AddUserId: (self: PlayerProfile, user_id: number) -> (),
+	Reconcile: (self: PlayerProfile) -> (),
+	EndSession: (self: PlayerProfile) -> (),
+	OnSessionEnd: ProfileSessionEndSignal,
+}
+
+export type PlayerStore = {
+	StartSessionAsync: (
+		self: PlayerStore,
+		profile_key: string,
+		config: { Cancel: () -> boolean }
+	) -> PlayerProfile?,
+}
 
 export type ProfileCache = {
 	get_profile: (player: Player) -> PlayerProfile?,
@@ -39,12 +64,6 @@ export type PlayerSessionDependencies = {
 	is_player_active: (player: Player) -> boolean,
 	kick_player_with_message: (player: Player, message: string) -> (),
 	profile_store: PlayerStore,
-}
-
-export type StoreConfig = {
-	profile_store_library: ProfileStore.ProfileStoreModule,
-	profile_store_name: string,
-	default_profile_data: ProfileData,
 }
 
 export type ProfilesRuntime = {

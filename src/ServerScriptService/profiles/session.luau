@@ -1,4 +1,4 @@
-local types = require(script.Parent.types)
+local types = require './types'
 
 export type ProfileCache = types.ProfileCache
 export type PlayerSessionService = types.PlayerSessionService

@@ -1,5 +1,5 @@
-local runtime = require(script.runtime)
-local types = require(script.types)
+local runtime = require '@self/runtime'
+local types = require '@self/types'
 
 export type ProfileData = types.ProfileData
 export type PlayerProfile = types.PlayerProfile

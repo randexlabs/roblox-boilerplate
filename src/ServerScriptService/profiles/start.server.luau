@@ -1,6 +1,6 @@
 local Players = game:GetService 'Players'
 
-local runtime = require(script.Parent.runtime)
+local runtime = require './runtime'
 
 local player_session_service = runtime.session
 
