@@ -57,6 +57,24 @@ Do not extract one-off helpers for simple checks, value selection, or obvious br
 Extract a function only for reuse, real duplication reduction, or to clarify a non-obvious rule.
 Do not add defensive abstractions, `pcall`, or runtime helpers without proven need.
 
+## Naming
+
+Use Action-Entity-Modifier naming for variables, functions, and constants: `[Action][Entity][Modifier]`.
+Examples: `update_profile_async`, `is_inventory_slot_empty`, `get_currency_multiplier_total`.
+
+Names must stay specific enough for reliable `Ctrl+F`.
+Avoid generic identifiers like `user`, `data`, `info`, `item`, `val`, `res`, `result`, `temp`, `obj`, `table`, `v`, or `i`.
+Prefer names like `active_session_user`, `rarity_probability_table`, and `inventory_item_metadata`.
+
+Inside a clear domain, avoid repeating the domain name in local symbols when the file path already provides that context.
+Repeat the domain name only when a symbol crosses boundaries and would lose context without it.
+Prefer names specific enough for search without echoing the file path.
+
+Boolean names must start with `is`, `has`, `can`, or `should`.
+List values should end with `List` or `Collection`.
+Result values should use `[Action][Entity]Outcome`.
+Include measurement units in names such as `cooldown_seconds`, `walkspeed_studs`, and `debounce_milliseconds`.
+
 ## Control Flow
 
 Prefer explicit `if-then-else` expressions over boolean operator shortcuts when selecting values or branching behavior.
