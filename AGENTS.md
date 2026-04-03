@@ -12,6 +12,11 @@ After completing a task:
 Before performing repo-specific tasks, first check `docs/index.md` and follow the relevant indexes to verify whether the repository documents conventions, workflows, or constraints that apply to the task.
 If the documentation defines a convention or workflow relevant to the task, follow it.
 
+## Architecture
+
+For project architecture guidance, read `docs/architecture/index.md`.
+Use it when working on domain boundaries, ownership, dependency injection, or abstraction decisions.
+
 ## Git
 
 Do not create commits unless explicitly asked.
@@ -57,6 +62,7 @@ Do not add defensive abstractions, `pcall`, or runtime helpers without proven ne
 Prefer explicit `if-then-else` expressions over boolean operator shortcuts when selecting values or branching behavior.
 Prefer `local value = if condition then a else b` over `local value = condition and a or b`.
 Use boolean operators for boolean logic, not as a substitute for control flow.
+Avoid redundant conditions and unnecessary nesting when the same behavior can be expressed with flatter early returns.
 
 ## Luau strictness
 
