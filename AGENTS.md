@@ -33,6 +33,21 @@ After completing changes to `*.luau` files, run `mise check` and keep fixing iss
 Never claim the task is finished while `mise check` still reports errors.
 After editing any `*.md`, `*.json`, or `*.toml` file, run `prettier --write .`.
 
+## Documentation
+
+Every top-level service under `src/` must have a `README.md`.
+Each service `README.md` must list its domains and give one short sentence for each domain's responsibility.
+
+Every domain folder must contain a `README.md`.
+That file is the ultra-concise API manual for the domain.
+
+Domain `README.md` files are for AI consumption.
+They must describe how to use the domain without reading the implementation.
+Keep them as short as possible and list only public API signatures and one-line role labels when needed.
+
+If you change a public function signature or return type, you must update that domain's `README.md` before finishing.
+If you add or update a domain, you must update `src/README.md` and the owning service `README.md` before finishing.
+
 ## Functions
 
 Every function must prioritize Early Returns.
