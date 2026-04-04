@@ -32,12 +32,6 @@ When a commit primarily changes files under `.codex/skills`, use the scope `skil
 If `AGENTS.md` is part of the same commit, prefer `docs(agents)` over `docs(skills)`.
 When creating commits, follow Conventional Commits through that skill.
 
-## Shell
-
-Assume the preferred shell is `pwsh` `7.6.0-preview.6` unless the user says otherwise.
-Because this host may still invoke Windows PowerShell 5.1 by default, explicitly call `C:\Program Files\PowerShell\7-preview\pwsh.exe` when running commands that should use the user's shell version.
-Prefer commands that are valid in PowerShell 7+.
-
 ## Verification
 
 After completing changes to `*.luau` files, run `mise check` and keep fixing issues and rerunning it recursively until it completes with no errors.
