@@ -1,8 +1,8 @@
 local create_cache = require '@src/ServerScriptService/profiles/cache'
 local create_session_service =
 	require '@src/ServerScriptService/profiles/session'
-local types = require '@src/ServerScriptService/profiles/types'
 local test_player = require './test_player'
+local types = require '@src/ServerScriptService/profiles/types'
 
 local run = {}
 
@@ -85,14 +85,11 @@ function run.should_end_session_without_caching_when_player_becomes_inactive()
 	local end_session_call_count = 0
 	local player_profile: types.PlayerProfile = {
 		Data = {},
-		AddUserId = function(_self: types.PlayerProfile, _user_id: number)
-		end,
+		AddUserId = function(_self: types.PlayerProfile, _user_id: number) end,
 		OnSessionEnd = {
-			Connect = function(_self, _callback: () -> ())
-			end,
+			Connect = function(_self, _callback: () -> ()) end,
 		},
-		Reconcile = function(_self: types.PlayerProfile)
-		end,
+		Reconcile = function(_self: types.PlayerProfile) end,
 		EndSession = function(_self: types.PlayerProfile)
 			end_session_call_count += 1
 		end,
