@@ -34,7 +34,8 @@ When creating commits, follow Conventional Commits through that skill.
 
 ## Shell
 
-Assume the default shell is `pwsh` `7.6.0-preview.6` unless the user says otherwise.
+Assume the preferred shell is `pwsh` `7.6.0-preview.6` unless the user says otherwise.
+Because this host may still invoke Windows PowerShell 5.1 by default, explicitly call `C:\Program Files\PowerShell\7-preview\pwsh.exe` when running commands that should use the user's shell version.
 Prefer commands that are valid in PowerShell 7+.
 
 ## Verification
