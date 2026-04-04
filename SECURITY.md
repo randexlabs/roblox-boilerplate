@@ -1,32 +1,27 @@
 # Security Policy
 
-## Scope
+## Supported Versions
 
-This repository includes:
+Security fixes target the active development line on `main`.
 
-- Roblox server and client code under `src/`
-- Lune-based tooling and scripts
-- local test infrastructure
-- third-party packages resolved through `pesde` and Wally
+Older commits, tags, or forks are not guaranteed to receive security patches.
 
-Security issues are in scope when they can affect confidentiality, integrity, or availability of:
+## Reporting a Vulnerability
 
-- player data
-- server authority
-- developer machines running local tooling
-- CI or release workflows
+Do not report vulnerabilities through public issues or public pull requests.
 
-## Sensitive Surfaces
+Report privately through GitHub Security Advisories if private reporting is enabled for this repository.
+If private reporting is not enabled, contact the maintainer through a private channel before disclosure.
 
-Treat these areas as security-sensitive by default:
+Include:
 
-- `ServerScriptService` runtime code
-- profile/session/data persistence flows
-- Lune scripts with filesystem, process, or network access
-- CLI tooling such as `re-test`
-- dependency resolution, package updates, and generated scripts
+- affected file, subsystem, or dependency
+- impact
+- reproduction steps
+- required permissions or assumptions
+- suggested fix if you have one
 
-## Out Of Scope
+## Out of Scope
 
 The following are usually not security vulnerabilities by themselves:
 
@@ -35,28 +30,8 @@ The following are usually not security vulnerabilities by themselves:
 - editor-only configuration problems
 - crashes in local-only dev scripts that do not create privilege, data, or integrity risk
 
-## Reporting
-
-Do not report vulnerabilities through public issues or public pull requests.
-
-Report privately to the maintainer through a private GitHub security report if available.
-If that is not available, contact the maintainer directly through a private channel before disclosure.
-
-Include:
-
-- affected file or subsystem
-- impact
-- reproduction steps
-- assumptions or required permissions
-- suggested fix if you have one
-
-## Disclosure
+## Disclosure Policy
 
 - prefer coordinated disclosure
-- avoid publishing proof-of-concept exploits before a fix is available
-- keep reports private until the maintainer confirms disclosure timing
-
-## Supported Fixes
-
-Security fixes are expected to target the active development line first.
-Older revisions may not receive patches unless the maintainer explicitly decides to backport them.
+- keep reports private until a fix or mitigation is available
+- avoid publishing proof-of-concept exploits before disclosure is approved
