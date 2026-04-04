@@ -31,6 +31,8 @@ For commit-message tasks, use the `git-commit` skill at `.codex/skills/git-commi
 When a commit primarily changes files under `.codex/skills`, use the scope `skills`.
 If `AGENTS.md` is part of the same commit, prefer `docs(agents)` over `docs(skills)`.
 When creating commits, follow Conventional Commits through that skill.
+Never bypass pre-commit hooks.
+In this environment, run `git commit` with escalated permissions so hooks can execute outside the sandbox.
 
 ## Verification
 
