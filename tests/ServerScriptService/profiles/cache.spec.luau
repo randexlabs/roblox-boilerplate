@@ -1,5 +1,5 @@
-local create_cache = require("@src/ServerScriptService/profiles/cache")
-local test_player = require("./test_player")
+local create_cache = require '@src/ServerScriptService/profiles/cache'
+local test_player = require './test_player'
 
 local run = {}
 
@@ -21,9 +21,12 @@ function run.should_delete_profile()
 	local profile_cache = create_cache()
 	local player = test_player.create_test_player()
 
-	profile_cache.set_profile(player, {
-		Data = {},
-	} :: any)
+	profile_cache.set_profile(
+		player,
+		{
+			Data = {},
+		} :: any
+	)
 	profile_cache.delete_profile(player)
 
 	assert(profile_cache.get_profile(player) == nil)

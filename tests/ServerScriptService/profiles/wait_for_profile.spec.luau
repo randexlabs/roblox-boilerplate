@@ -1,6 +1,7 @@
-local create_cache = require("@src/ServerScriptService/profiles/cache")
-local create_wait_for_profile = require("@src/ServerScriptService/profiles/wait_for_profile")
-local test_player = require("./test_player")
+local create_cache = require '@src/ServerScriptService/profiles/cache'
+local create_wait_for_profile =
+	require '@src/ServerScriptService/profiles/wait_for_profile'
+local test_player = require './test_player'
 
 local run = {}
 
@@ -14,7 +15,7 @@ function run.should_return_cached_profile_immediately()
 
 	profile_cache.set_profile(player, player_profile)
 
-	local wait_for_profile_async = create_wait_for_profile({
+	local wait_for_profile_async = create_wait_for_profile {
 		profile_cache = profile_cache,
 		is_player_active = function()
 			return true
@@ -22,7 +23,7 @@ function run.should_return_cached_profile_immediately()
 		wait_for_next_profile_poll = function()
 			wait_call_count += 1
 		end,
-	})
+	}
 
 	assert(wait_for_profile_async(player) == player_profile)
 	assert(wait_call_count == 0)
@@ -33,7 +34,7 @@ function run.should_return_nil_when_player_is_inactive()
 	local player = test_player.create_test_player()
 	local wait_call_count = 0
 
-	local wait_for_profile_async = create_wait_for_profile({
+	local wait_for_profile_async = create_wait_for_profile {
 		profile_cache = profile_cache,
 		is_player_active = function()
 			return false
@@ -41,7 +42,7 @@ function run.should_return_nil_when_player_is_inactive()
 		wait_for_next_profile_poll = function()
 			wait_call_count += 1
 		end,
-	})
+	}
 
 	assert(wait_for_profile_async(player) == nil)
 	assert(wait_call_count == 0)
@@ -57,7 +58,7 @@ function run.should_poll_until_profile_is_available()
 	} :: any
 	local wait_call_count = 0
 
-	local wait_for_profile_async = create_wait_for_profile({
+	local wait_for_profile_async = create_wait_for_profile {
 		profile_cache = profile_cache,
 		is_player_active = function()
 			return wait_call_count < 3
@@ -68,7 +69,7 @@ function run.should_poll_until_profile_is_available()
 				profile_cache.set_profile(player, player_profile)
 			end
 		end,
-	})
+	}
 
 	assert(wait_for_profile_async(player) == player_profile)
 	assert(wait_call_count == 2)
