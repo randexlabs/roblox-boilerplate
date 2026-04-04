@@ -1,5 +1,7 @@
 {
+    "languageMode": "strict",
     "aliases": {
-        "src": "./src"
+        "src": "./src",
+        "lune": "~/.lune/.typedefs/0.10.4/"
     }
 }
