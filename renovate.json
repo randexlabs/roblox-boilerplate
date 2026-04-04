@@ -1,0 +1,20 @@
+{
+    "extends": ["config:recommended"],
+    "enabledManagers": ["github-actions", "mise", "npm"],
+    "rangeStrategy": "replace",
+    "prHourlyLimit": 0,
+    "packageRules": [
+        {
+            "matchManagers": ["github-actions"],
+            "groupName": "github-actions"
+        },
+        {
+            "matchManagers": ["mise"],
+            "groupName": "mise-tools"
+        },
+        {
+            "matchManagers": ["npm"],
+            "groupName": "npm"
+        }
+    ]
+}
