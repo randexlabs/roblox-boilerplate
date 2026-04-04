@@ -1,5 +1,18 @@
 {
     "devDependencies": {
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
         "prettier-plugin-toml": "^2.0.6"
+    },
+    "lint-staged": {
+        "*.{md,json,toml,yml,yaml}": [
+            "prettier --write"
+        ],
+        "*.luau": [
+            "mise x -- stylua"
+        ]
+    },
+    "scripts": {
+        "prepare": "husky"
     }
 }
