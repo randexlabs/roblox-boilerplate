@@ -26,6 +26,9 @@ run = ["mise i", "pesde install", "pnpm install", "blink remotes/.blink"]
 [tasks.tests]
 run = "pesde x ernisto/test -- tests"
 
+[tasks.spellcheck]
+run = "pnpm exec cspell lint --no-progress --gitignore --dot ."
+
 [tasks."format"]
 run = "stylua src/"
 

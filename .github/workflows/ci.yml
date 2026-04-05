@@ -28,6 +28,9 @@ jobs:
                     - job_name: Format Prettier
                       run_command: pnpm exec prettier --check .
                       requires_node: true
+                    - job_name: Spellcheck
+                      run_command: pnpm run spellcheck
+                      requires_node: true
                     - job_name: Tests
                       run_command: mise run tests
                       requires_node: false
