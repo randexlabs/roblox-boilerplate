@@ -18,6 +18,10 @@ pesde x ernisto/test -- tests
 
 The structure under `tests/` should mirror the structure under `src/`.
 
+Each domain `README.md` must point to that domain's test path.
+
+That test path is essential reference material for locating the domain coverage and must be used to know where that domain's tests live.
+
 Example:
 
 - `src/ServerScriptService/profiles/init.luau`
