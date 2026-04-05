@@ -24,14 +24,34 @@ jobs:
                 include:
                     - job_name: Format Luau
                       run_command: stylua --check .
+                      requires_node: false
                     - job_name: Format Prettier
-                      run_command: prettier --check .
+                      run_command: pnpm exec prettier --check .
+                      requires_node: true
                     - job_name: Tests
                       run_command: mise run tests
+                      requires_node: false
 
         steps:
             - name: Checkout code
               uses: actions/checkout@v6
+
+            - name: Setup pnpm
+              if: ${{ matrix.requires_node }}
+              uses: pnpm/action-setup@v5
+              with:
+                  version: 10.33.0
+
+            - name: Setup Node.js
+              if: ${{ matrix.requires_node }}
+              uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+                  cache: "pnpm"
+
+            - name: Install dependencies
+              if: ${{ matrix.requires_node }}
+              run: pnpm install --frozen-lockfile
 
             - name: Setup mise
               uses: jdx/mise-action@v4.0.1
