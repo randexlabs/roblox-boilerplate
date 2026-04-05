@@ -96,6 +96,11 @@ Do not comment code that is already clear.
 
 Never use `_G`, `shared`
 
+## State
+
+Prefer plain tables, plain values, and internal non-replicated state for temporary gameplay state.
+Avoid `Attributes`, `Instances`, and `ValueObjects` for temporary state unless there is a concrete replication need that justifies the cost.
+
 ## Simplicity
 
 Prefer the simplest solution that preserves typing and passes `mise check`.
