@@ -11,10 +11,10 @@ return function(dependencies: PlayerSessionDependencies): PlayerSessionService
 	local kick_player_with_message = dependencies.kick_player_with_message
 	local profile_store = dependencies.profile_store
 
-	local function handle_profile_session_end(player: Player)
+	local function handle_profile_session_end(player: Player): ()
 		profile_cache.delete_profile(player)
 
-		if not is_player_active(player) then return end
+		if is_player_active(player) == false then return end
 
 		kick_player_with_message(
 			player,
@@ -25,7 +25,7 @@ return function(dependencies: PlayerSessionDependencies): PlayerSessionService
 	local function configure_profile_session(
 		player: Player,
 		profile: PlayerProfile
-	)
+	): ()
 		profile:AddUserId(player.UserId)
 		profile:Reconcile()
 		profile.OnSessionEnd:Connect(function()
@@ -33,15 +33,16 @@ return function(dependencies: PlayerSessionDependencies): PlayerSessionService
 		end)
 	end
 
-	local function load_profile_async(player: Player)
-		local profile = profile_store:StartSessionAsync(`{player.UserId}`, {
+	local function load_profile_async(player: Player): ()
+		local profile_key = `{player.UserId}`
+		local player_profile = profile_store:StartSessionAsync(profile_key, {
 			Cancel = function()
-				return not is_player_active(player)
+				return is_player_active(player) == false
 			end,
 		})
 
-		if profile == nil then
-			if not is_player_active(player) then return end
+		if player_profile == nil then
+			if is_player_active(player) == false then return end
 
 			kick_player_with_message(
 				player,
@@ -50,21 +51,21 @@ return function(dependencies: PlayerSessionDependencies): PlayerSessionService
 			return
 		end
 
-		configure_profile_session(player, profile)
+		configure_profile_session(player, player_profile)
 
-		if not is_player_active(player) then
-			profile:EndSession()
+		if is_player_active(player) == false then
+			player_profile:EndSession()
 			return
 		end
 
-		profile_cache.set_profile(player, profile)
+		profile_cache.set_profile(player, player_profile)
 	end
 
-	local function unload_profile(player: Player)
-		local profile = profile_cache.get_profile(player)
-		if profile == nil then return end
+	local function unload_profile(player: Player): ()
+		local player_profile = profile_cache.get_profile(player)
+		if player_profile == nil then return end
 
-		profile:EndSession()
+		player_profile:EndSession()
 	end
 
 	return table.freeze {

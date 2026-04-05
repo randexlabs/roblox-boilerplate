@@ -9,19 +9,19 @@ return function(dependencies: ProfilesApiDependencies): ProfilesApi
 	local wait_for_profile_async = dependencies.wait_for_profile_async
 
 	local function get_profile_async(player: Player): types.PlayerProfile?
-		local profile = profile_cache.get_profile(player)
-		if profile ~= nil then return profile end
+		local cached_profile = profile_cache.get_profile(player)
+		if cached_profile ~= nil then return cached_profile end
 
-		if not is_player_active(player) then return nil end
+		if is_player_active(player) == false then return nil end
 
 		return wait_for_profile_async(player)
 	end
 
 	local function get_profile_data_async(player: Player): types.ProfileData?
-		local profile = get_profile_async(player)
-		if profile == nil then return nil end
+		local player_profile = get_profile_async(player)
+		if player_profile == nil then return nil end
 
-		return profile.Data :: types.ProfileData
+		return player_profile.Data :: types.ProfileData
 	end
 
 	return table.freeze {

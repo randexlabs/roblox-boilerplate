@@ -9,19 +9,21 @@ return function(dependencies: WaitForProfileDependencies): WaitForProfile
 	local is_player_active = dependencies.is_player_active
 	local wait_for_next_profile_poll = dependencies.wait_for_next_profile_poll
 
-	return function(player: Player)
-		local profile = profile_cache.get_profile(player)
-		if profile ~= nil then return profile end
+	local function wait_for_profile_async(player: Player): types.PlayerProfile?
+		local cached_profile = profile_cache.get_profile(player)
+		if cached_profile ~= nil then return cached_profile end
 
-		if not is_player_active(player) then return nil end
+		if is_player_active(player) == false then return nil end
 
 		while is_player_active(player) do
-			local next_profile = profile_cache.get_profile(player)
-			if next_profile ~= nil then return next_profile end
+			local available_profile = profile_cache.get_profile(player)
+			if available_profile ~= nil then return available_profile end
 
 			wait_for_next_profile_poll()
 		end
 
 		return nil
 	end
+
+	return wait_for_profile_async
 end
