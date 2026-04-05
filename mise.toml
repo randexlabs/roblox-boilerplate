@@ -11,6 +11,7 @@
 "github:pesde-pkg/pesde" = "0.7.3"
 "github:rojo-rbx/rojo" = "7.6.1"
 prettier = "3.8.1"
+pnpm = "10.33.0"
 python = "3.14.3"
 
 [settings]
@@ -20,7 +21,7 @@ jobs = 8
 github_attestations = false
 
 [tasks."setup"]
-run = ["mise i", "pesde install", "npm install", "blink remotes/.blink"]
+run = ["mise i", "pesde install", "pnpm install", "blink remotes/.blink"]
 
 [tasks.tests]
 run = "pesde x ernisto/test -- tests"

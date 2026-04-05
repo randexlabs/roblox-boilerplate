@@ -14,7 +14,7 @@
         },
         {
             "matchManagers": ["npm"],
-            "groupName": "npm"
+            "groupName": "node-packages"
         }
     ]
 }
