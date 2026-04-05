@@ -15,27 +15,23 @@ env:
     FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-    format_luau:
-        name: Format Luau
+    checks:
+        name: ${{ matrix.job_name }}
         runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - job_name: Format Luau
+                      run_command: stylua --check .
+                    - job_name: Format Prettier
+                      run_command: prettier --check .
+                    - job_name: Tests
+                      run_command: mise run tests
 
         steps:
             - name: Checkout code
               uses: actions/checkout@v6
-
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v5
-              with:
-                  version: 10.33.0
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v6
-              with:
-                  node-version: 24
-                  cache: "pnpm"
-
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
 
             - name: Setup mise
               uses: jdx/mise-action@v4.0.1
@@ -43,67 +39,5 @@ jobs:
                   install: true
                   cache: true
 
-            - name: Check Formatting (StyLua)
-              run: stylua --check .
-
-    format_prettier:
-        name: Format Prettier
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v6
-
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v5
-              with:
-                  version: 10.33.0
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v6
-              with:
-                  node-version: 24
-                  cache: "pnpm"
-
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
-
-            - name: Setup mise
-              uses: jdx/mise-action@v4.0.1
-              with:
-                  install: true
-                  cache: true
-
-            - name: Check Formatting (Prettier)
-              run: prettier --check .
-
-    tests:
-        name: Tests
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v6
-
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v5
-              with:
-                  version: 10.33.0
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v6
-              with:
-                  node-version: 24
-                  cache: "pnpm"
-
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile
-
-            - name: Setup mise
-              uses: jdx/mise-action@v4.0.1
-              with:
-                  install: true
-                  cache: true
-
-            - name: Run Tests
-              run: mise run tests
+            - name: Run check
+              run: ${{ matrix.run_command }}
