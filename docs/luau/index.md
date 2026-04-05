@@ -6,6 +6,7 @@ This is a modularized set of Luau notes optimized for quick lookup.
 
 - `overview/what-is-luau.md`: what Luau is, and where it differs from Lua
 - `overview/strictness-modes.md`: `--!nocheck`, `--!nonstrict`, `--!strict`
+- `guidelines/index.md`: curated Luau coding guidelines; consult when choosing style, typing, requires, asserts, and Roblox-specific patterns
 
 ## Language syntax (Luau additions)
 
