@@ -101,6 +101,14 @@ Never use `_G`, `shared`
 Prefer plain tables, plain values, and internal non-replicated state for temporary gameplay state.
 Avoid `Attributes`, `Instances`, and `ValueObjects` for temporary state unless there is a concrete replication need that justifies the cost.
 
+## Performance
+
+Do not use "premature optimization" as an excuse to ignore obvious hot paths.
+Optimize early when code runs per-frame, scales with player count, affects replication, or directly impacts user-visible latency, stutter, freezes, memory growth, or bandwidth.
+
+Treat CPU time, memory pressure, and replication/bandwidth cost as performance work.
+Do not trade away debuggability, stack traces, or maintainability for trivial micro-optimizations without measured need.
+
 ## Simplicity
 
 Prefer the simplest solution that preserves typing and passes `mise check`.
