@@ -1,7 +1,7 @@
 {
     "packageManager": "pnpm@10.33.0",
     "devDependencies": {
-        "cspell": "^9.7.0",
+        "cspell": "^10.0.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.4.0",
         "prettier-plugin-toml": "^2.0.6"
