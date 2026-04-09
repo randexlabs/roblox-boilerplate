@@ -1,4 +1,4 @@
-# rb
+# roblox-boilerplate
 
 Personal Roblox boilerplate for people who want an opinionated Luau toolchain, typed networking, tests, and a repo that treats Studio as a runtime target instead of the source of truth.
 
@@ -31,7 +31,7 @@ This is a personal boilerplate for Roblox projects that should start from a disc
 The repo assumes:
 
 - code lives in the filesystem first
-- Studio sync is handled by tooling
+- Studio sync is handled by Rojo
 - remotes should be declared, generated, and typed
 - tests should exist alongside gameplay code
 - package boundaries matter
@@ -144,11 +144,7 @@ That matters because repo automation should stay close to the language used by t
 
 `blink` exists here to stop remote contracts from turning into untyped noise.
 
-This repo uses Blink to generate client/server networking code from the definitions in `remotes/.blink`, producing:
-
-- [`remotes/netclient.luau`](/C:/Users/cayasde/Projects/rb/remotes/netclient.luau)
-- [`remotes/netserver.luau`](/C:/Users/cayasde/Projects/rb/remotes/netserver.luau)
-- [`remotes/nettypes.luau`](/C:/Users/cayasde/Projects/rb/remotes/nettypes.luau)
+This repo uses Blink to generate client/server networking code from the definitions in `remotes/.blink`, producing generated Luau outputs under `remotes/`.
 
 That gives you one contract surface instead of duplicated remote assumptions.
 
@@ -157,7 +153,6 @@ That gives you one contract surface instead of duplicated remote assumptions.
 `luau-lsp` is used as actual analysis infrastructure, not editor decoration. The configured lint task depends on:
 
 - generated Roblox defs
-- generated sourcemap
 - platform-aware analysis
 - explicit ignore rules for vendored packages
 
@@ -165,7 +160,7 @@ That is materially better than pretending types exist while never analyzing the 
 
 ### `re-test`
 
-The repo already uses mirrored test structure under [`tests`](/C:/Users/cayasde/Projects/rb/tests), with implemented coverage around the `profiles` domain.
+The repo already uses mirrored test structure under [`tests`](/C:/Users/cayasde/Projects/rb/tests), with coverage expected to follow runtime domains.
 
 The point of `re-test` here is simple: runtime domains should be testable without turning the project into framework theater.
 
@@ -243,6 +238,8 @@ These directories exist because the repo uses package-based workflows:
 - `luau_packages`
 - `lune_packages`
 
+These directories are generated and maintained by `pesde`.
+
 They are support surfaces, not the product. If these folders are bigger than your actual game code forever, the project is stalling.
 
 ## Setup on Windows
@@ -256,10 +253,15 @@ You should already have:
 - Roblox Studio
 
 This repository expects Windows as the primary environment. It does not optimize onboarding for macOS or Linux.
+Other shells are usable, but PowerShell 7+ is the recommended shell in this workflow.
 
 ### Install tools
 
 Install `mise` first. After that, let the repository install the pinned toolchain.
+
+Install guide:
+
+- https://mise.jdx.dev/installing-mise.html
 
 ```powershell
 mise install
@@ -323,7 +325,7 @@ mise run dev
 
 This flow is built from:
 
-- `ropen` for opening the configured experimental place
+- `ropen` for opening the configured places
 - `rojo serve`
 - `rojo sourcemap --watch`
 - `blink remotes/.blink -w`
