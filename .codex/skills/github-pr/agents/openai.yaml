@@ -1,0 +1,4 @@
+interface:
+    display_name: "GitHub PR"
+    short_description: "Open draft pull requests with repo-local Git policy"
+    default_prompt: "Use $github-pr to inspect the current task branch, enforce single-responsibility PR scope, and open a draft PR with a Conventional Commit title."
