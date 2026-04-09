@@ -38,7 +38,7 @@ In this environment, run `git commit` with escalated permissions so hooks can ex
 
 After completing changes to `*.luau` files, run `mise check` and keep fixing issues and rerunning it recursively until it completes with no errors.
 Never claim the task is finished while `mise check` still reports errors.
-After editing any `*.md`, `*.json`, or `*.toml` file, run `prettier --write .`.
+Do not run `prettier --write .` manually after editing `*.md`, `*.json`, or `*.toml` files when the repo `pre-commit` hook already formats them.
 
 ## Testing
 
