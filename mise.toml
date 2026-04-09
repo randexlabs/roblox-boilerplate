@@ -12,7 +12,7 @@
 "github:rojo-rbx/rojo" = "7.6.1"
 prettier = "3.8.1"
 pnpm = "10.33.0"
-python = "3.14.3"
+python = "3.14.4"
 
 [settings]
 jobs = 8
