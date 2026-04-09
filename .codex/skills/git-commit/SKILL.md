@@ -9,7 +9,9 @@ description: Write, review, or create commits that follow Conventional Commits. 
 
 Inspect the requested diff or file scope before writing anything.
 Choose the commit type from the primary intent of the change, not from filenames alone.
-Prefer splitting mixed concerns into separate commits instead of forcing one overloaded message.
+Do not allow mixed concerns to collapse into one commit.
+Commits must be atomic and carry one responsibility.
+If the requested diff mixes responsibilities, split it into separate commits or stop and say that the branch needs to be separated first.
 
 ## Handle `$git-commit` invocations
 
@@ -21,6 +23,7 @@ Treat `$git-commit` plus one or more file paths as a request to:
 4. create the commit
 
 Treat `$git-commit` without paths as a commit-message task unless the surrounding request clearly asks to perform the commit.
+If the current branch is `main`, stop and require creating a task branch before any commit.
 
 ## Format the message
 
@@ -46,6 +49,8 @@ Keep `BREAKING CHANGE:` uppercase.
 
 ## Apply repository conventions
 
+Never create commits on `main`.
+Task branches should follow `<type>/<slug>`.
 Use the scope `skills` when the commit primarily changes files under `.codex/skills`.
 Use `docs(agents)` for commits that change `AGENTS.md`.
 Prefer `docs(agents)` if the same commit changes both `.codex/skills` and `AGENTS.md`.

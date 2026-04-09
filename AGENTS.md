@@ -19,16 +19,16 @@ Use it when touching server authority, persistence/session flows, Lune tooling w
 
 ## Git
 
-Do not create commits unless explicitly asked.
-Require confirmation before `git push`.
-When the user invokes `$git-commit` followed by one or more file paths, interpret that as an explicit request to create a commit scoped to those paths.
-For commit-message tasks, use the `git-commit` skill at `.codex/skills/git-commit`.
-When a commit primarily changes files under `.codex/skills`, use the scope `skills`.
-If `AGENTS.md` is part of the same commit, prefer `docs(agents)` over `docs(skills)`.
-When creating commits, follow Conventional Commits through that skill.
-Never bypass pre-commit hooks.
-In this environment, run `git commit` with escalated permissions so hooks can execute outside the sandbox.
+Never work directly on `main`.
+If a task starts while on `main`, create a task branch before making any repo changes.
+Name task branches as `<type>/<slug>`, such as `fix/player-cache-leak` or `docs/agents-git-policy`.
 
-## Verification
+Never commit directly on `main`.
+Commits must be atomic and carry a single responsibility.
+If a change mixes responsibilities, split it into multiple commits or multiple pull requests.
 
-After editing any `*.md`, `*.json`, or `*.toml` file, run `prettier --write .`.
+Pull requests must stay scoped to one responsibility.
+Open pull requests in draft mode by default.
+Pull request titles must follow Conventional Commits because this repository uses squash and merge.
+
+After a pull request is merged, switch back to `main` and sync with `origin/main`.
