@@ -2,7 +2,7 @@
 
 Personal Roblox boilerplate for people who want an opinionated Luau toolchain, typed networking, tests, and a repo that treats Studio as a runtime target instead of the source of truth.
 
-This repository is not trying to be universal. It is built around a specific workflow:
+> This repository is not trying to be universal. It is built around a specific workflow.
 
 - Windows-first local development
 - source-controlled game structure through Rojo
@@ -11,8 +11,46 @@ This repository is not trying to be universal. It is built around a specific wor
 - typed remotes generated from Blink IDL
 - static analysis and tests as part of normal development
 
+## At a Glance
+
+| Area              | Choice        |
+| ----------------- | ------------- |
+| Primary OS        | Windows       |
+| Recommended shell | PowerShell 7+ |
+| Tool entrypoint   | `mise`        |
+| Package manager   | `pesde`       |
+| Studio sync       | `rojo`        |
+| Local scripting   | `lune`        |
+| Networking        | `blink`       |
+| Analysis          | `luau-lsp`    |
+| Tests             | `re-test`     |
+
+## Quick Start
+
+1. Install `mise`: <https://mise.jdx.dev/installing-mise.html>
+2. Install the pinned toolchain:
+
+```powershell
+mise install
+```
+
+3. Install project dependencies and generate networking outputs:
+
+```powershell
+mise run setup
+```
+
+4. Verify the repository is usable:
+
+```powershell
+mise run lint
+mise run tests
+```
+
 ## Table of Contents
 
+- [At a Glance](#at-a-glance)
+- [Quick Start](#quick-start)
 - [What This Repository Is](#what-this-repository-is)
 - [Who This Repository Is For](#who-this-repository-is-for)
 - [Who Should Not Use It](#who-should-not-use-it)
@@ -73,24 +111,23 @@ This boilerplate is selective on purpose. The value is in the constraints.
 
 ## Tech Stack
 
-### Core tooling
+### Tooling
 
-- `mise`: versioned tool installer and task runner
-- `pesde`: package manager for Roblox and Lune ecosystems
-- `rojo`: filesystem-to-Studio project mapping and sourcemap generation
-- `lune`: Luau runtime for local scripts and automation
-- `blink`: IDL compiler for typed Roblox networking
+| Tool                    | Role                                                          |
+| ----------------------- | ------------------------------------------------------------- |
+| `mise`                  | versioned tool installer and task runner                      |
+| `pesde`                 | package manager for Roblox and Lune ecosystems                |
+| `rojo`                  | filesystem-to-Studio project mapping and sourcemap generation |
+| `lune`                  | Luau runtime for local scripts and automation                 |
+| `blink`                 | IDL compiler for typed Roblox networking                      |
+| `luau-lsp`              | static analysis using generated defs and sourcemap inputs     |
+| `re-test`               | Luau test runner used through `pesde x ernisto/test -- tests` |
+| `stylua`                | Luau formatter                                                |
+| `prettier`              | formatting for Markdown, JSON, TOML, YAML                     |
+| `cspell`                | repository-wide spellchecking                                 |
+| `husky` + `lint-staged` | pre-commit enforcement for formatting and text hygiene        |
 
-### Analysis, tests, and repo hygiene
-
-- `luau-lsp`: static analysis using the generated `sourcemap.json`
-- `re-test`: Luau test runner used through `pesde x ernisto/test -- tests`
-- `stylua`: Luau formatter
-- `prettier`: formatting for Markdown, JSON, TOML, YAML
-- `cspell`: repository-wide spellchecking
-- `husky` + `lint-staged`: pre-commit enforcement for formatting and text hygiene
-
-### Declared runtime dependencies
+### Declared runtime packages
 
 The current `pesde.toml` includes:
 
@@ -261,7 +298,7 @@ Install `mise` first. After that, let the repository install the pinned toolchai
 
 Install guide:
 
-- https://mise.jdx.dev/installing-mise.html
+- <https://mise.jdx.dev/installing-mise.html>
 
 ```powershell
 mise install
@@ -323,6 +360,8 @@ This repo already exposes the useful tasks through `mise`. Use them instead of m
 mise run dev
 ```
 
+Recommended when actively building gameplay or iterating on networking.
+
 This flow is built from:
 
 - `ropen` for opening the configured places
@@ -337,6 +376,8 @@ So the dev loop is not just sync. It also keeps analysis inputs and generated re
 ```powershell
 mise run lint
 ```
+
+Recommended before opening or updating a PR.
 
 This task:
 
@@ -365,13 +406,13 @@ That means tests are expected to live under the repository `tests` tree and be e
 mise run check
 ```
 
+Recommended before pushing when you want one gate instead of several manual commands.
+
 This chains:
 
 - lint
 - tests
 - format
-
-Use it before pushing changes if you want one gate instead of manually picking steps.
 
 ### Regenerate Roblox definition files
 
