@@ -11,21 +11,24 @@ Inspect the local diff, branch, and target scope before writing anything.
 Base the PR text on the actual change intent, not on filenames alone.
 Pull requests in this repository must carry one responsibility only.
 If the branch contains unrelated changes, stop and split the work before opening the PR.
+Assume a valid task branch starts from an updated `main`. If the current branch appears to inherit unrelated commits from another task branch, stop and fix the base before opening any PR.
 
 ## Handle `Pull Request` requests
 
 Treat requests to use this skill as a request to:
 
 1. inspect the current branch and diff
-2. create atomic commit(s) when there are uncommitted changes
-3. push the branch to the remote
-4. write a Conventional Commit PR title
-5. write a technical PR body in lowercase
-6. open the PR as draft when the remote state allows it
+2. verify that the branch is based cleanly on `main`
+3. create atomic commit(s) when there are uncommitted changes
+4. push the branch to the remote
+5. write a Conventional Commit PR title
+6. write a technical PR body in lowercase
+7. open the PR as draft when the remote state allows it
 
 If the current branch is `main`, stop and require a task branch before opening any PR.
 If the repository is not connected to an accessible GitHub remote, stop and state the blocker directly.
 If the local changes mix responsibilities, stop and split them into separate atomic commits or separate PRs before opening anything.
+If the current branch was not started from `main`, or `origin/main..HEAD` includes unrelated commits from another task, stop and tell the user to rebuild the branch from updated `main`.
 
 ## Prefer the right tools
 
@@ -86,16 +89,20 @@ Rules:
 1. Inspect `git status -sb`, current branch, and the relevant diff.
 2. Stop if the current branch is `main`.
 3. Confirm the base branch from user input when provided; otherwise infer the repository default branch.
-4. If there are uncommitted changes, group them by responsibility and create atomic commit(s) before proceeding.
-5. Stop if the branch or commit set still mixes responsibilities after inspection.
-6. Push the branch to the remote.
-7. Open the PR as draft by default unless the user explicitly asks for ready-for-review.
-8. Return the PR URL and a short factual summary of what was opened.
+4. Inspect `git log --oneline origin/main..HEAD` and compare the commit range against the intended task scope.
+5. Stop if the commit range contains unrelated work, inherited commits from another task branch, or any sign that the branch did not start from updated `main`.
+6. If there are uncommitted changes, group them by responsibility and create atomic commit(s) before proceeding.
+7. Stop if the branch or commit set still mixes responsibilities after inspection.
+8. Push the branch to the remote.
+9. Open the PR as draft by default unless the user explicitly asks for ready-for-review.
+10. Return the PR URL and a short factual summary of what was opened.
 
 ## Safety rules
 
 - Never open a PR from `main`.
+- Never open a PR from a branch that is not cleanly based on `main`.
 - Never create a single commit for mixed responsibilities.
+- Never ignore extra commits shown by `git log --oneline origin/main..HEAD`.
 - Never include unrelated changes in the PR description as if they were intentional.
 - Never write promotional or sentimental PR copy.
 - Never claim testing or validation that did not happen.
