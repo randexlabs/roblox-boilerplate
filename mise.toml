@@ -10,7 +10,7 @@
 "github:lune-org/lune" = "0.10.4"
 "github:pesde-pkg/pesde" = "0.7.3"
 "github:rojo-rbx/rojo" = "7.6.1"
-prettier = "3.8.1"
+prettier = "3.8.2"
 pnpm = "10.33.0"
 python = "3.14.4"
 
