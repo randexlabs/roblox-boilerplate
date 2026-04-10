@@ -17,6 +17,16 @@ If the documentation defines a convention or workflow relevant to the task, foll
 For security-sensitive work, read `SECURITY.md`.
 Use it when touching server authority, persistence/session flows, Lune tooling with filesystem/process/network access, CI/release behavior, or dependency/update surfaces.
 
+## Roblox Studio MCP
+
+Do not create or edit scripts, ModuleScripts, LocalScripts, or other code containers through the Roblox Studio MCP tools.
+Use the Roblox Studio MCP only to inspect, visualize, query, or validate the live Studio state.
+
+All code and script changes must be made in the repository filesystem.
+This project uses Rojo, and filesystem changes are the source of truth that sync into Roblox Studio automatically.
+
+If a script or module needs to be created, changed, moved, or deleted, do it in the repo files, not in Studio through MCP.
+
 ## Git
 
 Never work directly on `main`.
