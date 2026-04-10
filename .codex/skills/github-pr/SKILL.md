@@ -1,9 +1,9 @@
 ---
-name: github-pr
-description: Open or draft GitHub pull requests from the current branch with a concise, technical, easy-to-scan title and body. Use when Codex needs to inspect the local diff, determine PR scope, prepare an objective PR description, confirm any required push, and open the PR through the GitHub app or `gh`.
+name: Pull Request
+description: Inspect the current branch, create atomic commits when needed, push the branch, and open a technical draft pull request with a concise Conventional Commit title and a lowercase body.
 ---
 
-# GitHub PR
+# Pull Request
 
 ## Determine the PR intent
 
@@ -12,19 +12,20 @@ Base the PR text on the actual change intent, not on filenames alone.
 Pull requests in this repository must carry one responsibility only.
 If the branch contains unrelated changes, stop and split the work before opening the PR.
 
-## Handle `github-pr` requests
+## Handle `Pull Request` requests
 
 Treat requests to use this skill as a request to:
 
 1. inspect the current branch and diff
-2. determine whether the branch is ready to open a PR
-3. write a Conventional Commit PR title
-4. write a technical PR body
-5. open the PR if the remote state allows it
+2. create atomic commit(s) when there are uncommitted changes
+3. push the branch to the remote
+4. write a Conventional Commit PR title
+5. write a technical PR body in lowercase
+6. open the PR as draft when the remote state allows it
 
 If the current branch is `main`, stop and require a task branch before opening any PR.
-If the branch is not pushed yet, require confirmation before `git push`.
 If the repository is not connected to an accessible GitHub remote, stop and state the blocker directly.
+If the local changes mix responsibilities, stop and split them into separate atomic commits or separate PRs before opening anything.
 
 ## Prefer the right tools
 
@@ -50,6 +51,7 @@ Valid examples:
 Write for fast technical review.
 Keep it objective, compact, and easy to scan.
 Prefer short sections with plain language over bloated templates.
+Write the PR body in lowercase.
 
 Default structure:
 
@@ -74,25 +76,30 @@ Rules:
 - State validation that was actually run. Do not invent checks.
 - Mention user-visible or developer-visible impact when relevant.
 - Omit empty sections instead of filling them with noise.
+- Do not mention AI, the assistant, generation, drafting, or any similar authorship framing.
+- Keep section content technical and direct.
+- Do not mention that pre-commit hooks, formatters, or routine local automation passed unless that information is unusually relevant to the review.
+- Prefer the PR body to focus on the objective and scope of the change instead of routine workflow noise.
 
 ## Opening workflow
 
 1. Inspect `git status -sb`, current branch, and the relevant diff.
 2. Stop if the current branch is `main`.
 3. Confirm the base branch from user input when provided; otherwise infer the repository default branch.
-4. Stop if the PR scope mixes responsibilities.
-5. Check whether the current branch already exists on the remote.
-6. If push is required, ask for confirmation before pushing.
+4. If there are uncommitted changes, group them by responsibility and create atomic commit(s) before proceeding.
+5. Stop if the branch or commit set still mixes responsibilities after inspection.
+6. Push the branch to the remote.
 7. Open the PR as draft by default unless the user explicitly asks for ready-for-review.
 8. Return the PR URL and a short factual summary of what was opened.
 
 ## Safety rules
 
 - Never open a PR from `main`.
-- Never push without confirmation.
+- Never create a single commit for mixed responsibilities.
 - Never include unrelated changes in the PR description as if they were intentional.
 - Never write promotional or sentimental PR copy.
 - Never claim testing or validation that did not happen.
+- Never mention AI authorship or assistant-driven drafting in the PR body.
 - Never hide blockers such as missing auth, missing remote, or mixed-scope changes.
 
 ## Post-merge workflow
