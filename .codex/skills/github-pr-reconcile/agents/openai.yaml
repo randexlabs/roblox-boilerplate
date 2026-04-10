@@ -1,0 +1,10 @@
+interface:
+    display_name: "GitHub PR Reconcile"
+    short_description: "Sync main, prune merged branches, resume open work"
+    default_prompt: "Use $github-pr-reconcile to sync main with origin, remove local branches for merged PRs, and leave the repo on the right branch based on my open pull requests."
+
+dependencies:
+    tools:
+        - type: "mcp"
+          value: "github"
+          description: "GitHub connector for reading pull request state"
