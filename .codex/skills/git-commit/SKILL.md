@@ -23,7 +23,6 @@ Treat `$git-commit` plus one or more file paths as a request to:
 4. create the commit
 
 Treat `$git-commit` without paths as a commit-message task unless the surrounding request clearly asks to perform the commit.
-If the current branch is `main`, stop and require creating a task branch before any commit.
 
 ## Format the message
 
@@ -49,7 +48,6 @@ Keep `BREAKING CHANGE:` uppercase.
 
 ## Apply repository conventions
 
-Never create commits on `main`.
 Task branches should follow `<type>/<slug>`.
 Use the scope `skills` when the commit primarily changes files under `.codex/skills`.
 Use `docs(agents)` for commits that change `AGENTS.md`.
