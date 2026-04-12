@@ -26,7 +26,7 @@ jobs:
                       run_command: stylua --check .
                       requires_node: false
                     - job_name: Format Prettier
-                      run_command: pnpm exec prettier --check .
+                      run_command: prettier --check .
                       requires_node: true
                     - job_name: Spellcheck
                       run_command: pnpm run spellcheck
@@ -41,7 +41,7 @@ jobs:
 
             - name: Setup pnpm
               if: ${{ matrix.requires_node }}
-              uses: pnpm/action-setup@v5
+              uses: pnpm/action-setup@v6
               with:
                   version: 10.33.0
 
