@@ -1,6 +1,6 @@
 [tools]
 "github:1Axen/blink" = "0.18.8"
-"github:Barocena/ROpen" = "0.0.2"
+"github:Barocena/ROpen" = "1.0.0"
 "github:cli/cli" = "2.89.0"
 "github:JohnnyMorganz/StyLua" = "2.4.1"
 "github:JohnnyMorganz/luau-lsp" = "1.66.0"
