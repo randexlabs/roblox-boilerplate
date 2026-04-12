@@ -1,3 +1,0 @@
-# StarterPlayerScripts Domains
-
-- None yet.

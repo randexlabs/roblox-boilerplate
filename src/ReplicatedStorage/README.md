@@ -1,3 +1,0 @@
-# ReplicatedStorage Domains
-
-- None yet.
