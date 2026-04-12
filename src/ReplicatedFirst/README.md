@@ -1,3 +1,0 @@
-# ReplicatedFirst Domains
-
-- None yet.
