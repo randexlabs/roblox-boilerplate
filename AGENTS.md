@@ -41,4 +41,7 @@ Pull requests must stay scoped to one responsibility.
 Open pull requests in draft mode by default.
 Pull request titles must follow Conventional Commits because this repository uses squash and merge.
 
+After finishing a task on a branch, push the branch to the remote, open a draft pull request, and switch back to `main`.
+If `main` is behind `origin/main`, sync it before ending.
+
 After a pull request is merged, switch back to `main` and sync with `origin/main`.
