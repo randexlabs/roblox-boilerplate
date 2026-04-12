@@ -1,4 +1,0 @@
-interface:
-    display_name: "Pull Request"
-    short_description: "Create atomic commits, push the branch, and open a draft pull request"
-    default_prompt: "Use Pull Request to inspect the current task branch, create atomic commits when needed, push the branch, and open a technical draft pull request with a Conventional Commit title."
