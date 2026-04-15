@@ -1,0 +1,3 @@
+return {
+	money = 0,
+}
