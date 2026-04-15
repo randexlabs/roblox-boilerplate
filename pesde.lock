@@ -16,6 +16,19 @@ frktest = [{ name = "itsfrank/frktest", version = "^0.0.4", index = "https://git
 luau-lsp = [{ name = "pesde/luau_lsp", version = "=1.53.2", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]
 stylua = [{ name = "pesde/stylua", version = "=2.1.0", index = "https://github.com/pesde-pkg/index", target = "lune" }, "dev"]
 
+[graph."ernisto/ro_cloud@0.1.0-alpha.4 lune"]
+direct = ["rocloud", { name = "ernisto/ro_cloud", version = "^0.1.0-alpha.4", index = "default", target = "lune" }, "dev"]
+
+[graph."ernisto/ro_cloud@0.1.0-alpha.4 lune".dependencies]
+base64 = ["synpixel/base64@3.0.1 lune", "standard"]
+
+[graph."ernisto/ro_cloud@0.1.0-alpha.4 lune".pkg_ref]
+ref_ty = "pesde"
+index_url = "https://github.com/pesde-pkg/index"
+
+[graph."ernisto/ro_cloud@0.1.0-alpha.4 lune".pkg_ref.dependencies]
+base64 = [{ name = "synpixel/base64", version = "^3.0.1", index = "https://github.com/pesde-pkg/index" }, "standard"]
+
 [graph."jiwonz/dirs@0.6.0 lune".dependencies]
 greentea = ["jiwonz/greentea_luau@0.2.0 luau", "standard"]
 pathfs = ["jiwonz/pathfs@0.6.0 lune", "standard"]
@@ -128,6 +141,10 @@ option = [{ name = "lukadev_0/option", version = "^1.2.1", index = "https://gith
 pathfs = [{ name = "jiwonz/pathfs", version = "^0.6.0", index = "https://github.com/pesde-pkg/index" }, "standard"]
 result = [{ name = "lukadev_0/result", version = "^1.2.1", index = "https://github.com/pesde-pkg/index" }, "peer"]
 unzip = [{ name = "0x5eal/unzip", version = "^0.2.0", index = "https://github.com/pesde-pkg/index", target = "luau" }, "standard"]
+
+[graph."synpixel/base64@3.0.1 lune".pkg_ref]
+ref_ty = "pesde"
+index_url = "https://github.com/pesde-pkg/index"
 
 [graph."wally#1foreverhd/topbarplus@3.4.0 roblox"]
 direct = ["topbarplus", { wally = "wally#1foreverhd/topbarplus", version = "^3.4.0", index = "default" }, "standard"]
