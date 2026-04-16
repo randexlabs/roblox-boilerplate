@@ -32,8 +32,8 @@ local function get_data_async(player: Player): Data?
 end
 
 return table.freeze {
-	get_profile = get_profile,
-	get_profile_async = get_profile_async,
+	get = get_profile,
+	get_async = get_profile_async,
 
 	get_data = get_data,
 	get_data_async = get_data_async,
