@@ -43,7 +43,7 @@ jobs:
               if: ${{ matrix.requires_node }}
               uses: pnpm/action-setup@v6
               with:
-                  version: 10.33.0
+                  version: 10.33.2
 
             - name: Setup Node.js
               if: ${{ matrix.requires_node }}
