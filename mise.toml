@@ -5,7 +5,7 @@
 "github:JohnnyMorganz/StyLua" = "2.4.1"
 "github:JohnnyMorganz/luau-lsp" = "1.66.1"
 "github:abhixdd/ghgrab" = "1.3.2"
-"github:jackTabsCode/asphalt" = "1.2.0"
+"github:jackTabsCode/asphalt" = "2.0.0"
 "github:luau-lang/luau" = "0.719"
 "github:lune-org/lune" = "0.10.4"
 "github:pesde-pkg/pesde" = "0.7.3"
