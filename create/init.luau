@@ -37,8 +37,19 @@ local function confirm()
 	print(
 		`{tint.yellow.bold 'WARNING:'} this will permanently remove {tint.red.bold '.git'} and reset repository history.`
 	)
-	local answer = io.input(tint.yellow 'Continue? [y/N] '):lower()
-	return answer == 'y' or answer == 'yes'
+
+	local confirmations_required = 3
+
+	for confirmed = 1, confirmations_required do
+		local progress = tint.cyan(`({confirmed}/{confirmations_required})`)
+		local answer = io.input(
+			`{tint.yellow 'Continue and delete .git? '} {progress}{tint.yellow ' [y/N] '}`
+		)
+		answer = (answer:match '^%s*(.-)%s*$' or ''):lower()
+		if answer ~= 'y' and answer ~= 'yes' then return false end
+	end
+
+	return true
 end
 
 if has_dry_run() then
