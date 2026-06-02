@@ -1,7 +1,6 @@
 {
     "packageManager": "pnpm@10.33.2",
     "devDependencies": {
-        "cspell": "^10.0.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.4.0",
         "prettier-plugin-toml": "^2.0.6"
@@ -10,15 +9,11 @@
         "*.{md,json,toml,yml,yaml}": [
             "prettier --write"
         ],
-        "*.{md,txt,json,toml,yml,yaml,lua,luau}": [
-            "cspell lint --no-progress --no-summary --no-must-find-files"
-        ],
         "*.luau": [
             "mise x -- stylua"
         ]
     },
     "scripts": {
-        "prepare": "husky",
-        "spellcheck": "cspell lint --no-progress --gitignore --dot ."
+        "prepare": "husky"
     }
 }
