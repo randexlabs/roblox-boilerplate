@@ -1,6 +1,7 @@
-local fs = require('@std/fs')
-local io = require('@std/io')
-local process = require('@std/process')
+local fs = require '@std/fs'
+local io = require '@std/io'
+local process = require '@std/process'
+local tint = require '@luaupkg/tint'
 
 local function has_dry_run()
 	for _, arg in process.args do
@@ -11,15 +12,14 @@ local function has_dry_run()
 end
 
 local function destroy_dot_git()
-	if not fs.exists('.git') or fs.type('.git') ~= 'dir' then return end
+	if not fs.exists '.git' or fs.type '.git' ~= 'dir' then return end
 	fs.removeDirectory('.git', { recursive = true })
 	process.run({ 'git', 'branch', '-M', 'main' }, { stdio = 'inherit' })
 end
 
 local function self_delete()
-	if fs.exists('.create') and fs.type('.create') == 'dir' then
-		fs.removeDirectory('.create', { recursive = true })
-	end
+	if not fs.exists '.create' or fs.type '.create' ~= 'dir' then return end
+	fs.removeDirectory('.create', { recursive = true })
 end
 
 local function initiate_git_repository()
@@ -28,14 +28,16 @@ local function initiate_git_repository()
 end
 
 local function print_plan()
-	print('dry-run: would remove .git if it exists')
-	print('dry-run: would initialize a new git repository')
-	print('dry-run: would remove .create if it exists')
+	print(`{tint.cyan 'dry-run:'} would remove .git if it exists`)
+	print(`{tint.cyan 'dry-run:'} would initialize a new git repository`)
+	print(`{tint.cyan 'dry-run:'} would remove .create if it exists`)
 end
 
 local function confirm()
-	print('WARNING: this will permanently remove .git and reset repository history.')
-	local answer = string.lower(io.input('Continue? [y/N] '))
+	print(
+		`{tint.yellow.bold 'WARNING:'} this will permanently remove {tint.red.bold '.git'} and reset repository history.`
+	)
+	local answer = io.input(tint.yellow 'Continue? [y/N] '):lower()
 	return answer == 'y' or answer == 'yes'
 end
 
@@ -45,7 +47,7 @@ if has_dry_run() then
 end
 
 if not confirm() then
-	print('Aborted.')
+	print(tint.red 'Aborted.')
 	return
 end
 
