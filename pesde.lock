@@ -80,6 +80,13 @@ index_url = "https://github.com/pesde-pkg/index"
 ref_ty = "pesde"
 index_url = "https://github.com/pesde-pkg/index"
 
+[graph."omarcoaraujo/tint@0.1.1 luau"]
+direct = ["tint", { name = "omarcoaraujo/tint", version = "^0.1.0", index = "default", target = "luau" }, "standard"]
+
+[graph."omarcoaraujo/tint@0.1.1 luau".pkg_ref]
+ref_ty = "pesde"
+index_url = "https://github.com/pesde-pkg/index"
+
 [graph."pesde/rojo@7.6.1 lune"]
 direct = ["rojo", { name = "pesde/rojo", version = "^7.5.1", index = "default", target = "lune" }, "dev"]
 
