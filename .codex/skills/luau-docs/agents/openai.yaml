@@ -1,0 +1,4 @@
+interface:
+    display_name: "Luau Docs"
+    short_description: "Practical Luau docs and API reference"
+    default_prompt: "Use $luau-docs to answer a practical Luau question with exact API details, caveats, and release-note context."
