@@ -1,0 +1,4 @@
+interface:
+    display_name: "Lute Docs"
+    short_description: "Practical local Lute docs for usage, tooling, and build workflows"
+    default_prompt: "Use $lute-docs to answer a practical question about Lute from the local documentation."
