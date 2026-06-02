@@ -13,3 +13,5 @@ src/ReplicatedStorage/asphalt.luau
 node_modules
 globalTypes.d.luau
 vectorTypes.d.luau
+.codex/skills/roblox-docs/creator-docs/
+.codex/skills/roblox-docs/.cache/
