@@ -1,0 +1,4 @@
+interface:
+    display_name: "Tint"
+    short_description: "Practical local Tint docs for styling API, color detection, and caveats"
+    default_prompt: "Use $tint to answer a practical question about Tint from the local documentation and code-derived API notes."

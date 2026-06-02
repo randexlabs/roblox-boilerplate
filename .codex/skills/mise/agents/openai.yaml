@@ -1,0 +1,4 @@
+interface:
+    display_name: "Mise"
+    short_description: "Practical local mise docs for setup and troubleshooting"
+    default_prompt: "Use $mise to answer a practical question about mise from the local repository docs."

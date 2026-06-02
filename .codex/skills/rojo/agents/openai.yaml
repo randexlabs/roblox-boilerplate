@@ -1,0 +1,4 @@
+interface:
+    display_name: "Rojo"
+    short_description: "Consult structured Rojo documentation for practical Roblox workflows"
+    default_prompt: "Use $rojo to answer this Rojo question using the structured references for project format, sync behavior, migration, and troubleshooting."

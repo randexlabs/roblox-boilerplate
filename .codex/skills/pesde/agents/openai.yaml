@@ -1,0 +1,4 @@
+interface:
+    display_name: "Pesde"
+    short_description: "Practical pesde docs for local workflows"
+    default_prompt: "Use $pesde to answer a practical pesde question from the local docs."
