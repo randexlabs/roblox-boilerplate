@@ -1,12 +1,13 @@
 {
-    "languageMode": "strict", 
+    "languageMode": "strict",
     "aliases": {
-        "lint": "~/.lute/typedefs/1.0.0/lint", 
-        "src": "./src", 
-        "lune": "~/.lune/.typedefs/0.10.4/", 
-        "lunepkg": "./lune_packages", 
-        "lute": "~/.lute/typedefs/1.0.0/lute", 
-        "std": "~/.lute/typedefs/1.0.0/std", 
+        "lint": "~/.lute/typedefs/1.0.0/lint",
+        "src": "./src",
+        "luaupkg": "luau_packages",
+        "lune": "~/.lune/.typedefs/0.10.4/",
+        "lunepkg": "./lune_packages",
+        "lute": "~/.lute/typedefs/1.0.0/lute",
+        "std": "~/.lute/typedefs/1.0.0/std",
         "lib": "./libs"
     }
 }
