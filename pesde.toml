@@ -1,6 +1,7 @@
 name = "scope/scope"
 version = "0.1.0"
 license = "MIT"
+private = true
 
 [target]
 environment = "roblox"
