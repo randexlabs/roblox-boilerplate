@@ -1,0 +1,4 @@
+interface:
+    display_name: "Conch"
+    short_description: "Consult Conch runtime, UI, language, analysis, and plugin APIs."
+    default_prompt: "Use this skill to answer practical questions about Conch packages, commands, types, syntax, analysis, UI integration, and plugin-facing APIs."
