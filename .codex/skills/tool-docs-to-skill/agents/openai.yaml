@@ -1,0 +1,4 @@
+interface:
+    display_name: "Tool Docs To Skill"
+    short_description: "Turn tool docs into a skill."
+    default_prompt: "Use this skill to transform a tool's docs, comments, typings, and public exports into a structured Codex skill with semantic references and separated API documentation."
