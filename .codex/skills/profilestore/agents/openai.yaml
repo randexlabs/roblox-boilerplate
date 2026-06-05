@@ -1,0 +1,4 @@
+interface:
+    display_name: "ProfileStore"
+    short_description: "Consult ProfileStore APIs and caveats."
+    default_prompt: "Use this skill to answer practical questions about ProfileStore sessions, autosaving, session locking, rollback queries, mock mode, DataStore budgeting, developer product safety, and runtime caveats."
