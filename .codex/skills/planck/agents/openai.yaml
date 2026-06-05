@@ -1,0 +1,4 @@
+interface:
+    display_name: "planck"
+    short_description: "Consult Planck scheduler APIs and caveats."
+    default_prompt: "Use this skill to answer practical questions about the Planck Luau scheduler, including systems, initializer systems, phases, pipelines, run conditions, plugin hooks, RunService integration, Jabby integration, and docs/runtime mismatches."
