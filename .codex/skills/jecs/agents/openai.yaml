@@ -1,0 +1,4 @@
+interface:
+    display_name: "jecs"
+    short_description: "Consult jecs ECS APIs and caveats."
+    default_prompt: "Use this skill to answer practical questions about the jecs Luau ECS library, including world operations, typed component IDs, pairs and relationships, wildcard and cached queries, hooks, signals, cleanup traits, performance tradeoffs, and exported low-level internals."
