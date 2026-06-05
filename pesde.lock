@@ -243,12 +243,74 @@ direct = ["quickzone", { wally = "wally#ldgerrits/quickzone", version = "^1.2.0"
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
+[graph."wally#littensy/ripple@0.10.2 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
 [graph."wally#lm-loleris/profilestore@1.0.3 roblox_server"]
 direct = ["profilestore", { wally = "wally#lm-loleris/profilestore", version = "^1.0.3", index = "default" }, "standard"]
 
 [graph."wally#lm-loleris/profilestore@1.0.3 roblox_server".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#pepeeltoro41/jecs-gizmo@1.0.2 roblox"]
+direct = ["jecs_gizmo", { wally = "wally#pepeeltoro41/jecs-gizmo", version = "^1.0.2", index = "default" }, "standard"]
+
+[graph."wally#pepeeltoro41/jecs-gizmo@1.0.2 roblox".dependencies]
+jecs = ["wally#ukendio/jecs@0.10.4 roblox", "standard"]
+
+[graph."wally#pepeeltoro41/jecs-gizmo@1.0.2 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#pepeeltoro41/jecs-gizmo@1.0.2 roblox".pkg_ref.dependencies]
+jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.10.0, <0.11.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+
+[graph."wally#pepeeltoro41/jecs-spring@1.0.2 roblox"]
+direct = ["jecs_spring", { wally = "wally#pepeeltoro41/jecs-spring", version = "^1.0.2", index = "default" }, "standard"]
+
+[graph."wally#pepeeltoro41/jecs-spring@1.0.2 roblox".dependencies]
+jecs = ["wally#ukendio/jecs@0.10.4 roblox", "standard"]
+ripple = ["wally#littensy/ripple@0.10.2 roblox", "standard"]
+
+[graph."wally#pepeeltoro41/jecs-spring@1.0.2 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#pepeeltoro41/jecs-spring@1.0.2 roblox".pkg_ref.dependencies]
+jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.10.0, <0.11.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+ripple = [{ wally = "wally#littensy/ripple", version = ">=0.10.0-alpha.3, <0.11.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+
+[graph."wally#pepeeltoro41/jecs-utils@1.4.3 roblox"]
+direct = ["jecs_utils", { wally = "wally#pepeeltoro41/jecs-utils", version = "^1.4.3", index = "default" }, "standard"]
+
+[graph."wally#pepeeltoro41/jecs-utils@1.4.3 roblox".dependencies]
+jecs = ["wally#ukendio/jecs@0.11.0 roblox", "standard"]
+
+[graph."wally#pepeeltoro41/jecs-utils@1.4.3 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#pepeeltoro41/jecs-utils@1.4.3 roblox".pkg_ref.dependencies]
+jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.11.0, <0.12.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+
+[graph."wally#pepeeltoro41/jecs-vide@1.0.7 roblox"]
+direct = ["jecs_vide", { wally = "wally#pepeeltoro41/jecs-vide", version = "^1.0.7", index = "default" }, "standard"]
+
+[graph."wally#pepeeltoro41/jecs-vide@1.0.7 roblox".dependencies]
+jecs = ["wally#ukendio/jecs@0.11.0 roblox", "standard"]
+jecs-utils = ["wally#pepeeltoro41/jecs-utils@1.4.3 roblox", "standard"]
+vide = ["wally#centau/vide@0.4.0 roblox", "standard"]
+
+[graph."wally#pepeeltoro41/jecs-vide@1.0.7 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
+[graph."wally#pepeeltoro41/jecs-vide@1.0.7 roblox".pkg_ref.dependencies]
+jecs = [{ wally = "wally#ukendio/jecs", version = ">=0.11.0, <0.12.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+jecs-utils = [{ wally = "wally#pepeeltoro41/jecs-utils", version = ">=1.4.3, <2.0.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
+vide = [{ wally = "wally#centau/vide", version = ">=0.4.0, <0.5.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 
 [graph."wally#pepeeltoro41/ui-labs@2.4.2 roblox"]
 direct = ["uilabs", { wally = "wally#pepeeltoro41/ui-labs", version = "^2.4.2", index = "default" }, "dev"]

@@ -39,3 +39,7 @@ jecs = { wally = "ukendio/jecs", version = "^0.11.0" }
 planck = { wally = "yetanotherclown/planck", version = "^0.3.0-rc.2" }
 planck_jabby = { wally = "yetanotherclown/planck-jabby", version = "^0.3.0-rc.2" }
 planck_runservice = { wally = "yetanotherclown/planck-runservice", version = "^0.3.0-rc.2" }
+jecs_utils = { wally = "pepeeltoro41/jecs-utils", version = "^1.4.3" }
+jecs_vide = { wally = "pepeeltoro41/jecs-vide", version = "^1.0.7" }
+jecs_spring = { wally = "pepeeltoro41/jecs-spring", version = "^1.0.2" }
+jecs_gizmo = { wally = "pepeeltoro41/jecs-gizmo", version = "^1.0.2" }
