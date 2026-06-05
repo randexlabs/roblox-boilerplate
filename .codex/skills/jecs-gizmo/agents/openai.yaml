@@ -1,0 +1,4 @@
+interface:
+    display_name: "jecs-gizmo"
+    short_description: "Consult jecs-gizmo APIs and debug-drawing caveats."
+    default_prompt: "Use this skill to answer practical questions about the jecs-gizmo Luau library, including required world setup, component id mapping, gizmo marker components, style overrides, frame update order, and runtime caveats such as global module state and ignored distance styles."
