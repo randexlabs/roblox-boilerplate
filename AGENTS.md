@@ -44,6 +44,8 @@
 - Treat `require(script.foo)`, `require(script.Parent.foo)`, and `require(game:GetService("ServerScriptService").Folder.Module)` as normal resolvable forms when those Instances actually exist in the Rojo/DataModel tree.
 - Treat a `require` target as valid only when it names or computes a real ModuleScript in the mounted DataModel hierarchy, or uses a documented project-specific require helper.
 - Do not invent string-based require syntaxes such as `"src/foo"`, `"ReplicatedStorage.foo"`, `"ServerScriptService/foo"`, or alias-like filesystem paths unless the repository already defines a concrete require-by-string layer.
+- Never reach into package internals manually through paths such as `.pesde`, vendor folders, or transitive dependency trees to import a dependency.
+- If a dependency is not available through the project's public require surface, stop and tell the user it is unavailable. Do not work around that by manually traversing package internals, and do not install or download the dependency yourself unless the user explicitly asks for that.
 - Do not claim that Luau or Roblox will normalize guessed paths for us. No assumptions about implicit extension insertion, dotted-path rewriting, slash rewriting, alias expansion, or service lookup are allowed without project evidence.
 - If the expression is dynamic, treat it as not statically resolved. This includes concatenated strings, conditionally selected parents, table lookups, and other computed require targets.
 - Do not cast the result of `require(...)` to another type. Treat casts on module imports, including `:: any`, as forbidden by default.
