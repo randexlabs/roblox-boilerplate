@@ -1,0 +1,4 @@
+interface:
+    display_name: "Axis"
+    short_description: "Consult Axis input-library APIs and caveats."
+    default_prompt: "Use this skill to answer practical questions about the Axis Luau input library, including input maps, per-frame updates, scalar and vector axes, touch integration, controller support, device detection, deadzones, and observed doc/runtime mismatches."

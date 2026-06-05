@@ -43,3 +43,4 @@ jecs_utils = { wally = "pepeeltoro41/jecs-utils", version = "^1.4.3" }
 jecs_vide = { wally = "pepeeltoro41/jecs-vide", version = "^1.0.7" }
 jecs_spring = { wally = "pepeeltoro41/jecs-spring", version = "^1.0.2" }
 jecs_gizmo = { wally = "pepeeltoro41/jecs-gizmo", version = "^1.0.2" }
+axis = { wally = "neond00m/axis", version = "^0.2.4" }
