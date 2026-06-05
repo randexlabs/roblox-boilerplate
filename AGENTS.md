@@ -49,6 +49,12 @@
 - If a require form is unfamiliar, verify it against the actual codebase, Rojo mapping, or documented tooling before describing it as valid.
 - Prefer the existing local require style in the surrounding code instead of rewriting modules into a new access pattern.
 
+## Luau Style
+
+- In `*.luau`, use `snake_case` for variables, fields, function names, and function parameters.
+- In `*.luau`, use `SCREAMING_SNAKE_CASE` for constants.
+- In `*.luau`, use `PascalCase` for Roblox services and types.
+
 ## Generated Artifacts
 
 - If dependency or sourcemap-related changes require regeneration, use project commands instead of manual edits.
