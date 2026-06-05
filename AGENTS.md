@@ -46,6 +46,8 @@
 - Do not invent string-based require syntaxes such as `"src/foo"`, `"ReplicatedStorage.foo"`, `"ServerScriptService/foo"`, or alias-like filesystem paths unless the repository already defines a concrete require-by-string layer.
 - Do not claim that Luau or Roblox will normalize guessed paths for us. No assumptions about implicit extension insertion, dotted-path rewriting, slash rewriting, alias expansion, or service lookup are allowed without project evidence.
 - If the expression is dynamic, treat it as not statically resolved. This includes concatenated strings, conditionally selected parents, table lookups, and other computed require targets.
+- Do not cast the result of `require(...)` to another type. Treat casts on module imports, including `:: any`, as forbidden by default.
+- The only exceptions are when the require target is dynamic enough that a cast is genuinely unavoidable, such as dynamic require loops, or when the user explicitly asks for that cast.
 - If a require form is unfamiliar, verify it against the actual codebase, Rojo mapping, or documented tooling before describing it as valid.
 - Prefer the existing local require style in the surrounding code instead of rewriting modules into a new access pattern.
 
