@@ -1,0 +1,4 @@
+interface:
+    display_name: "jecs-assemblies"
+    short_description: "Consult jecs-assemblies APIs and transform-chain caveats."
+    default_prompt: "Use this skill to answer practical questions about the jecs-assemblies Luau library, including world setup, exposed component ids, chained relative CFrame propagation, pivot relationships, swap_pivot behavior, and runtime caveats in the module's global assembly bookkeeping."
