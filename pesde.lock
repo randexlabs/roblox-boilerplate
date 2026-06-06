@@ -194,6 +194,9 @@ conch = [{ wally = "wally#alicesaidhi/conch", version = ">=0.3.1, <0.4.0", index
 language = [{ wally = "wally#alicesaidhi/conch-language", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 vide = [{ wally = "wally#centau/vide", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 
+[graph."wally#alicesaidhi/jabby@0.5.1 roblox"]
+direct = ["jabby", { wally = "wally#alicesaidhi/jabby", version = "^0.5.1", index = "default" }, "standard"]
+
 [graph."wally#alicesaidhi/jabby@0.5.1 roblox".dependencies]
 jecs = ["wally#ukendio/jecs@0.10.4 roblox", "standard"]
 pebble = ["wally#alicesaidhi/pebble@0.2.0 roblox", "standard"]
