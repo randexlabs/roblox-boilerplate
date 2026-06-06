@@ -12,7 +12,6 @@
 - Run `mise lint` on `*.luau` files before delivering any change.
 - Treat `mise lint` as the required lint and typecheck validation step.
 - If `mise lint` fails, keep fixing issues and rerun it until it passes.
-- After `mise lint` passes, run it one more time immediately before delivery to confirm the final workspace still passes.
 - Never deliver changes if the final `mise lint` run does not pass.
 
 ## Search Tools
