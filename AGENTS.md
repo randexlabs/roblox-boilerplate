@@ -19,6 +19,15 @@
 
 - Prefer `rg` over slower search tools when searching files or text in this repository.
 
+## Collaboration
+
+- Do not do work the user did not ask for.
+- Do the minimum necessary to satisfy the user's request. Do not build oversized solutions for small problems.
+- When a request is ambiguous in ways that affect business rules, scope, scaling behavior, or what the system should tolerate, ask the user for clarification instead of making the decision yourself.
+- Prefer short clarification loops over making broad assumptions that create avoidable follow-up rework.
+- Ask at most one question per message when clarification is needed. Resolve one ambiguity at a time instead of making the user evaluate multiple contexts at once.
+- Do not ask unnecessary micro-questions such as variable names when a reasonable local choice is enough.
+
 ## Protected Files
 
 - Never rewrite lockfiles manually.
