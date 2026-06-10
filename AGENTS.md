@@ -76,6 +76,8 @@
 - Systems should do one job clearly.
 - A system should usually query only the components it needs, iterate matching entities, and apply one kind of behavior.
 - Do not return values from system functions. Systems should communicate effects through ECS state, scheduling, or explicit side effects, not return data.
+- Never yield inside system functions.
+- Prefer ECS-style systems over imperative setup-driven or object-like systems with ad hoc local state, one-time initialization flags, or lifecycle-heavy control flow when polling, components, tags, or explicit ECS state can express the behavior more directly.
 - Do not make one system handle many unrelated concerns such as input, movement, UI, audio, camera, and persistence together.
 - Prefer names that describe one responsibility, such as `profile_load`, `profile_unload`, `apply_velocity_system`, or `despawn_dead`.
 - Avoid vague names like `Manager`, `Controller`, `Handler`, `Object`, or `Thing`.
