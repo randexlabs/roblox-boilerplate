@@ -13,7 +13,7 @@ type ProfileLoadResult =
 	{ kind: 'success', profile: LoadedProfile }
 	| { kind: 'failure', reason: string }
 
-local ProfileLoad = world
+local profile_load = world
 	:query(components.Player, components.NeedsProfileLoad)
 	:without(components.Profile)
 	:without(components.ProfileLoading)
@@ -88,7 +88,7 @@ local function load_profile(entity, player: Player)
 end
 
 local function system()
-	for entity, player in ProfileLoad do
+	for entity, player in profile_load do
 		world:remove(entity, components.NeedsProfileLoad)
 
 		if world:has(entity, components.NeedsProfileUnload) then continue end

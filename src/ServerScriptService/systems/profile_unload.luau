@@ -12,7 +12,7 @@ type LoadedProfile = typeof(assert(
 ))
 
 local ref = jecs_utils.ref
-local ProfileUnload =
+local profile_unload =
 	world:query(components.Player, components.NeedsProfileUnload):cached()
 
 local function release_profile(entity, profile: LoadedProfile?)
@@ -39,7 +39,7 @@ local function kick_player_if_needed(player: Player, kick_reason: string?)
 end
 
 local function system()
-	for entity, player in ProfileUnload do
+	for entity, player in profile_unload do
 		local kick_reason = world:get(entity, components.KickReason) :: string?
 		local profile = world:get(entity, components.Profile) :: LoadedProfile?
 

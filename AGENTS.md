@@ -41,6 +41,9 @@
 - Never use `_G`.
 - Respect the Rojo tree defined in `default.project.json`.
 - Do not change project mapping conventions unless the task explicitly requires it.
+- Do not create scripts or write code directly in Roblox Studio.
+- Use the Roblox Studio MCP only to inspect, visualize, or validate the running DataModel and Studio state.
+- Create and edit scripts only in the local Rojo project, where changes are already synchronized automatically to Roblox Studio.
 
 ## ECS Architecture
 
@@ -61,6 +64,7 @@
 
 - Components should be small, focused, serializable Luau data containers or marker tags.
 - Prefer narrow components such as `Health`, `Velocity`, `NeedsProfileLoad`, or `AttackCooldown`.
+- Do not use Roblox attributes for gameplay or entity state when a component can represent that data. Prefer ECS components over attributes by default.
 - Avoid “god components” that mix unrelated concerns.
 - Components must not contain game logic, access global mutable state, or mutate other components directly.
 - If data belongs to one entity, store it as a component. Do not move entity-specific state into globals or pseudo-managers.
@@ -71,6 +75,7 @@
 
 - Systems should do one job clearly.
 - A system should usually query only the components it needs, iterate matching entities, and apply one kind of behavior.
+- Do not return values from system functions. Systems should communicate effects through ECS state, scheduling, or explicit side effects, not return data.
 - Do not make one system handle many unrelated concerns such as input, movement, UI, audio, camera, and persistence together.
 - Prefer names that describe one responsibility, such as `profile_load`, `profile_unload`, `apply_velocity_system`, or `despawn_dead`.
 - Avoid vague names like `Manager`, `Controller`, `Handler`, `Object`, or `Thing`.
@@ -165,6 +170,12 @@
 - In `*.luau`, use `snake_case` for variables, fields, function names, and function parameters.
 - In `*.luau`, use `SCREAMING_SNAKE_CASE` for constants.
 - In `*.luau`, use `PascalCase` for Roblox services and types.
+- In `*.luau`, prefer ECS names that stay clear while following local `snake_case` conventions.
+- For components and tags defined in `*.luau`, prefer short noun-like names written in `snake_case`.
+- For systems defined in `*.luau`, prefer action-oriented `snake_case` names that describe one behavior clearly.
+- Avoid suffix-heavy or object-oriented `snake_case` names such as `*_manager`, `*_controller`, `*_service`, or `*_module` unless there is a strong non-ECS reason.
+- When requiring a module in `*.luau`, the local variable name must match the module name, for example `local match = require(script.match)`, `local store = require(script.store)`, or `local types = require(script.types)`.
+- In `*.luau`, do not get the Workspace service via `game:GetService("Workspace")`. Prefer the global `workspace` keyword exposed by the engine.
 - For values created with `collect(SomeEvent)`, name the variable exactly after the source event, such as `PlayerAdded = collect(Players.PlayerAdded)` and `PlayerRemoving = collect(Players.PlayerRemoving)`.
 - In `*.luau`, separate local variable declarations into semantic groups with blank lines when it improves readability, for example keeping helper aliases, collected events, and local state in distinct blocks.
 - In `*.luau`, prefer fail-fast, early return, and guard clauses to reduce nesting.

@@ -15,7 +15,7 @@ type ProfileLoadResult =
 	| { kind: 'failure', reason: string }
 
 local ref = jecs_utils.ref
-local ProfileLoadResults =
+local profile_load_results =
 	world:query(components.Player, components.ProfileLoadResult):cached()
 
 local function queue_profile_unload(entity, reason: string?)
@@ -77,7 +77,7 @@ local function consume_profile_load_result(entity)
 end
 
 local function system()
-	for entity, player, load_result in ProfileLoadResults do
+	for entity, player, load_result in profile_load_results do
 		consume_profile_load_result(entity)
 
 		local result = load_result :: ProfileLoadResult
