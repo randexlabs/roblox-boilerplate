@@ -18,19 +18,25 @@ local function destroy_dot_git()
 end
 
 local function self_delete()
-	if not fs.exists '.create' or fs.type '.create' ~= 'dir' then return end
-	fs.removeDirectory('.create', { recursive = true })
+	if not fs.exists 'create' or fs.type 'create' ~= 'dir' then return end
+	fs.removeDirectory('create', { recursive = true })
 end
 
 local function initiate_git_repository()
 	process.run({ 'git', 'init' }, { stdio = 'inherit' })
+	process.run({ 'git', 'add', '.' }, { stdio = 'inherit' })
+	process.run({ 'git', 'commit', '-m', '.' }, { stdio = 'inherit' })
 	process.run({ 'git', 'branch', '-M', 'main' }, { stdio = 'inherit' })
 end
 
 local function print_plan()
 	print(`{tint.cyan 'dry-run:'} would remove .git if it exists`)
 	print(`{tint.cyan 'dry-run:'} would initialize a new git repository`)
-	print(`{tint.cyan 'dry-run:'} would remove .create if it exists`)
+	print(`{tint.cyan 'dry-run:'} would stage all files`)
+	print(
+		`{tint.cyan 'dry-run:'} would create the initial commit with message '.'`
+	)
+	print(`{tint.cyan 'dry-run:'} would remove create if it exists`)
 end
 
 local function confirm()
