@@ -77,7 +77,7 @@ export type SendSuccess = {
 	response_body: string,
 }
 
-export type SendOperation = 'DiscordWebhookService.Send'
+export type SendOperation = 'DiscordWebhookService.SendAsync'
 
 export type SendDiagnosticContext = {
 	hasContent: boolean,
@@ -98,7 +98,7 @@ export type SendError = Result.Error<SendErrorCode> & {
 }
 export type SendResult = Result.Result<SendSuccess, SendError>
 
-local SEND_OPERATION: SendOperation = 'DiscordWebhookService.Send'
+local SEND_OPERATION: SendOperation = 'DiscordWebhookService.SendAsync'
 
 local DiscordWebhookService = {}
 
@@ -118,7 +118,7 @@ local function getSendDiagnosticContext(
 	}
 end
 
-function DiscordWebhookService.Send(request: SendRequest): SendResult
+function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
 	if request.url == '' then
 		local errorPayload: SendError = {
 			code = WebhookErrors.MissingWebhookUrl,
