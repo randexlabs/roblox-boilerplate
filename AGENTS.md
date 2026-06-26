@@ -28,6 +28,13 @@
 - Avoid anemic getters and setters when a more intention-revealing API exists.
 - Use `$api-design` in `.codex/skills/api-design` whenever designing, reviewing, or refactoring public APIs, services, or modules. Treat it as a default skill for most code that introduces or changes a public interface.
 
+## Schemas
+
+- `Schemas` store canonical structural contracts for specific project data.
+- Each schema module must represent one clear data shape.
+- Schemas define structure and defaults, not domain behavior or business rules.
+- Use `$schemas` in `.codex/skills/schemas` for the full project schema specification, including scope, naming, API shape, and layer boundaries.
+
 ## Naming
 
 - Public modules, classes, and services must use `PascalCase`.

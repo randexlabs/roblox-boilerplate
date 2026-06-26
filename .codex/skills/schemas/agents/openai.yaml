@@ -1,0 +1,4 @@
+interface:
+    display_name: "Schemas"
+    short_description: "Consult project schema rules."
+    default_prompt: "Use $schemas to design or review schema modules and canonical data shapes in this project."
