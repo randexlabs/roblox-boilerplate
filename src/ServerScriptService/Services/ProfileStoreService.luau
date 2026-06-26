@@ -1,17 +1,17 @@
-export type PlayerProfileData = {}
-
 local Players = game:GetService 'Players'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 local RunService = game:GetService 'RunService'
 local ServerScriptService = game:GetService 'ServerScriptService'
 
+local PlayerProfileSchema =
+	require(ServerScriptService.Schemas.PlayerProfileSchema)
 local ProfileStore = require(ServerScriptService.serverpkg.ProfileStore)
 local ProfileStoreErrors = require(ReplicatedStorage.Errors.ProfileStoreErrors)
 local Result = require(ReplicatedStorage.Shared.Result)
 
+export type PlayerProfileData = PlayerProfileSchema.PlayerProfileData
 export type ProfileStoreErrorCode = ProfileStoreErrors.ProfileStoreErrorCode
-export type PlayerProfile = ProfileStore.Profile<PlayerProfileData>
-export type PlayerStoreRoot = ProfileStore.ProfileStore<PlayerProfileData>
+export type PlayerProfile = any
 
 export type ProfileQueryOperation =
 	'ProfileStoreService.GetLoadedProfile'
@@ -22,15 +22,16 @@ export type ProfileQueryError = Result.Error<ProfileStoreErrorCode> & {
 }
 export type ProfileQueryResult = Result.Result<PlayerProfile, ProfileQueryError>
 
-local PLAYER_DATA_TEMPLATE: PlayerProfileData = {}
 local PLAYER_DATA_STORE_NAME = 'PlayerData'
 local GET_LOADED_PROFILE_OPERATION: ProfileQueryOperation =
 	'ProfileStoreService.GetLoadedProfile'
 local WAIT_FOR_PROFILE_ASYNC_OPERATION: ProfileQueryOperation =
 	'ProfileStoreService.WaitForProfileAsync'
+local playerDataTemplate: PlayerProfileData =
+	PlayerProfileSchema :: PlayerProfileData
 
-local playerStoreRoot: PlayerStoreRoot =
-	ProfileStore.New(PLAYER_DATA_STORE_NAME, PLAYER_DATA_TEMPLATE)
+local playerStoreRoot =
+	ProfileStore.New(PLAYER_DATA_STORE_NAME, playerDataTemplate)
 type PlayerStore = typeof(playerStoreRoot.Mock)
 
 local playerStore: PlayerStore = playerStoreRoot
