@@ -1,4 +1,0 @@
-interface:
-    display_name: "jecs-spring"
-    short_description: "Consult jecs-spring APIs and spring lifecycle caveats."
-    default_prompt: "Use this skill to answer practical questions about the jecs-spring Luau library, including required world setup, pair-based goal and options components, motion access, per-frame stepping order, completion detection, and runtime caveats such as global module state and internal completed-marker handler entities."

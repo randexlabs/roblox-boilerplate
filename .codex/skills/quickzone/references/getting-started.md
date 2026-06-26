@@ -71,7 +71,7 @@ Use it when logic has a real active/inactive lifetime.
 ## Other Supported Styles
 
 - Event-driven: use `onEnter`, `onExit`, and transition signals.
-- Polling / ECS: disable auto updates with `QuickZone:setEnabled(false)` and step `QuickZone:update(dt)` manually.
+- Polling: disable auto updates with `QuickZone:setEnabled(false)` and step `QuickZone:update(dt)` manually.
 
 ## Shared Groups And Shared Zones
 

@@ -1,4 +1,0 @@
-interface:
-    display_name: "jecs-vide"
-    short_description: "Consult jecs-vide hooks, setup, and runtime caveats."
-    default_prompt: "Use this skill to answer practical questions about the jecs-vide Luau library, including required world setup, Vide derivable inputs, entity and query hook behavior, relation target access, and runtime caveats such as singleton module state, unstable query ordering, same-table re-emission, and TypeScript-versus-runtime mismatches."

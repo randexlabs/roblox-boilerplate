@@ -56,7 +56,7 @@ Internally this is converted to seconds.
 
 Run one manual update step.
 
-Use together with `setEnabled(false)` for deterministic or ECS-style stepping.
+Use together with `setEnabled(false)` for deterministic manual stepping.
 
 ### `rebuild(): QuickZone`
 
@@ -73,7 +73,7 @@ Associate a tracked entity with another value to be returned in callbacks and it
 Common use:
 
 - track a model, return a player
-- track a transform component, return an ECS id
+- track one object, return another reference value
 
 ### `removeEntity(entity: any): QuickZone`
 

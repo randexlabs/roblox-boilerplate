@@ -1,6 +1,6 @@
 ---
 name: quickzone
-description: Practical reference for QuickZone, a high-performance physics-free spatial query library for Roblox. Use when Codex needs to answer questions about QuickZone's runtime API, groups, zones, zone collections, observers, point-based detection model, scheduler and frame budget behavior, dynamic versus static zones, manual stepping, ECS-style polling, player tracking, or the library's public types and caveats.
+description: Practical reference for QuickZone, a high-performance physics-free spatial query library for Roblox. Use when Codex needs to answer questions about QuickZone's runtime API, groups, zones, zone collections, observers, point-based detection model, scheduler and frame budget behavior, dynamic versus static zones, manual stepping, player tracking, or the library's public types and caveats.
 ---
 
 # QuickZone
@@ -27,7 +27,7 @@ Use this skill as the entry point for QuickZone questions. Favor the runtime imp
 ## Working Rules
 
 - Treat QuickZone as point-based detection, not full-volume collision testing.
-- Distinguish the three supported usage styles: lifecycle, event-driven, and polling/ECS.
+- Distinguish the three supported usage styles: lifecycle, event-driven, and polling.
 - Call out client-only APIs and safety-related callback behavior explicitly.
 - Record naming or signature drift between `index.d.ts`, source docs, and runtime methods instead of flattening them away.
 - Ignore repository-maintenance details unless the user explicitly asks for them.

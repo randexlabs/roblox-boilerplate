@@ -61,7 +61,7 @@ Use:
 
 Best for one-off effects and compatibility with older zone-library mental models.
 
-### 3. Polling / ECS
+### 3. Polling
 
 Use:
 

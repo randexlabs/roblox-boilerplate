@@ -1,4 +1,0 @@
-interface:
-    display_name: "jecs-utils"
-    short_description: "Consult jecs-utils APIs and runtime caveats."
-    default_prompt: "Use this skill to answer practical questions about the jecs-utils Luau library, including query helper behavior, observer and monitor semantics, world-bound ref and is_a setup, event collection helpers, module-global state, and docs-versus-runtime caveats."
