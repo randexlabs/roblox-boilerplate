@@ -77,16 +77,13 @@ export type SendSuccess = {
 	response_body: string,
 }
 
-export type SendErrorCode =
-	'MissingWebhookUrl'
-	| 'EmptyWebhookPayload'
-	| 'WebhookRequestFailed'
-
 local HttpService = game:GetService 'HttpService'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
 local Result = require(ReplicatedStorage.Shared.Result)
+local WebhookErrors = require(ReplicatedStorage.Errors.WebhookErrors)
 
+export type SendErrorCode = WebhookErrors.WebhookErrorCode
 export type SendError = Result.Error<SendErrorCode>
 export type SendResult = Result.Result<SendSuccess, SendError>
 
@@ -101,7 +98,7 @@ end
 function DiscordWebhookService:Send(request: SendRequest): SendResult
 	if request.url == '' then
 		local errorPayload: SendError = {
-			code = 'MissingWebhookUrl',
+			code = WebhookErrors.MissingWebhookUrl,
 			message = 'webhook url is required',
 		}
 
@@ -110,7 +107,7 @@ function DiscordWebhookService:Send(request: SendRequest): SendResult
 
 	if not hasPayloadContent(request.payload) then
 		local errorPayload: SendError = {
-			code = 'EmptyWebhookPayload',
+			code = WebhookErrors.EmptyWebhookPayload,
 			message = 'webhook payload must include content, embeds, or components',
 		}
 
@@ -127,7 +124,7 @@ function DiscordWebhookService:Send(request: SendRequest): SendResult
 
 	if not success then
 		local errorPayload: SendError = {
-			code = 'WebhookRequestFailed',
+			code = WebhookErrors.WebhookRequestFailed,
 			message = 'discord webhook request failed',
 			cause = tostring(result),
 		}
