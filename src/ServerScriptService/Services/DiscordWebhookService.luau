@@ -88,6 +88,7 @@ local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 local Result = require(ReplicatedStorage.Shared.Result)
 
 export type send_error = Result.Error<send_error_code>
+export type send_result = Result.Result<send_success, send_error>
 
 local DiscordWebhookService = {}
 
@@ -97,9 +98,7 @@ local function has_payload_content(payload: webhook_payload): boolean
 		or payload.components ~= nil
 end
 
-function DiscordWebhookService:Send(
-	request: send_request
-): (boolean, send_success | send_error)
+function DiscordWebhookService:Send(request: send_request): send_result
 	if request.url == '' then
 		local error_payload: send_error = {
 			code = 'MissingWebhookUrl',

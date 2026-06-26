@@ -19,26 +19,26 @@ Use this skill as the project-local specification for error handling.
 ### API Contract
 
 - APIs that can fail must expose expected failures as values, not exceptions.
-- Prefer `(success, result)` for public service APIs that can fail.
+- Prefer a shared `Result` shape for public service APIs that can fail.
 - Do not mix thrown errors with returned gameplay failures in the same API.
 - Keep the failure contract explicit and consistent for each public API.
 - Public APIs that return expected failures must return structured error values with a stable `code` field.
 
 ### Shared Result
 
-- Use `ReplicatedStorage/Shared/Result.luau` to standardize the `(success, result)` contract for public fallible APIs.
+- Use `ReplicatedStorage/Shared/Result.luau` to standardize the result contract for public fallible APIs.
 - Public APIs with expected failures should return success values through `Result.ok(...)` and failure values through `Result.err(...)`.
 - `Result.luau` standardizes the return shape, while this specification defines the error-handling rules and caller responsibilities.
 - Good:
 
 ```luau
-local success, result = EggService:Hatch(player, egg_id)
+local result = EggService:Hatch(player, egg_id)
 
-if not success then
-	return false, result
+if not result.ok then
+	return Result.err(result.error)
 end
 
-return true, result
+return Result.ok(result.value)
 ```
 
 - Bad:
@@ -46,7 +46,7 @@ return true, result
 ```luau
 local result = EggService:Hatch(player, egg_id)
 
-if result == "NotEnoughCurrency" then
+if result.error == "NotEnoughCurrency" then
 	error(result)
 end
 ```
@@ -84,8 +84,8 @@ return false, "not enough coins"
 ### Callers
 
 - Callers of public fallible APIs must handle the failure branch explicitly before using the success payload.
-- Do not assume success when calling a public API that returns `(success, result)`.
-- Branch on `success` first, then treat `result` as either success payload or error payload.
+- Do not assume success when calling a public API that returns a shared `Result`.
+- Branch on `result.ok` first, then treat the payload as either `result.value` or `result.error`.
 
 ### External APIs
 
