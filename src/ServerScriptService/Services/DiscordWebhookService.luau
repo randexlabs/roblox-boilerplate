@@ -68,12 +68,26 @@ export type webhook_payload = {
 	components: { action_row }?,
 }
 
-export type send_traits = {
+export type send_request = {
 	url: string,
 	payload: webhook_payload,
 }
 
+export type send_success = {
+	response_body: string,
+}
+
+export type send_error_code =
+	'MissingWebhookUrl'
+	| 'EmptyWebhookPayload'
+	| 'WebhookRequestFailed'
+
 local HttpService = game:GetService 'HttpService'
+local ReplicatedStorage = game:GetService 'ReplicatedStorage'
+
+local Result = require(ReplicatedStorage.Shared.Result)
+
+export type send_error = Result.Error<send_error_code>
 
 local DiscordWebhookService = {}
 
@@ -84,26 +98,47 @@ local function has_payload_content(payload: webhook_payload): boolean
 end
 
 function DiscordWebhookService:Send(
-	send_traits: send_traits
-): (boolean, string?)
-	if send_traits.url == '' then return false, 'webhook url is required' end
+	request: send_request
+): (boolean, send_success | send_error)
+	if request.url == '' then
+		local error_payload: send_error = {
+			code = 'MissingWebhookUrl',
+			message = 'webhook url is required',
+		}
 
-	if not has_payload_content(send_traits.payload) then
-		return false,
-			'webhook payload must include content, embeds, or components'
+		return Result.err(error_payload)
 	end
 
-	local ok, result = pcall(function()
+	if not has_payload_content(request.payload) then
+		local error_payload: send_error = {
+			code = 'EmptyWebhookPayload',
+			message = 'webhook payload must include content, embeds, or components',
+		}
+
+		return Result.err(error_payload)
+	end
+
+	local success, result = pcall(function()
 		return HttpService:PostAsync(
-			send_traits.url,
-			HttpService:JSONEncode(send_traits.payload),
+			request.url,
+			HttpService:JSONEncode(request.payload),
 			Enum.HttpContentType.ApplicationJson
 		)
 	end)
 
-	if ok then return true, result end
+	if not success then
+		local error_payload: send_error = {
+			code = 'WebhookRequestFailed',
+			message = 'discord webhook request failed',
+			cause = tostring(result),
+		}
 
-	return false, result
+		return Result.err(error_payload)
+	end
+
+	return Result.ok {
+		response_body = result,
+	}
 end
 
 return table.freeze(DiscordWebhookService)
