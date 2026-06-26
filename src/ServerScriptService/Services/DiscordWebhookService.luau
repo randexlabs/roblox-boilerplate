@@ -1,50 +1,50 @@
-export type embed_field = {
+export type EmbedField = {
 	name: string,
 	value: string,
 	inline: boolean?,
 }
 
-export type embed_footer = {
+export type EmbedFooter = {
 	text: string,
 	icon_url: string?,
 }
 
-export type embed_image = {
+export type EmbedImage = {
 	url: string,
 }
 
-export type embed_thumbnail = {
+export type EmbedThumbnail = {
 	url: string,
 }
 
-export type embed_author = {
+export type EmbedAuthor = {
 	name: string,
 	url: string?,
 	icon_url: string?,
 }
 
-export type embed = {
+export type Embed = {
 	title: string?,
 	type: string?,
 	description: string?,
 	url: string?,
 	timestamp: string?,
 	color: number?,
-	footer: embed_footer?,
-	image: embed_image?,
-	thumbnail: embed_thumbnail?,
-	author: embed_author?,
-	fields: { embed_field }?,
+	footer: EmbedFooter?,
+	image: EmbedImage?,
+	thumbnail: EmbedThumbnail?,
+	author: EmbedAuthor?,
+	fields: { EmbedField }?,
 }
 
-export type allowed_mentions = {
+export type AllowedMentions = {
 	parse: { string }?,
 	roles: { string }?,
 	users: { string }?,
 	replied_user: boolean?,
 }
 
-export type button = {
+export type Button = {
 	type: number,
 	label: string?,
 	style: number,
@@ -53,31 +53,31 @@ export type button = {
 	disabled: boolean?,
 }
 
-export type action_row = {
+export type ActionRow = {
 	type: number,
-	components: { button },
+	components: { Button },
 }
 
-export type webhook_payload = {
+export type WebhookPayload = {
 	content: string?,
 	username: string?,
 	avatar_url: string?,
 	tts: boolean?,
-	embeds: { embed }?,
-	allowed_mentions: allowed_mentions?,
-	components: { action_row }?,
+	embeds: { Embed }?,
+	allowed_mentions: AllowedMentions?,
+	components: { ActionRow }?,
 }
 
-export type send_request = {
+export type SendRequest = {
 	url: string,
-	payload: webhook_payload,
+	payload: WebhookPayload,
 }
 
-export type send_success = {
+export type SendSuccess = {
 	response_body: string,
 }
 
-export type send_error_code =
+export type SendErrorCode =
 	'MissingWebhookUrl'
 	| 'EmptyWebhookPayload'
 	| 'WebhookRequestFailed'
@@ -87,34 +87,34 @@ local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
 local Result = require(ReplicatedStorage.Shared.Result)
 
-export type send_error = Result.Error<send_error_code>
-export type send_result = Result.Result<send_success, send_error>
+export type SendError = Result.Error<SendErrorCode>
+export type SendResult = Result.Result<SendSuccess, SendError>
 
 local DiscordWebhookService = {}
 
-local function has_payload_content(payload: webhook_payload): boolean
+local function hasPayloadContent(payload: WebhookPayload): boolean
 	return payload.content ~= nil
 		or payload.embeds ~= nil
 		or payload.components ~= nil
 end
 
-function DiscordWebhookService:Send(request: send_request): send_result
+function DiscordWebhookService:Send(request: SendRequest): SendResult
 	if request.url == '' then
-		local error_payload: send_error = {
+		local errorPayload: SendError = {
 			code = 'MissingWebhookUrl',
 			message = 'webhook url is required',
 		}
 
-		return Result.err(error_payload)
+		return Result.Err(errorPayload)
 	end
 
-	if not has_payload_content(request.payload) then
-		local error_payload: send_error = {
+	if not hasPayloadContent(request.payload) then
+		local errorPayload: SendError = {
 			code = 'EmptyWebhookPayload',
 			message = 'webhook payload must include content, embeds, or components',
 		}
 
-		return Result.err(error_payload)
+		return Result.Err(errorPayload)
 	end
 
 	local success, result = pcall(function()
@@ -126,16 +126,16 @@ function DiscordWebhookService:Send(request: send_request): send_result
 	end)
 
 	if not success then
-		local error_payload: send_error = {
+		local errorPayload: SendError = {
 			code = 'WebhookRequestFailed',
 			message = 'discord webhook request failed',
 			cause = tostring(result),
 		}
 
-		return Result.err(error_payload)
+		return Result.Err(errorPayload)
 	end
 
-	return Result.ok {
+	return Result.Ok {
 		response_body = result,
 	}
 end

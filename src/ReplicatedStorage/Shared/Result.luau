@@ -18,17 +18,17 @@ export type Result<T, E> = Ok<T> | Err<E>
 
 local Result = {}
 
-function Result.ok<T>(value: T): Ok<T>
+function Result.Ok<T>(value: T): Ok<T>
 	return {
 		ok = true,
 		value = value,
 	}
 end
 
-function Result.err<E>(error_payload: E): Err<E>
+function Result.Err<E>(errorPayload: E): Err<E>
 	return {
 		ok = false,
-		error = error_payload,
+		error = errorPayload,
 	}
 end
 
