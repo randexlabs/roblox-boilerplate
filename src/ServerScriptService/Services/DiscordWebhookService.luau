@@ -118,7 +118,7 @@ local function getSendDiagnosticContext(
 	}
 end
 
-function DiscordWebhookService:Send(request: SendRequest): SendResult
+function DiscordWebhookService.Send(request: SendRequest): SendResult
 	if request.url == '' then
 		local errorPayload: SendError = {
 			code = WebhookErrors.MissingWebhookUrl,
