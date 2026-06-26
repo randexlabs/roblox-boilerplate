@@ -1,0 +1,4 @@
+interface:
+    display_name: "Services"
+    short_description: "Consult project service architecture rules."
+    default_prompt: "Use $services to apply this project's Service architecture rules when creating, reviewing, or refactoring Services."
