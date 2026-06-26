@@ -36,8 +36,14 @@
 
 ## Luau Style
 
-- Do not use `:` method syntax in project Luau code. Prefer `.` function declarations and calls.
+- Do not use `:` method syntax for project module APIs. Prefer `.` function declarations and calls in code you own.
+- It is fine to use `:` with Roblox engine APIs and third-party APIs that are naturally receiver-based.
 - Do not model module APIs around implicit object receivers such as `self`.
 - If a function genuinely needs an object-like value, pass it explicitly as a normal parameter named after its role, not `self`.
 - Avoid explicit `self: typeof(ModuleName)` parameters in module functions. Prefer APIs that do not require typed `self` plumbing.
 - Do not use metatables in project Luau code. Treat metatable-based design as a bad pattern unless the user explicitly asks for it.
+- Use an `Async` suffix only for functions that can yield or represent a genuinely asynchronous operation.
+- Do not add `Async` to synchronous functions just because they use `task.spawn`, scheduling, or callback dispatch internally.
+- Do not yield between validating a critical state and applying the dependent mutation.
+- Do not use `task.spawn` to hide important failures from callers.
+- Prefer synchronous domain logic; use async work at external boundaries or orchestration points.
