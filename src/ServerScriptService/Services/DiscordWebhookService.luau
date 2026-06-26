@@ -69,20 +69,20 @@ export type WebhookPayload = {
 }
 
 export type SendRequest = {
-	url: string,
-	payload: WebhookPayload,
+	WebhookUrl: string,
+	Payload: WebhookPayload,
 }
 
 export type SendSuccess = {
-	response_body: string,
+	ResponseBody: string,
 }
 
 export type SendOperation = 'DiscordWebhookService.SendAsync'
 
 export type SendDiagnosticContext = {
-	hasContent: boolean,
-	hasEmbeds: boolean,
-	hasComponents: boolean,
+	HasContent: boolean,
+	HasEmbeds: boolean,
+	HasComponents: boolean,
 }
 
 local HttpService = game:GetService 'HttpService'
@@ -112,14 +112,14 @@ local function getSendDiagnosticContext(
 	payload: WebhookPayload
 ): SendDiagnosticContext
 	return {
-		hasContent = payload.content ~= nil,
-		hasEmbeds = payload.embeds ~= nil,
-		hasComponents = payload.components ~= nil,
+		HasContent = payload.content ~= nil,
+		HasEmbeds = payload.embeds ~= nil,
+		HasComponents = payload.components ~= nil,
 	}
 end
 
 function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
-	if request.url == '' then
+	if request.WebhookUrl == '' then
 		local errorPayload: SendError = {
 			code = WebhookErrors.MissingWebhookUrl,
 			operation = SEND_OPERATION,
@@ -128,11 +128,11 @@ function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
 		return Result.Err(errorPayload)
 	end
 
-	if not hasPayloadContent(request.payload) then
+	if not hasPayloadContent(request.Payload) then
 		local errorPayload: SendError = {
 			code = WebhookErrors.EmptyWebhookPayload,
 			operation = SEND_OPERATION,
-			context = getSendDiagnosticContext(request.payload),
+			context = getSendDiagnosticContext(request.Payload),
 		}
 
 		return Result.Err(errorPayload)
@@ -140,8 +140,8 @@ function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
 
 	local success, result = pcall(function()
 		return HttpService:PostAsync(
-			request.url,
-			HttpService:JSONEncode(request.payload),
+			request.WebhookUrl,
+			HttpService:JSONEncode(request.Payload),
 			Enum.HttpContentType.ApplicationJson
 		)
 	end)
@@ -150,7 +150,7 @@ function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
 		local errorPayload: SendError = {
 			code = WebhookErrors.WebhookRequestFailed,
 			operation = SEND_OPERATION,
-			context = getSendDiagnosticContext(request.payload),
+			context = getSendDiagnosticContext(request.Payload),
 			cause = tostring(result),
 		}
 
@@ -158,7 +158,7 @@ function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
 	end
 
 	return Result.Ok {
-		response_body = result,
+		ResponseBody = result,
 	}
 end
 

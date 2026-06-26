@@ -13,21 +13,21 @@ export type ProfileStoreErrorCode = ProfileStoreErrors.ProfileStoreErrorCode
 export type PlayerProfile = ProfileStore.Profile<PlayerProfileData>
 export type PlayerStoreRoot = ProfileStore.ProfileStore<PlayerProfileData>
 
-export type GetProfileOperation =
-	'ProfileStoreService.GetProfile'
-	| 'ProfileStoreService.GetProfileAsync'
-export type GetProfileError = Result.Error<ProfileStoreErrorCode> & {
-	operation: GetProfileOperation,
+export type ProfileQueryOperation =
+	'ProfileStoreService.GetLoadedProfile'
+	| 'ProfileStoreService.WaitForProfileAsync'
+export type ProfileQueryError = Result.Error<ProfileStoreErrorCode> & {
+	operation: ProfileQueryOperation,
 	playerUserId: number,
 }
-export type GetProfileResult = Result.Result<PlayerProfile, GetProfileError>
+export type ProfileQueryResult = Result.Result<PlayerProfile, ProfileQueryError>
 
 local PLAYER_DATA_TEMPLATE: PlayerProfileData = {}
 local PLAYER_DATA_STORE_NAME = 'PlayerData'
-local GET_PROFILE_OPERATION: GetProfileOperation =
-	'ProfileStoreService.GetProfile'
-local GET_PROFILE_ASYNC_OPERATION: GetProfileOperation =
-	'ProfileStoreService.GetProfileAsync'
+local GET_LOADED_PROFILE_OPERATION: ProfileQueryOperation =
+	'ProfileStoreService.GetLoadedProfile'
+local WAIT_FOR_PROFILE_ASYNC_OPERATION: ProfileQueryOperation =
+	'ProfileStoreService.WaitForProfileAsync'
 
 local playerStoreRoot: PlayerStoreRoot =
 	ProfileStore.New(PLAYER_DATA_STORE_NAME, PLAYER_DATA_TEMPLATE)
@@ -54,9 +54,9 @@ end
 
 local function getProfileError(
 	player: Player,
-	operation: GetProfileOperation,
+	operation: ProfileQueryOperation,
 	code: ProfileStoreErrorCode
-): GetProfileError
+): ProfileQueryError
 	return {
 		code = code,
 		operation = operation,
@@ -134,14 +134,16 @@ function ProfileStoreService.Start()
 	end)
 end
 
-function ProfileStoreService.GetProfile(player: Player): GetProfileResult
+function ProfileStoreService.GetLoadedProfile(
+	player: Player
+): ProfileQueryResult
 	local profile = activeProfiles[player]
 
 	if profile == nil then
 		return Result.Err(
 			getProfileError(
 				player,
-				GET_PROFILE_OPERATION,
+				GET_LOADED_PROFILE_OPERATION,
 				ProfileStoreErrors.ProfileNotLoaded
 			)
 		)
@@ -158,7 +160,9 @@ function ProfileStoreService.IsProfileActive(player: Player): boolean
 	return profile:IsActive()
 end
 
-function ProfileStoreService.GetProfileAsync(player: Player): GetProfileResult
+function ProfileStoreService.WaitForProfileAsync(
+	player: Player
+): ProfileQueryResult
 	while true do
 		local profile = activeProfiles[player]
 
@@ -168,7 +172,11 @@ function ProfileStoreService.GetProfileAsync(player: Player): GetProfileResult
 
 		if failedCode ~= nil then
 			return Result.Err(
-				getProfileError(player, GET_PROFILE_ASYNC_OPERATION, failedCode)
+				getProfileError(
+					player,
+					WAIT_FOR_PROFILE_ASYNC_OPERATION,
+					failedCode
+				)
 			)
 		end
 
@@ -176,7 +184,7 @@ function ProfileStoreService.GetProfileAsync(player: Player): GetProfileResult
 			return Result.Err(
 				getProfileError(
 					player,
-					GET_PROFILE_ASYNC_OPERATION,
+					WAIT_FOR_PROFILE_ASYNC_OPERATION,
 					ProfileStoreErrors.PlayerNotInGame
 				)
 			)

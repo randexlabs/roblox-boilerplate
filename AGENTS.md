@@ -21,6 +21,13 @@
 - Services must not decide UI reactions to domain failures.
 - Use `$error-handling` in `.codex/skills/error-handling` for the full project error handling specification, including API contracts, structured errors, external failures, `pcall` boundaries, and programmer-error rules.
 
+## API Design
+
+- Public APIs must be designed before implementation details.
+- Public APIs should feel obvious to call, protect invariants, and express intent clearly.
+- Avoid anemic getters and setters when a more intention-revealing API exists.
+- Use `$api-design` in `.codex/skills/api-design` whenever designing, reviewing, or refactoring public APIs, services, or modules. Treat it as a default skill for most code that introduces or changes a public interface.
+
 ## Naming
 
 - Public modules, classes, and services must use `PascalCase`.

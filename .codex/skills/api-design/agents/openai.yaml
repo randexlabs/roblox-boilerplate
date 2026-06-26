@@ -1,0 +1,4 @@
+interface:
+    display_name: "API Design"
+    short_description: "Consult project API design rules."
+    default_prompt: "Use $api-design to design or review public APIs in this project before implementing modules or services."
