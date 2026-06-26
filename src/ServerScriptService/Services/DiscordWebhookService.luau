@@ -77,6 +77,14 @@ export type SendSuccess = {
 	response_body: string,
 }
 
+export type SendOperation = 'DiscordWebhookService.Send'
+
+export type SendDiagnosticContext = {
+	hasContent: boolean,
+	hasEmbeds: boolean,
+	hasComponents: boolean,
+}
+
 local HttpService = game:GetService 'HttpService'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
@@ -84,8 +92,13 @@ local Result = require(ReplicatedStorage.Shared.Result)
 local WebhookErrors = require(ReplicatedStorage.Errors.WebhookErrors)
 
 export type SendErrorCode = WebhookErrors.WebhookErrorCode
-export type SendError = Result.Error<SendErrorCode>
+export type SendError = Result.Error<SendErrorCode> & {
+	operation: SendOperation,
+	context: SendDiagnosticContext?,
+}
 export type SendResult = Result.Result<SendSuccess, SendError>
+
+local SEND_OPERATION: SendOperation = 'DiscordWebhookService.Send'
 
 local DiscordWebhookService = {}
 
@@ -95,11 +108,21 @@ local function hasPayloadContent(payload: WebhookPayload): boolean
 		or payload.components ~= nil
 end
 
+local function getSendDiagnosticContext(
+	payload: WebhookPayload
+): SendDiagnosticContext
+	return {
+		hasContent = payload.content ~= nil,
+		hasEmbeds = payload.embeds ~= nil,
+		hasComponents = payload.components ~= nil,
+	}
+end
+
 function DiscordWebhookService:Send(request: SendRequest): SendResult
 	if request.url == '' then
 		local errorPayload: SendError = {
 			code = WebhookErrors.MissingWebhookUrl,
-			message = 'webhook url is required',
+			operation = SEND_OPERATION,
 		}
 
 		return Result.Err(errorPayload)
@@ -108,7 +131,8 @@ function DiscordWebhookService:Send(request: SendRequest): SendResult
 	if not hasPayloadContent(request.payload) then
 		local errorPayload: SendError = {
 			code = WebhookErrors.EmptyWebhookPayload,
-			message = 'webhook payload must include content, embeds, or components',
+			operation = SEND_OPERATION,
+			context = getSendDiagnosticContext(request.payload),
 		}
 
 		return Result.Err(errorPayload)
@@ -125,7 +149,8 @@ function DiscordWebhookService:Send(request: SendRequest): SendResult
 	if not success then
 		local errorPayload: SendError = {
 			code = WebhookErrors.WebhookRequestFailed,
-			message = 'discord webhook request failed',
+			operation = SEND_OPERATION,
+			context = getSendDiagnosticContext(request.payload),
 			cause = tostring(result),
 		}
 

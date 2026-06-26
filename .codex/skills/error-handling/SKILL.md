@@ -27,18 +27,25 @@ Use this skill as the project-local specification for error handling.
 ### Shared Result
 
 - Use `ReplicatedStorage/Shared/Result.luau` to standardize the result contract for public fallible APIs.
-- Public APIs with expected failures should return success values through `Result.ok(...)` and failure values through `Result.err(...)`.
+- Public APIs with expected failures should return success values through `Result.Ok(...)` and failure values through `Result.Err(...)`.
 - `Result.luau` standardizes the return shape, while this specification defines the error-handling rules and caller responsibilities.
+
+### Error Code Catalogs
+
+- Store shared domain error code catalogs under `ReplicatedStorage/Errors`.
+- Prefer one module per domain, such as `WebhookErrors`, `CurrencyErrors`, or `ProfileErrors`.
+- Let error code modules own stable code names, but do not turn them into UI, localization, or logging modules.
+- Keep `Result.luau` focused on the result contract; domains own their error codes.
 - Good:
 
 ```luau
 local result = EggService:Hatch(player, egg_id)
 
 if not result.ok then
-	return Result.err(result.error)
+	return Result.Err(result.error)
 end
 
-return Result.ok(result.value)
+return Result.Ok(result.value)
 ```
 
 - Bad:
@@ -59,20 +66,27 @@ end
 - Prefer stable error codes over localized messages.
 - Error codes should describe the failure reason, not the UI response.
 - Treat `code` as a required part of the contract for expected failures in public APIs.
+- Prefer structured diagnostic context over verbose human-facing messages.
+- When an expected failure benefits from investigation, include useful structured context such as operation name, relevant inputs, and original cause.
+- Human-readable text is secondary to stable `code` values and actionable diagnostic context.
+- Include only diagnostic context that materially helps investigation.
+- Do not attach large payload dumps, unrelated state, or noisy context to structured errors.
+- Do not include sensitive data in diagnostic context.
+- Keep diagnostic context focused, intentional, and bounded.
 - Good:
 
 ```luau
-return false, {
+return Result.Err({
 	code = "NotEnoughCurrency",
 	currency = "Coins",
 	required = price,
-}
+})
 ```
 
 - Bad:
 
 ```luau
-return false, "not enough coins"
+return Result.Err("not enough coins")
 ```
 
 ### Responsibility
@@ -86,6 +100,10 @@ return false, "not enough coins"
 - Callers of public fallible APIs must handle the failure branch explicitly before using the success payload.
 - Do not assume success when calling a public API that returns a shared `Result`.
 - Branch on `result.ok` first, then treat the payload as either `result.value` or `result.error`.
+- Callers should `warn()` when a failed operation needs local diagnostic visibility and no better logging path exists.
+- Prefer warning on unexpected, fallback, or externally-caused failures.
+- Do not spam `warn()` for every routine domain failure that is already intentionally handled.
+- When warning, include stable `code` values and relevant diagnostic context.
 
 ### External APIs
 
