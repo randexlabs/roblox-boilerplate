@@ -20,3 +20,16 @@
 - APIs that can fail must expose expected failures as values, not exceptions.
 - Services must not decide UI reactions to domain failures.
 - Use `$error-handling` in `.codex/skills/error-handling` for the full project error handling specification, including API contracts, structured errors, external failures, `pcall` boundaries, and programmer-error rules.
+
+## Naming
+
+- Public modules, classes, and services must use `PascalCase`.
+- Public methods and functions must use `PascalCase`.
+- Private and local functions must use `camelCase`.
+- Variables and parameters must use `camelCase`.
+- Types must use `PascalCase`.
+- Constants must use `UPPER_SNAKE_CASE`.
+- Error codes and enum-like strings must use `PascalCase`.
+- Prefer names that make the intention of the code immediately clear.
+- Choose names that describe responsibility, meaning, and role in the architecture, not just shape or implementation detail.
+- Prefer naming that matches Roblox engine conventions when choosing between equivalent local styles.
