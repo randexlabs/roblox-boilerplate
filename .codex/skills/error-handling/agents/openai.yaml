@@ -1,0 +1,4 @@
+interface:
+    display_name: "Error Handling"
+    short_description: "Consult project error handling rules."
+    default_prompt: "Use $error-handling to apply this project's error handling rules when creating, reviewing, or refactoring fallible APIs and failure contracts."
