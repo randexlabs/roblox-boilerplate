@@ -68,46 +68,42 @@ export type webhook_payload = {
 	components: { action_row }?,
 }
 
-export type traits = {
+export type send_traits = {
 	url: string,
 	payload: webhook_payload,
 }
 
-local is_roblox = if game then true else false
+local HttpService = game:GetService 'HttpService'
 
-local function send_with_roblox(traits: traits): (boolean, string?)
-	local http_service = game:GetService 'HttpService'
+local DiscordWebhookService = {}
+
+local function has_payload_content(payload: webhook_payload): boolean
+	return payload.content ~= nil
+		or payload.embeds ~= nil
+		or payload.components ~= nil
+end
+
+function DiscordWebhookService:Send(
+	send_traits: send_traits
+): (boolean, string?)
+	if send_traits.url == '' then return false, 'webhook url is required' end
+
+	if not has_payload_content(send_traits.payload) then
+		return false,
+			'webhook payload must include content, embeds, or components'
+	end
+
 	local ok, result = pcall(function()
-		return http_service:PostAsync(
-			traits.url,
-			http_service:JSONEncode(traits.payload),
+		return HttpService:PostAsync(
+			send_traits.url,
+			HttpService:JSONEncode(send_traits.payload),
 			Enum.HttpContentType.ApplicationJson
 		)
 	end)
 
 	if ok then return true, result end
+
 	return false, result
 end
 
-local function send_with_lune(traits: traits): (boolean, string?)
-	local net = require '@lune/net'
-	local serde = require '@lune/serde'
-
-	local request: net.FetchParams = {
-		url = traits.url,
-		method = 'POST',
-		headers = {
-			['Content-Type'] = 'application/json',
-		} :: net.HttpHeaderMap,
-		body = serde.encode('json', traits.payload),
-	}
-
-	local response = net.request(request)
-	if response.ok then return true, response.body end
-	return false, `{response.statusCode} {response.statusMessage}`
-end
-
-return function(traits: traits): (boolean, string?)
-	if is_roblox then return send_with_roblox(traits) end
-	return send_with_lune(traits)
-end
+return table.freeze(DiscordWebhookService)
