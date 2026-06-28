@@ -16,17 +16,25 @@ export type PlayerProfile = any
 export type ProfileQueryOperation =
 	'ProfileStoreService.GetLoadedProfile'
 	| 'ProfileStoreService.WaitForProfileAsync'
+export type ProfileSaveOperation = 'ProfileStoreService.SaveProfileAsync'
 export type ProfileQueryError = Result.Error<ProfileStoreErrorCode> & {
 	operation: ProfileQueryOperation,
 	playerUserId: number,
 }
 export type ProfileQueryResult = Result.Result<PlayerProfile, ProfileQueryError>
+export type ProfileSaveError = Result.Error<ProfileStoreErrorCode> & {
+	operation: ProfileSaveOperation,
+	playerUserId: number,
+}
+export type ProfileSaveResult = Result.Result<{}, ProfileSaveError>
 
 local PLAYER_DATA_STORE_NAME = 'PlayerData'
 local GET_LOADED_PROFILE_OPERATION: ProfileQueryOperation =
 	'ProfileStoreService.GetLoadedProfile'
 local WAIT_FOR_PROFILE_ASYNC_OPERATION: ProfileQueryOperation =
 	'ProfileStoreService.WaitForProfileAsync'
+local SAVE_PROFILE_ASYNC_OPERATION: ProfileSaveOperation =
+	'ProfileStoreService.SaveProfileAsync'
 local playerDataTemplate: PlayerProfileData =
 	PlayerProfileSchema :: PlayerProfileData
 
@@ -61,6 +69,17 @@ local function getProfileError(
 	return {
 		code = code,
 		operation = operation,
+		playerUserId = player.UserId,
+	}
+end
+
+local function getProfileSaveError(
+	player: Player,
+	code: ProfileStoreErrorCode
+): ProfileSaveError
+	return {
+		code = code,
+		operation = SAVE_PROFILE_ASYNC_OPERATION,
 		playerUserId = player.UserId,
 	}
 end
@@ -193,6 +212,62 @@ function ProfileStoreService.WaitForProfileAsync(
 
 		task.wait()
 	end
+end
+
+function ProfileStoreService.SaveProfileAsync(player: Player): ProfileSaveResult
+	local profile = activeProfiles[player]
+
+	if profile == nil then
+		return Result.Err(
+			getProfileSaveError(player, ProfileStoreErrors.ProfileNotLoaded)
+		)
+	end
+
+	if not profile:IsActive() then
+		return Result.Err(
+			getProfileSaveError(player, ProfileStoreErrors.ProfileNotActive)
+		)
+	end
+
+	local saveCompleted = false
+	local saveConnection
+
+	saveConnection = profile.OnAfterSave:Connect(function()
+		saveCompleted = true
+	end)
+
+	profile:Save()
+
+	while not saveCompleted do
+		if saveConnection == nil then break end
+
+		if activeProfiles[player] ~= profile then
+			saveConnection:Disconnect()
+			return Result.Err(
+				getProfileSaveError(player, ProfileStoreErrors.ProfileNotLoaded)
+			)
+		end
+
+		if player.Parent ~= Players then
+			saveConnection:Disconnect()
+			return Result.Err(
+				getProfileSaveError(player, ProfileStoreErrors.PlayerNotInGame)
+			)
+		end
+
+		if not profile:IsActive() then
+			saveConnection:Disconnect()
+			return Result.Err(
+				getProfileSaveError(player, ProfileStoreErrors.ProfileNotActive)
+			)
+		end
+
+		task.wait()
+	end
+
+	saveConnection:Disconnect()
+
+	return Result.Ok {}
 end
 
 return table.freeze(ProfileStoreService)
