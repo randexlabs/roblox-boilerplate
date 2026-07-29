@@ -11,5 +11,5 @@ strip_extensions = true
 
 [inputs.asphalt]
 path = "assets/**/*"
-output_path = "src/ReplicatedStorage"
+output_path = "shared"
 bleed = true

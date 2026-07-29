@@ -5,7 +5,7 @@
         "$className": "DataModel",
         "ReplicatedStorage": {
             "client": {
-                "$path": "src/StarterPlayerScripts"
+                "$path": "client"
             },
             "libs": {
                 "$path": "libs"
@@ -26,10 +26,10 @@
                 "$className": "Folder",
                 "$ignoreUnknownInstances": true
             },
-            "$path": "src/ReplicatedStorage"
+            "$path": "shared"
         },
         "ServerScriptService": {
-            "$path": "src/ServerScriptService",
+            "$path": "server",
             "netserver": {
                 "$path": "remotes/netserver.luau"
             },

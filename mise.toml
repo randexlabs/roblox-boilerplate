@@ -29,7 +29,7 @@ run = ["mise i", "pesde install", "pnpm install", "blink remotes/.blink"]
 run = "pesde x ernisto/test -- tests"
 
 [tasks."format"]
-run = "stylua src/"
+run = "stylua client shared server"
 
 [tasks."dev:sourcemap"]
 run = "rojo sourcemap -o sourcemap.json --watch"
@@ -58,7 +58,9 @@ run = "lune run scripts/ensure_roblox_defs.luau"
 [tasks."gen:sourcemap"]
 sources = [
     "default.project.json",
-    "src/**",
+    "client/**",
+    "shared/**",
+    "server/**",
     "stories/**",
     "tests/**",
     "libs/**",
@@ -70,7 +72,7 @@ run = "rojo sourcemap -o sourcemap.json"
 
 [tasks."lint"]
 depends = ["ensure_roblox_defs", "gen:sourcemap"]
-run = """luau-lsp analyze --platform roblox --sourcemap sourcemap.json --ignore=**/roblox_packages/** --ignore=**/roblox_server_packages/** --ignore=**/luau_packages/** --ignore=**/lune_packages/** --ignore=**/node_modules/** --ignore=**/dist/** --ignore=**/*_packages/** --defs globalTypes.d.luau --defs vectorTypes.d.luau src stories tests libs"""
+run = """luau-lsp analyze --platform roblox --sourcemap sourcemap.json --ignore=**/roblox_packages/** --ignore=**/roblox_server_packages/** --ignore=**/luau_packages/** --ignore=**/lune_packages/** --ignore=**/node_modules/** --ignore=**/dist/** --ignore=**/*_packages/** --defs globalTypes.d.luau --defs vectorTypes.d.luau client shared server stories tests libs"""
 
 [tasks."check"]
 depends = ["lint", "tests", "format"]

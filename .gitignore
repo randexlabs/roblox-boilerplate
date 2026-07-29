@@ -9,7 +9,7 @@ sourcemap.json
 remotes/netclient.luau
 remotes/netserver.luau
 remotes/nettypes.luau
-src/ReplicatedStorage/asphalt.luau
+shared/asphalt.luau
 node_modules
 globalTypes.d.luau
 vectorTypes.d.luau
