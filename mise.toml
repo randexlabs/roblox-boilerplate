@@ -1,6 +1,5 @@
 [tools]
 "github:1Axen/blink" = "0.18.8"
-"github:Barocena/ROpen" = "1.2.0"
 "github:cli/cli" = "2.92.0"
 "github:JohnnyMorganz/StyLua" = "2.4.1"
 "github:JohnnyMorganz/luau-lsp" = "1.66.1"
@@ -40,15 +39,11 @@ run = "blink remotes/.blink -w"
 [tasks."dev:syncer"]
 run = "rojo serve"
 
-[tasks."dev:open_experimental_place"]
-confirm = "Open experimental place ?"
-run = "ropen meow/meow || true"
-
 [tasks."dev:core"]
 depends = ["dev:sourcemap", "dev:syncer", "dev:blink_watcher"]
 
 [tasks."dev"]
-run = ["mise r dev:open_experimental_place || true", "mise r dev:core"]
+run = "mise r dev:core"
 
 [tasks."ensure_roblox_defs"]
 sources = ["scripts/ensure_roblox_defs.luau"]
