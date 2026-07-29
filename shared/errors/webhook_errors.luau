@@ -9,10 +9,10 @@ type WebhookErrors = {
 	WebhookRequestFailed: WebhookErrorCode,
 }
 
-local WebhookErrors: WebhookErrors = {
+local webhook_errors: WebhookErrors = {
 	MissingWebhookUrl = 'MissingWebhookUrl',
 	EmptyWebhookPayload = 'EmptyWebhookPayload',
 	WebhookRequestFailed = 'WebhookRequestFailed',
 }
 
-return table.freeze(WebhookErrors)
+return table.freeze(webhook_errors)

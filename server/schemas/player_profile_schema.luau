@@ -5,9 +5,9 @@ export type PlayerProfileData = {
 	},
 }
 
-local PlayerProfileSchema: PlayerProfileData = {
+local player_profile_schema: PlayerProfileData = {
 	Money = 0,
 	ProcessedPurchaseIds = {},
 }
 
-return table.freeze(PlayerProfileSchema)
+return table.freeze(player_profile_schema)

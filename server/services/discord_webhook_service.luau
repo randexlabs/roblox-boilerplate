@@ -77,7 +77,7 @@ export type SendSuccess = {
 	ResponseBody: string,
 }
 
-export type SendOperation = 'DiscordWebhookService.SendAsync'
+export type SendOperation = 'discord_webhook_service.send_async'
 
 export type SendDiagnosticContext = {
 	HasContent: boolean,
@@ -88,27 +88,27 @@ export type SendDiagnosticContext = {
 local HttpService = game:GetService 'HttpService'
 local ReplicatedStorage = game:GetService 'ReplicatedStorage'
 
-local Result = require(ReplicatedStorage.Shared.Result)
-local WebhookErrors = require(ReplicatedStorage.Errors.WebhookErrors)
+local result = require(ReplicatedStorage.shared.result)
+local webhook_errors = require(ReplicatedStorage.errors.webhook_errors)
 
-export type SendErrorCode = WebhookErrors.WebhookErrorCode
-export type SendError = Result.Error<SendErrorCode> & {
+export type SendErrorCode = webhook_errors.WebhookErrorCode
+export type SendError = result.Error<SendErrorCode> & {
 	operation: SendOperation,
 	context: SendDiagnosticContext?,
 }
-export type SendResult = Result.Result<SendSuccess, SendError>
+export type SendResult = result.Result<SendSuccess, SendError>
 
-local SEND_OPERATION: SendOperation = 'DiscordWebhookService.SendAsync'
+local SEND_OPERATION: SendOperation = 'discord_webhook_service.send_async'
 
-local DiscordWebhookService = {}
+local discord_webhook_service = {}
 
-local function hasPayloadContent(payload: WebhookPayload): boolean
+local function has_payload_content(payload: WebhookPayload): boolean
 	return payload.content ~= nil
 		or payload.embeds ~= nil
 		or payload.components ~= nil
 end
 
-local function getSendDiagnosticContext(
+local function get_send_diagnostic_context(
 	payload: WebhookPayload
 ): SendDiagnosticContext
 	return {
@@ -118,27 +118,27 @@ local function getSendDiagnosticContext(
 	}
 end
 
-function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
+function discord_webhook_service.send_async(request: SendRequest): SendResult
 	if request.WebhookUrl == '' then
-		local errorPayload: SendError = {
-			code = WebhookErrors.MissingWebhookUrl,
+		local error_payload: SendError = {
+			code = webhook_errors.MissingWebhookUrl,
 			operation = SEND_OPERATION,
 		}
 
-		return Result.Err(errorPayload)
+		return result.err(error_payload)
 	end
 
-	if not hasPayloadContent(request.Payload) then
-		local errorPayload: SendError = {
-			code = WebhookErrors.EmptyWebhookPayload,
+	if not has_payload_content(request.Payload) then
+		local error_payload: SendError = {
+			code = webhook_errors.EmptyWebhookPayload,
 			operation = SEND_OPERATION,
-			context = getSendDiagnosticContext(request.Payload),
+			context = get_send_diagnostic_context(request.Payload),
 		}
 
-		return Result.Err(errorPayload)
+		return result.err(error_payload)
 	end
 
-	local success, result = pcall(function()
+	local success, response_body = pcall(function()
 		return HttpService:PostAsync(
 			request.WebhookUrl,
 			HttpService:JSONEncode(request.Payload),
@@ -147,19 +147,19 @@ function DiscordWebhookService.SendAsync(request: SendRequest): SendResult
 	end)
 
 	if not success then
-		local errorPayload: SendError = {
-			code = WebhookErrors.WebhookRequestFailed,
+		local error_payload: SendError = {
+			code = webhook_errors.WebhookRequestFailed,
 			operation = SEND_OPERATION,
-			context = getSendDiagnosticContext(request.Payload),
-			cause = tostring(result),
+			context = get_send_diagnostic_context(request.Payload),
+			cause = tostring(response_body),
 		}
 
-		return Result.Err(errorPayload)
+		return result.err(error_payload)
 	end
 
-	return Result.Ok {
-		ResponseBody = result,
+	return result.ok {
+		ResponseBody = response_body,
 	}
 end
 
-return table.freeze(DiscordWebhookService)
+return table.freeze(discord_webhook_service)

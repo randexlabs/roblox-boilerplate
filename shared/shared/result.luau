@@ -16,20 +16,20 @@ export type Err<E> = {
 
 export type Result<T, E> = Ok<T> | Err<E>
 
-local Result = {}
+local result = {}
 
-function Result.Ok<T>(value: T): Ok<T>
+function result.ok<T>(value: T): Ok<T>
 	return {
 		ok = true,
 		value = value,
 	}
 end
 
-function Result.Err<E>(errorPayload: E): Err<E>
+function result.err<E>(error_payload: E): Err<E>
 	return {
 		ok = false,
-		error = errorPayload,
+		error = error_payload,
 	}
 end
 
-return table.freeze(Result)
+return table.freeze(result)

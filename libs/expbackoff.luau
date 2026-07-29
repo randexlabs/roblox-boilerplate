@@ -1,12 +1,12 @@
 local task = if game then task else require '@lune/task' :: typeof(task)
 
-export type options = {
+export type Options = {
 	base_delay: number?,
 	max_retries: number?,
 }
 
 return function<Result>(fn: () -> Result)
-	return function(opts: options): (boolean, Result?)
+	return function(opts: Options): (boolean, Result?)
 		local base = opts.base_delay or 2
 		local max_retries = opts.max_retries or 5
 		local ok, result = false, nil

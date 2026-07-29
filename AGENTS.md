@@ -37,10 +37,11 @@
 
 ## Naming
 
-- Public modules, classes, and services must use `PascalCase`.
-- Public methods and functions must use `PascalCase`.
-- Private and local functions must use `camelCase`.
-- Variables and parameters must use `camelCase`.
+- Roblox services must use `PascalCase`.
+- Public modules and classes must use `snake_case`.
+- Public methods and functions must use `snake_case`.
+- Private and local functions must use `snake_case`.
+- Variables and parameters must use `snake_case`.
 - Types must use `PascalCase`.
 - Constants must use `UPPER_SNAKE_CASE`.
 - Error codes and enum-like strings must use `PascalCase`.

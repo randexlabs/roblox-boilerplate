@@ -21,7 +21,7 @@ type MonetizationErrors = {
 	DeveloperProductGrantFailed: MonetizationErrorCode,
 }
 
-local MonetizationErrors: MonetizationErrors = {
+local monetization_errors: MonetizationErrors = {
 	UnknownGamePass = 'UnknownGamePass',
 	GamePassOwnershipCheckFailed = 'GamePassOwnershipCheckFailed',
 	GamePassGrantFailed = 'GamePassGrantFailed',
@@ -33,4 +33,4 @@ local MonetizationErrors: MonetizationErrors = {
 	DeveloperProductGrantFailed = 'DeveloperProductGrantFailed',
 }
 
-return table.freeze(MonetizationErrors)
+return table.freeze(monetization_errors)
