@@ -3,9 +3,6 @@
     "emitLegacyScripts": false,
     "tree": {
         "$className": "DataModel",
-        "ReplicatedFirst": {
-            "$path": "src/ReplicatedFirst"
-        },
         "ReplicatedStorage": {
             "client": {
                 "$path": "src/StarterPlayerScripts"
