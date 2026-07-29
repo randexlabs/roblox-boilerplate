@@ -63,7 +63,6 @@ sources = [
     "server/**",
     "stories/**",
     "tests/**",
-    "libs/**",
     "roblox_packages/**",
     "roblox_server_packages/**",
 ]
@@ -72,7 +71,7 @@ run = "rojo sourcemap -o sourcemap.json"
 
 [tasks."lint"]
 depends = ["ensure_roblox_defs", "gen:sourcemap"]
-run = """luau-lsp analyze --platform roblox --sourcemap sourcemap.json --ignore=**/roblox_packages/** --ignore=**/roblox_server_packages/** --ignore=**/luau_packages/** --ignore=**/lune_packages/** --ignore=**/node_modules/** --ignore=**/dist/** --ignore=**/*_packages/** --defs globalTypes.d.luau --defs vectorTypes.d.luau client shared server stories tests libs"""
+run = """luau-lsp analyze --platform roblox --sourcemap sourcemap.json --ignore=**/roblox_packages/** --ignore=**/roblox_server_packages/** --ignore=**/luau_packages/** --ignore=**/lune_packages/** --ignore=**/node_modules/** --ignore=**/dist/** --ignore=**/*_packages/** --defs globalTypes.d.luau --defs vectorTypes.d.luau client shared server stories tests"""
 
 [tasks."check"]
 depends = ["lint", "tests", "format"]

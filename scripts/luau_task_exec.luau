@@ -1,4 +1,4 @@
-local env = require '@lib/env'
+local env = require '@scripts/env'
 local fs = require '@lune/fs'
 local process = require '@lune/process'
 local rocloud = require '@lunepkg/rocloud'

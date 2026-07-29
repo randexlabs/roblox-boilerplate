@@ -7,9 +7,6 @@
             "client": {
                 "$path": "client"
             },
-            "libs": {
-                "$path": "libs"
-            },
             "netclient": {
                 "$path": "remotes/netclient.luau"
             },
