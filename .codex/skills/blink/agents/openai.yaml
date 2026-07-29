@@ -1,4 +1,0 @@
-interface:
-    display_name: "Blink"
-    short_description: "Consult Blink schema, generator, and runtime APIs."
-    default_prompt: "Use this skill to answer practical questions about Blink, including its IDL syntax, options, supported types, imports and scopes, event and function generation, CLI usage, Studio plugin workflow, generated Luau and TypeScript APIs, replication behavior, and observed doc/runtime mismatches."

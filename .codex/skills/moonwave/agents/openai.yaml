@@ -1,4 +1,0 @@
-interface:
-    display_name: "Moonwave"
-    short_description: "Consult Moonwave CLI, tags, config, and plugin behavior."
-    default_prompt: "Use this skill to answer practical questions about Moonwave, including CLI usage, doc-comment tags, type syntax, moonwave.toml configuration, Docusaurus integration, publishing, extractor JSON output, and source-backed troubleshooting."

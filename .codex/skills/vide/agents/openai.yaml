@@ -1,4 +1,0 @@
-interface:
-    display_name: "Vide"
-    short_description: "Consult Vide APIs and reactivity caveats."
-    default_prompt: "Use this skill to answer practical questions about Vide's reactive scope model, UI creation APIs, dynamic control flow, actions, context, springs, runtime stepping, and documented-versus-implemented behavior."

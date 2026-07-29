@@ -1,4 +1,0 @@
-interface:
-    display_name: "Git Commit"
-    short_description: "Write atomic Conventional Commits and split mixed diffs by responsibility"
-    default_prompt: "Use $git-commit to inspect these changes, split mixed work into atomic commits when needed, and produce the right Conventional Commit message for each commit."

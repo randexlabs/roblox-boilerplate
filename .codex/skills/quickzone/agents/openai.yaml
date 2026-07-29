@@ -1,4 +1,0 @@
-interface:
-    display_name: "QuickZone"
-    short_description: "Consult QuickZone APIs and caveats."
-    default_prompt: "Use this skill to answer practical questions about QuickZone's runtime API, groups, zones, observers, performance model, point-based detection, and configuration caveats."

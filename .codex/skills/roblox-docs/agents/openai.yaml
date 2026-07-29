@@ -1,4 +1,0 @@
-interface:
-    display_name: "Roblox Docs"
-    short_description: "Consult cached local Roblox docs"
-    default_prompt: "Use $roblox-docs to answer this Roblox documentation question from the local cached creator-docs checkout before using web sources."

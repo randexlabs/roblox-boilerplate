@@ -1,4 +1,0 @@
-interface:
-    display_name: "rng"
-    short_description: "Consult rng APIs and caveats."
-    default_prompt: "Use this skill to answer practical questions about the rng Luau library, including seeded and secure generators, random number helpers, vectors, buffers, weighted choice, deterministic iteration helpers, and documentation mismatches."

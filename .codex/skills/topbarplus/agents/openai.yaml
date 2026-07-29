@@ -1,4 +1,0 @@
-interface:
-    display_name: "TopbarPlus"
-    short_description: "Consult TopbarPlus APIs and caveats."
-    default_prompt: "Use this skill to answer practical questions about TopbarPlus icon construction, states, themes, dropdowns, menus, notices, hotkeys, gamepad behavior, overflow handling, and runtime compatibility details."
