@@ -35,3 +35,4 @@ ProfileStore = { wally = "lm-loleris/profilestore", version = "^1.0.3" }
 TopbarPlus = { wally = "1foreverhd/topbarplus", version = "^3.4.0" }
 QuickZone = { wally = "ldgerrits/quickzone", version = "^1.2.0" }
 Tint = { name = "omarcoaraujo/tint", version = "^0.1.0", target = "luau" }
+Ok = { wally = "cayasde/ok", version = "^1.0.2" }
