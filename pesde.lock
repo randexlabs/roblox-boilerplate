@@ -194,6 +194,13 @@ conch = [{ wally = "wally#alicesaidhi/conch", version = ">=0.3.1, <0.4.0", index
 language = [{ wally = "wally#alicesaidhi/conch-language", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 vide = [{ wally = "wally#centau/vide", version = ">=0.3.1, <0.4.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]
 
+[graph."wally#cayasde/lutest@0.7.1 roblox"]
+direct = ["t", { wally = "wally#cayasde/lutest", version = "^0.7.1", index = "default" }, "standard"]
+
+[graph."wally#cayasde/lutest@0.7.1 roblox".pkg_ref]
+ref_ty = "wally"
+index_url = "https://github.com/UpliftGames/wally-index"
+
 [graph."wally#cayasde/ok@1.0.2 roblox"]
 direct = ["ok", { wally = "wally#cayasde/ok", version = "^1.0.2", index = "default" }, "standard"]
 

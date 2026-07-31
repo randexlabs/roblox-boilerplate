@@ -14,6 +14,7 @@ pnpm = "10.33.2"
 python = "3.14.4"
 "github:luau-lang/lute" = "1.0.0"
 "github:burntsushi/ripgrep" = "latest"
+"github:lutest-dev/lutest" = "0.7.1"
 
 [settings]
 jobs = 8
@@ -23,9 +24,6 @@ github_attestations = false
 
 [tasks."setup"]
 run = ["mise i", "pesde install", "pnpm install", "blink remotes/.blink"]
-
-[tasks.tests]
-run = "pesde x ernisto/test -- tests"
 
 [tasks."format"]
 run = "stylua client shared server"
@@ -69,4 +67,4 @@ depends = ["ensure_roblox_defs", "gen:sourcemap"]
 run = """luau-lsp analyze --platform roblox --sourcemap sourcemap.json --ignore=**/roblox_packages/** --ignore=**/roblox_server_packages/** --ignore=**/luau_packages/** --ignore=**/lune_packages/** --ignore=**/node_modules/** --ignore=**/dist/** --ignore=**/*_packages/** --defs globalTypes.d.luau --defs vectorTypes.d.luau client shared server stories tests"""
 
 [tasks."check"]
-depends = ["lint", "tests", "format"]
+depends = ["lint", "format"]

@@ -1,0 +1,11 @@
+[discovery]
+gitignore = true
+
+[discovery.roblox]
+require = "ReplicatedStorage.pkg.t"
+roots = ["server", "client", "shared", "tests"]
+
+[roblox]
+universe_id = 10460283574
+place_id = 87484847405188
+rojo_project = 'default.project.json'
